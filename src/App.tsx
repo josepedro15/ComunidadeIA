@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ProtectedRoute } from "@/components/auth/ProtectedRoute";
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
@@ -22,14 +23,61 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
+          {/* Rotas públicas */}
           <Route path="/" element={<Index />} />
           <Route path="/auth" element={<Auth />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/modulos" element={<Modulos />} />
-          <Route path="/ferramentas" element={<Ferramentas />} />
-          <Route path="/prompts" element={<Prompts />} />
-          <Route path="/lives" element={<Lives />} />
-          <Route path="/perfil" element={<Perfil />} />
+          
+          {/* Rotas protegidas (apenas membros) */}
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/modulos"
+            element={
+              <ProtectedRoute>
+                <Modulos />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/ferramentas"
+            element={
+              <ProtectedRoute>
+                <Ferramentas />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/prompts"
+            element={
+              <ProtectedRoute>
+                <Prompts />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/lives"
+            element={
+              <ProtectedRoute>
+                <Lives />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/perfil"
+            element={
+              <ProtectedRoute>
+                <Perfil />
+              </ProtectedRoute>
+            }
+          />
+          
+          {/* 404 */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

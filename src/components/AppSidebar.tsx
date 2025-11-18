@@ -1,8 +1,11 @@
-import { Home, BookOpen, Wrench, FileText, Video, User } from "lucide-react";
+import { Home, BookOpen, Wrench, FileText, Video, User, LogOut } from "lucide-react";
+import { useNavigate, Link } from "react-router-dom";
 import { NavLink } from "@/components/NavLink";
+import { useAuth } from "@/hooks/useAuth";
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
@@ -11,6 +14,18 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
+import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Badge } from "@/components/ui/badge";
+import { toast } from "sonner";
 
 const menuItems = [
   { title: "Dashboard", url: "/dashboard", icon: Home },
@@ -21,14 +36,41 @@ const menuItems = [
   { title: "Perfil", url: "/perfil", icon: User },
 ];
 
+const planColors = {
+  essencial: "bg-green-500",
+  completo: "bg-blue-500",
+  premium: "bg-purple-500",
+};
+
 export function AppSidebar() {
   const { open } = useSidebar();
+  const { user, profile, signOut } = useAuth();
+  const navigate = useNavigate();
+
+  const handleSignOut = async () => {
+    const { error } = await signOut();
+    if (error) {
+      toast.error("Erro ao fazer logout");
+    } else {
+      toast.success("Logout realizado com sucesso!");
+      navigate("/auth");
+    }
+  };
+
+  const getInitials = (name: string) => {
+    return name
+      .split(" ")
+      .map((n) => n[0])
+      .join("")
+      .toUpperCase()
+      .slice(0, 2);
+  };
 
   return (
     <Sidebar>
       <SidebarContent>
         <div className="px-4 py-6">
-          <h2 className="text-xl font-bold text-primary">Academia IA</h2>
+          <h2 className="text-xl font-bold text-primary">Comunidade IA</h2>
         </div>
         
         <SidebarGroup>
@@ -53,6 +95,60 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+
+      <SidebarFooter className="p-4">
+        {user && profile && (
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="ghost"
+                className="w-full justify-start gap-2 h-auto p-2"
+              >
+                <Avatar className="h-8 w-8">
+                  <AvatarImage src={profile.foto_url || undefined} />
+                  <AvatarFallback>
+                    {getInitials(profile.nome)}
+                  </AvatarFallback>
+                </Avatar>
+                {open && (
+                  <div className="flex flex-col items-start flex-1 min-w-0">
+                    <span className="text-sm font-medium truncate w-full">
+                      {profile.nome}
+                    </span>
+                    <Badge
+                      className={`text-xs ${
+                        planColors[profile.plano as keyof typeof planColors] || "bg-gray-500"
+                      }`}
+                    >
+                      {profile.plano}
+                    </Badge>
+                  </div>
+                )}
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-56">
+              <DropdownMenuLabel>
+                <div className="flex flex-col space-y-1">
+                  <p className="text-sm font-medium">{profile.nome}</p>
+                  <p className="text-xs text-muted-foreground">{user.email}</p>
+                </div>
+              </DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem asChild>
+                <Link to="/perfil" className="cursor-pointer flex items-center">
+                  <User className="mr-2 h-4 w-4" />
+                  Perfil
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem onClick={handleSignOut} className="cursor-pointer text-red-600">
+                <LogOut className="mr-2 h-4 w-4" />
+                Sair
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        )}
+      </SidebarFooter>
     </Sidebar>
   );
 }
