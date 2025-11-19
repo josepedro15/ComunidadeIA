@@ -10,6 +10,9 @@ interface AdminProtectedRouteProps {
 export function AdminProtectedRoute({ children }: AdminProtectedRouteProps) {
   const { user, isAdmin, loading } = useAuth();
 
+  // Debug logs
+  console.log("AdminProtectedRoute:", { user: !!user, isAdmin, loading });
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -19,13 +22,16 @@ export function AdminProtectedRoute({ children }: AdminProtectedRouteProps) {
   }
 
   if (!user) {
+    console.log("AdminProtectedRoute: Redirecionando para /auth (sem usuário)");
     return <Navigate to="/auth" replace />;
   }
 
   if (!isAdmin) {
+    console.log("AdminProtectedRoute: Redirecionando para /dashboard (não é admin)");
     return <Navigate to="/dashboard" replace />;
   }
 
+  console.log("AdminProtectedRoute: Permitindo acesso admin");
   return <>{children}</>;
 }
 

@@ -48,6 +48,9 @@ export function AppSidebar() {
   const navigate = useNavigate();
   const location = useLocation();
 
+  // Debug
+  console.log("AppSidebar - isAdmin:", isAdmin, "profile:", profile);
+
   const handleSignOut = async () => {
     const { error } = await signOut();
     if (error) {
@@ -108,23 +111,25 @@ export function AppSidebar() {
             <SidebarGroupContent>
               <SidebarMenu>
                 <SidebarMenuItem>
-                  <SidebarMenuButton
-                    onClick={() => navigate("/admin/dashboard")}
-                    isActive={location.pathname === "/admin/dashboard"}
-                    className="w-full justify-start"
-                  >
-                    <Shield className="h-4 w-4" />
-                    {open && <span>Dashboard Admin</span>}
+                  <SidebarMenuButton asChild>
+                    <Link 
+                      to="/admin/dashboard"
+                      className="w-full justify-start"
+                    >
+                      <Shield className="h-4 w-4" />
+                      {open && <span>Dashboard Admin</span>}
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
                 <SidebarMenuItem>
-                  <SidebarMenuButton
-                    onClick={() => navigate("/admin/membros")}
-                    isActive={location.pathname === "/admin/membros"}
-                    className="w-full justify-start"
-                  >
-                    <Users className="h-4 w-4" />
-                    {open && <span>Gerenciar Membros</span>}
+                  <SidebarMenuButton asChild>
+                    <Link 
+                      to="/admin/membros"
+                      className="w-full justify-start"
+                    >
+                      <Users className="h-4 w-4" />
+                      {open && <span>Gerenciar Membros</span>}
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               </SidebarMenu>
