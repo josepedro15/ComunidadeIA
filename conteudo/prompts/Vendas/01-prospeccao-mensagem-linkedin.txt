@@ -1,0 +1,22 @@
+PROMPT: Mensagem de Prospecção no LinkedIn
+
+Você é um especialista em vendas B2B. Crie uma mensagem de prospecção fria para LinkedIn que seja:
+- Personalizada e não genérica
+- Curta (máximo 150 palavras)
+- Focada em valor para o prospect
+- Com call-to-action claro
+
+Contexto do meu negócio:
+[Descreva seu negócio, produto/serviço e público-alvo]
+
+Informações do prospect:
+[Nome da empresa, setor, cargo da pessoa]
+
+Objetivo: Gerar interesse para uma conversa de 15 minutos
+
+Crie a mensagem seguindo este formato:
+1. Abertura personalizada (mencione algo específico da empresa/pessoa)
+2. Apresentação breve do valor que você oferece
+3. Pergunta que gera curiosidade
+4. Call-to-action suave
+

@@ -1,0 +1,53 @@
+PROMPT: Metodologia de Gestão de Projetos
+
+Você é um especialista em gestão de projetos. Crie metodologia que:
+- Seja adaptável ao tamanho do projeto
+- Defina papéis e responsabilidades
+- Tenha processos claros
+- Meça progresso
+- Entregue resultados
+
+Contexto:
+Tipo de projetos: [Técnicos / Comerciais / Operacionais / Estratégicos]
+Tamanho: [Pequenos / Médios / Grandes]
+Equipe: [Tamanho / Experiência]
+
+Crie metodologia:
+
+1. INICIAÇÃO
+   - Definição do projeto
+   - Objetivos e escopo
+   - Stakeholders
+   - Recursos
+
+2. PLANEJAMENTO
+   - Estrutura (WBS)
+   - Cronograma
+   - Recursos
+   - Riscos
+   - Orçamento
+
+3. EXECUÇÃO
+   - Gestão de equipe
+   - Comunicação
+   - Qualidade
+   - Mudanças
+
+4. MONITORAMENTO
+   - Progresso
+   - KPIs
+   - Relatórios
+   - Ajustes
+
+5. ENCERRAMENTO
+   - Entrega
+   - Lições aprendidas
+   - Documentação
+   - Celebração
+
+Inclua também:
+- Templates
+- Ferramentas
+- Exemplos
+- Checklist
+

@@ -1,0 +1,39 @@
+PROMPT: Argumentos de Diferenciação Competitiva
+
+Você é um estrategista de vendas. Crie argumentos de diferenciação que:
+- Destachem o que te torna único
+- Sejam baseados em fatos, não opiniões
+- Conectem diferenciação com benefícios para o cliente
+- Sejam difíceis de copiar
+- Funcionem contra concorrentes específicos
+
+Contexto:
+Seu produto/serviço: [Descreva]
+Principais concorrentes: [Liste 3-5]
+Suas vantagens reais: [Liste]
+Pontos fracos dos concorrentes: [Mencione se souber]
+
+Crie argumentos de diferenciação organizados por:
+
+1. DIFERENCIAÇÃO POR RECURSO/TECNOLOGIA
+   - O que você tem que outros não têm
+   - Como isso beneficia o cliente
+
+2. DIFERENCIAÇÃO POR PROCESSO/METODOLOGIA
+   - Como você faz diferente
+   - Por que isso é melhor
+
+3. DIFERENCIAÇÃO POR ATENDIMENTO/SUPORTE
+   - Nível de suporte oferecido
+   - Experiência do cliente
+
+4. DIFERENCIAÇÃO POR RESULTADOS
+   - Resultados únicos que você entrega
+   - Métricas de sucesso
+
+5. COMPARAÇÃO DIRETA COM CONCORRENTES
+   - Tabela comparativa (se aplicável)
+   - Argumentos para cada concorrente
+
+Formato: Scripts prontos para usar em reuniões + documento comparativo.
+

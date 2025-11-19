@@ -1,0 +1,156 @@
+PROMPT: Definir SLAs e Políticas de Tempo de Resposta
+
+Você é um especialista em definir SLAs (Service Level Agreements) para atendimento. Crie um framework completo que:
+- Defina expectativas claras
+- Seja realista e alcançável
+- Melhore satisfação
+- Otimize recursos
+- Seja mensurável
+
+Contexto:
+Tipo de negócio: [Descreva]
+Canais: [Liste]
+Volume: [X por dia]
+Equipe: [Tamanho]
+Urgências: [Tipos de urgência]
+
+Crie framework completo:
+
+1. TIPOS DE SLAs
+
+   a) Tempo de Primeira Resposta
+      - Definição
+      - Por canal
+      - Por urgência
+      - Por tipo de problema
+      - Meta (% de tickets dentro do SLA)
+   
+   b) Tempo de Resolução
+      - Definição
+      - Por complexidade
+      - Por tipo
+      - Meta
+   
+   c) Disponibilidade
+      - Horários de atendimento
+      - Canais 24/7 vs horário comercial
+      - Feriados
+      - Meta de disponibilidade
+   
+   d) Taxa de Resolução na Primeira Interação
+      - Meta
+      - Por tipo
+      - Como medir
+
+2. CLASSIFICAÇÃO DE URGÊNCIA
+
+   Níveis:
+   
+   Crítico (P1):
+   - Definição
+   - Exemplos
+   - SLA: [Tempo]
+   - Escalação automática
+   
+   Alto (P2):
+   - [Mesmo formato]
+   
+   Médio (P3):
+   - [Mesmo formato]
+   
+   Baixo (P4):
+   - [Mesmo formato]
+
+3. SLAs POR CANAL
+
+   a) Email
+      - Primeira resposta: [X horas]
+      - Resolução: [X horas/dias]
+      - Horário: [Descreva]
+      - Meta de compliance: [X%]
+   
+   b) Chat
+      - [Mesmo formato]
+   
+   c) Telefone
+      - [Mesmo formato]
+   
+   d) WhatsApp
+      - [Mesmo formato]
+   
+   e) Redes Sociais
+      - [Mesmo formato]
+
+4. SLAs POR TIPO DE PROBLEMA
+
+   - Problemas técnicos críticos
+   - Dúvidas gerais
+   - Solicitações comerciais
+   - Reclamações
+   - Solicitações de reembolso
+   - [Outros tipos]
+
+5. COMUNICAÇÃO DE SLAs
+
+   a) Para Clientes
+      - Onde comunicar
+      - Como comunicar
+      - Transparência
+      - Expectativas claras
+   
+   b) Para Equipe
+      - Treinamento
+      - Monitoramento
+      - Apoio
+      - Ferramentas
+
+6. MONITORAMENTO E ALERTAS
+
+   - Como monitorar
+   - Alertas de risco
+   - Dashboard em tempo real
+   - Relatórios
+   - Ações quando em risco
+
+7. GESTÃO DE EXCEÇÕES
+
+   - Quando ajustar SLA
+   - Como comunicar atrasos
+   - Compensações (se aplicável)
+   - Aprendizados
+   - Melhorias
+
+8. MÉTRICAS E RELATÓRIOS
+
+   - Taxa de compliance
+   - Tempo médio real vs SLA
+   - Tendências
+   - Por agente
+   - Por canal
+   - Por tipo
+   - Análise de causas
+
+9. MELHORIAS CONTÍNUAS
+
+   - Revisão regular de SLAs
+   - Ajustes baseados em dados
+   - Feedback de clientes
+   - Capacidade da equipe
+   - Otimizações
+
+10. CASOS ESPECIAIS
+
+    - Clientes VIP
+    - Contratos específicos
+    - Situações de crise
+    - Alta demanda
+    - Feriados/eventos
+
+Inclua também:
+- Template de SLA
+- Exemplos práticos
+- Como calcular capacidade
+- Ferramentas de monitoramento
+- Checklist de implementação
+- Como comunicar mudanças
+

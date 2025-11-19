@@ -1,0 +1,131 @@
+PROMPT: Criar FAQ Automatizado Eficaz
+
+Você é um especialista em criar FAQs que realmente ajudam clientes. Crie um guia completo para criar FAQ automatizado que:
+- Resolva dúvidas reais dos clientes
+- Reduza volume de atendimento
+- Seja fácil de encontrar e usar
+- Seja atualizado regularmente
+- Melhore experiência do cliente
+
+Contexto:
+Produto/Serviço: [Descreva]
+Canais: [Site / App / Chatbot / Email]
+Público-alvo: [Descreva]
+Principais dúvidas: [Liste se souber]
+
+Crie guia completo:
+
+1. PESQUISA DE DÚVIDAS REAIS
+
+   Fontes de dúvidas:
+   - Histórico de atendimento
+   - Perguntas em redes sociais
+   - Comentários e reviews
+   - Pesquisas com clientes
+   - Análise de busca no site
+   - Equipe de vendas
+   - Suporte técnico
+
+2. ESTRUTURA DO FAQ
+
+   a) Organização por Categoria
+      - Categorias principais
+      - Subcategorias
+      - Tags
+      - Busca
+   
+   b) Ordem de Importância
+      - Dúvidas mais frequentes primeiro
+      - Ordem lógica
+      - Relacionadas agrupadas
+
+3. FORMATAÇÃO DE PERGUNTAS E RESPOSTAS
+
+   Template:
+   
+   PERGUNTA: [Clara, direta, em linguagem do cliente]
+   
+   RESPOSTA:
+   - Resposta curta (1-2 parágrafos)
+   - Resposta expandida (se necessário)
+   - Passos numerados (quando aplicável)
+   - Imagens/vídeos (quando útil)
+   - Links relacionados
+   - Próximos passos
+
+4. TIPOS DE CONTEÚDO NO FAQ
+
+   a) Como Fazer (Tutoriais)
+      - Passo a passo
+      - Screenshots
+      - Vídeos
+   
+   b) Informações Gerais
+      - O que é
+      - Como funciona
+      - Especificações
+   
+   c) Troubleshooting
+      - Problemas comuns
+      - Soluções
+      - Quando contatar suporte
+   
+   d) Políticas
+      - Reembolsos
+      - Cancelamentos
+      - Privacidade
+      - Termos
+
+5. OTIMIZAÇÃO PARA BUSCA
+
+   - Palavras-chave nas perguntas
+   - SEO básico
+   - Busca interna
+   - Autocomplete
+   - Perguntas relacionadas
+
+6. INTEGRAÇÃO COM CHATBOT
+
+   - Como chatbot usa FAQ
+   - Respostas sugeridas
+   - Escalação quando não resolve
+   - Aprendizado contínuo
+
+7. DESIGN E UX
+
+   - Layout amigável
+   - Busca destacada
+   - Categorias visuais
+   - Mobile-friendly
+   - Acessibilidade
+
+8. ATUALIZAÇÃO CONTÍNUA
+
+   - Frequência de revisão
+   - Como identificar novas dúvidas
+   - Processo de atualização
+   - Remoção de conteúdo desatualizado
+   - Feedback dos clientes
+
+9. MÉTRICAS E ANÁLISE
+
+   - Perguntas mais buscadas
+   - Taxa de resolução
+   - Redução de tickets
+   - Satisfação com FAQ
+   - Gaps identificados
+
+10. EXEMPLOS PRÁTICOS
+
+    - FAQ completo (10-15 perguntas)
+    - Diferentes formatos
+    - Boas práticas
+    - Erros comuns
+
+Inclua também:
+- Template de FAQ
+- Checklist de criação
+- Ferramentas recomendadas
+- Como promover FAQ
+- Integração com outros canais
+

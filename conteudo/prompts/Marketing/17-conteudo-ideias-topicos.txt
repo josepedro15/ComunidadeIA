@@ -1,0 +1,148 @@
+PROMPT: Gerar Ideias e Tópicos de Conteúdo
+
+Você é um estrategista de conteúdo. Crie um processo e lista de ideias de conteúdo que:
+- Sejam relevantes para o público-alvo
+- Alinhem com objetivos de negócio
+- Variem em formato e tipo
+- Sejam executáveis
+- Gerem resultados
+
+Contexto:
+Negócio: [Descreva]
+Público-alvo: [Descreva]
+Objetivos: [Educação / Vendas / SEO / Autoridade / Engajamento]
+Canais: [Blog / Redes sociais / Email / Vídeo / Podcast]
+Recursos: [Tempo / Orçamento / Equipe]
+
+Crie processo completo:
+
+1. FONTES DE IDEIAS
+
+   a) Perguntas do Público
+      - FAQ do site
+      - Perguntas em redes sociais
+      - Perguntas em emails
+      - Comentários em posts
+      - Grupos e fóruns
+   
+   b) Palavras-chave
+      - Pesquisa de palavras-chave
+      - Perguntas relacionadas no Google
+      - Autocomplete do Google
+      - "People also ask"
+   
+   c) Concorrentes
+      - Conteúdo que performa bem
+      - Gaps não cobertos
+      - Abordagens diferentes
+   
+   d) Tendências
+      - Notícias do setor
+      - Eventos e datas
+      - Mudanças no mercado
+      - Novas tecnologias
+   
+   e) Expertise Interna
+      - Conhecimento da equipe
+      - Cases de clientes
+      - Processos internos
+      - Lições aprendidas
+
+2. TIPOS DE CONTEÚDO
+
+   Liste ideias por tipo:
+   
+   a) Educativo
+      - Como fazer X
+      - Guias completos
+      - Tutoriais
+      - Explicações
+   
+   b) Entretenimento
+      - Histórias
+      - Memes (se apropriado)
+      - Curiosidades
+      - Top 10 listas
+   
+   c) Inspiracional
+      - Cases de sucesso
+      - Depoimentos
+      - Histórias de superação
+      - Motivação
+   
+   d) Promocional
+      - Novidades
+      - Ofertas
+      - Lançamentos
+      - Atualizações
+   
+   e) Analítico
+      - Pesquisas
+      - Estatísticas
+      - Tendências
+      - Comparativos
+
+3. FORMATOS DE CONTEÚDO
+
+   Ideias por formato:
+   
+   - Artigos de blog
+   - Vídeos
+   - Infográficos
+   - Podcasts
+   - Webinars
+   - E-books
+   - Checklists
+   - Templates
+   - Casos de estudo
+   - Quizzes
+
+4. CALENDÁRIO DE IDEIAS
+
+   Gere 30+ ideias específicas:
+   
+   Ideia 1: [Título] - [Tipo] - [Formato] - [Objetivo]
+   Ideia 2: [Título] - [Tipo] - [Formato] - [Objetivo]
+   [Continue...]
+
+5. PRIORIZAÇÃO
+
+   Matriz de priorização:
+   - Alto impacto + Fácil execução (fazer primeiro)
+   - Alto impacto + Difícil execução (planejar)
+   - Baixo impacto + Fácil execução (preencher gaps)
+   - Baixo impacto + Difícil execução (evitar)
+
+6. PROCESSO DE CRIAÇÃO
+
+   a) Brainstorming
+      - Técnicas
+      - Ferramentas
+      - Sessões recomendadas
+   
+   b) Validação
+      - Como validar ideias
+      - Testes rápidos
+      - Feedback
+   
+   c) Execução
+      - Checklist de criação
+      - Recursos necessários
+      - Timeline
+
+7. REPURPOSING
+
+   Como reaproveitar conteúdo:
+   - Artigo → Vídeo
+   - Vídeo → Artigo
+   - Post → E-book
+   - Webinar → Múltiplos conteúdos
+   - Estratégias específicas
+
+Inclua também:
+- Ferramentas de ideias
+- Como manter backlog de ideias
+- Como adaptar ideias para diferentes canais
+- Como medir sucesso de cada tipo
+- Template de brief de conteúdo
+

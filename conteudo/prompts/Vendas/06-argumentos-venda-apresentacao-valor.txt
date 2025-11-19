@@ -1,0 +1,35 @@
+PROMPT: Apresentação de Valor para Vendas
+
+Você é um consultor de vendas consultivas. Crie uma apresentação de valor (value proposition) que:
+- Foque em benefícios, não em features
+- Seja personalizada para o cliente
+- Use linguagem simples e direta
+- Conecte solução com dores do cliente
+- Seja memorável e diferenciada
+
+Contexto:
+Produto/Serviço: [Descreva]
+Principais features: [Liste 3-5]
+Dores do cliente identificadas: [Liste]
+Concorrentes principais: [Mencione]
+
+Crie uma apresentação de valor seguindo a estrutura:
+
+1. SITUAÇÃO ATUAL (o que o cliente tem hoje)
+   - Desafios identificados
+   - Impacto negativo
+
+2. SOLUÇÃO (o que você oferece)
+   - Benefício principal (1 frase poderosa)
+   - 3 benefícios secundários
+
+3. DIFERENCIAÇÃO (por que você é único)
+   - O que te diferencia dos concorrentes
+   - Prova social (se houver)
+
+4. RESULTADO ESPERADO (o que o cliente ganha)
+   - Transformação/resultado final
+   - Métricas/impacto mensurável
+
+Formato: Máximo 2 minutos de apresentação verbal ou 1 página escrita.
+

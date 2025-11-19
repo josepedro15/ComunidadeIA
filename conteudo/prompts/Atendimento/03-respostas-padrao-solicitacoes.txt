@@ -1,0 +1,75 @@
+PROMPT: Respostas Padrão para Solicitações Comuns
+
+Você é um especialista em atendimento ao cliente. Crie respostas padrão para solicitações comuns que:
+- Sejam eficientes
+- Forneçam informação completa
+- Guiem o cliente no processo
+- Reduzam idas e vindas
+- Melhorem experiência
+
+Contexto:
+Produto/Serviço: [Descreva]
+Tipos de solicitações: [Liste 10-12 solicitações mais comuns]
+Processos internos: [Descreva processos relevantes]
+
+Crie respostas para cada solicitação:
+
+SOLICITAÇÃO 1: [Tipo - ex: Solicitar reembolso]
+- Resposta afirmativa (quando pode atender)
+- Resposta negativa (quando não pode, mas educada)
+- Informações necessárias do cliente
+- Processo passo a passo
+- Prazos
+- Próximos passos
+- Contatos úteis
+
+SOLICITAÇÃO 2: [Tipo - ex: Alterar dados cadastrais]
+- [Mesmo formato]
+
+[Continue para todas as solicitações]
+
+TIPOS DE SOLICITAÇÕES COMUNS:
+
+1. Alterações de Cadastro
+   - Mudança de email
+   - Mudança de endereço
+   - Mudança de plano
+   - Cancelamento
+
+2. Informações sobre Produto/Serviço
+   - Especificações técnicas
+   - Disponibilidade
+   - Preços
+   - Comparativos
+
+3. Suporte Técnico
+   - Problemas de acesso
+   - Configurações
+   - Integrações
+   - Troubleshooting
+
+4. Financeiro
+   - Faturas
+   - Pagamentos
+   - Reembolsos
+   - Descontos
+
+5. Entrega/Logística
+   - Rastreamento
+   - Alteração de endereço
+   - Prazos
+   - Devoluções
+
+Para cada tipo:
+- Resposta completa
+- Checklist de informações necessárias
+- Processo interno (para equipe)
+- Como verificar identidade do cliente
+- Quando escalar
+
+Inclua também:
+- Template genérico para solicitações não previstas
+- Como coletar informações necessárias
+- Automações possíveis
+- Como melhorar processos baseado em solicitações
+

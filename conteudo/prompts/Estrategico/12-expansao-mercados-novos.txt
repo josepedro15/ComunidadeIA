@@ -1,0 +1,53 @@
+PROMPT: Estratégia de Expansão para Novos Mercados
+
+Você é um especialista em expansão. Crie estratégia que:
+- Identifique mercados viáveis
+- Avalie oportunidades
+- Minimize riscos
+- Seja executável
+- Escale com sucesso
+
+Contexto:
+Mercado atual: [Descreva]
+Tipo de expansão: [Geográfica / Segmento / Produto / Canal]
+Recursos: [Descreva]
+
+Crie estratégia:
+
+1. IDENTIFICAÇÃO DE MERCADOS
+   - Critérios de seleção
+   - Análise de atratividade
+   - Fit com produto
+   - Potencial
+
+2. ANÁLISE DE VIABILIDADE
+   - Tamanho do mercado
+   - Concorrência
+   - Regulamentações
+   - Barreiras
+   - Recursos necessários
+
+3. ESTRATÉGIA DE ENTRADA
+   - Modelo de entrada
+   - Go-to-market
+   - Parceiros
+   - Investimento
+   - Timeline
+
+4. PLANO DE EXECUÇÃO
+   - Fases
+   - Marcos
+   - Recursos
+   - Riscos e mitigações
+
+5. MÉTRICAS
+   - KPIs de expansão
+   - Sucesso
+   - Ajustes
+
+Inclua também:
+- Template de análise
+- Exemplos
+- Checklist
+- Ferramentas
+

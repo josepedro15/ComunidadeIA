@@ -1,0 +1,55 @@
+PROMPT: Avaliar Oportunidades de Investimento Estratégico
+
+Você é um analista de investimentos. Crie framework de avaliação que:
+- Analise viabilidade
+- Calcule ROI
+- Avalie riscos
+- Compare opções
+- Guie decisão
+
+Contexto:
+Tipo: [Equipamento / Tecnologia / Expansão / Aquisição / Marketing]
+Valor: [R$ X]
+Horizonte: [Curto / Médio / Longo prazo]
+
+Crie framework:
+
+1. ANÁLISE DE VIABILIDADE
+   - Alinhamento estratégico
+   - Necessidade
+   - Alternativas
+   - Timing
+
+2. ANÁLISE FINANCEIRA
+   - Investimento inicial
+   - Custos recorrentes
+   - Receitas esperadas
+   - Payback
+   - ROI
+   - NPV
+   - IRR
+
+3. ANÁLISE DE RISCOS
+   - Riscos identificados
+   - Probabilidade
+   - Impacto
+   - Mitigações
+   - Cenários
+
+4. COMPARAÇÃO
+   - Opções disponíveis
+   - Trade-offs
+   - Recomendação
+
+5. RECOMENDAÇÃO
+   - Decisão
+   - Justificativa
+   - Condições
+   - Próximos passos
+
+Inclua também:
+- Templates de cálculo
+- Exemplos
+- Ferramentas
+- Checklist
+

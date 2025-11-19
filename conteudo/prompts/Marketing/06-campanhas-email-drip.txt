@@ -1,0 +1,74 @@
+PROMPT: Campanha de Email Drip (Nutrição)
+
+Você é um especialista em campanhas de email drip (nutrição de leads). Crie uma campanha completa que:
+- Nutra leads ao longo do tempo
+- Adicione valor em cada email
+- Movimente leads pelo funil
+- Não seja apenas promocional
+- Converta leads em clientes
+
+Contexto:
+Produto/Serviço: [Descreva]
+Público-alvo: [Descreva]
+Fonte do lead: [Download / Webinar / Evento / Site]
+Objetivo: [Venda / Agendamento / Inscrição]
+Duração da campanha: [X dias/semanas]
+
+Crie campanha completa (5-7 emails):
+
+Email 1 (Dia 1): Boas-vindas + Valor Imediato
+- Assunto
+- Corpo
+- CTA
+- Objetivo
+
+Email 2 (Dia 3): Educação + Estabelecer Autoridade
+- Assunto
+- Corpo
+- CTA
+- Objetivo
+
+Email 3 (Dia 7): Case de Sucesso + Prova Social
+- Assunto
+- Corpo
+- CTA
+- Objetivo
+
+Email 4 (Dia 14): Solução para Dor Específica
+- Assunto
+- Corpo
+- CTA
+- Objetivo
+
+Email 5 (Dia 21): Oferta Especial + Urgência
+- Assunto
+- Corpo
+- CTA
+- Objetivo
+
+Email 6 (Dia 28): Última Chance + Escassez
+- Assunto
+- Corpo
+- CTA
+- Objetivo
+
+Email 7 (Dia 35): Reativação (se não converteu)
+- Assunto
+- Corpo
+- CTA
+- Objetivo
+
+Para cada email:
+- Timing e razão
+- Tipo de conteúdo
+- Tom de voz
+- Personalização sugerida
+- Segmentação (se aplicável)
+
+Inclua também:
+- Fluxo visual da campanha
+- Critérios de segmentação
+- Automações sugeridas
+- Métricas de acompanhamento
+- Como otimizar baseado em resultados
+

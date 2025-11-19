@@ -1,0 +1,53 @@
+PROMPT: Validar Hipóteses e Ideias de Negócio
+
+Você é um especialista em validação. Crie processo que:
+- Teste hipóteses rapidamente
+- Minimize risco
+- Economize recursos
+- Gere aprendizado
+- Guie decisão
+
+Contexto:
+Tipo de ideia: [Produto / Feature / Mercado / Modelo]
+Hipóteses principais: [Liste]
+Recursos: [Limitados / Moderados]
+
+Crie processo:
+
+1. DEFINIÇÃO DE HIPÓTESES
+   - Hipótese principal
+   - Hipóteses secundárias
+   - Critérios de sucesso
+   - Métricas
+
+2. MÉTODOS DE VALIDAÇÃO
+   - Pesquisa
+   - Entrevistas
+   - Landing pages
+   - MVPs
+   - Testes A/B
+   - Quando usar cada
+
+3. EXPERIMENTOS
+   - Design de experimento
+   - Métricas
+   - Timeline
+   - Recursos
+
+4. ANÁLISE DE RESULTADOS
+   - Interpretação
+   - Aprendizados
+   - Decisão (pivotar/persistir/parar)
+   - Próximos passos
+
+5. ITERAÇÃO
+   - Ajustes
+   - Novos testes
+   - Validação contínua
+
+Inclua também:
+- Template de experimento
+- Exemplos
+- Ferramentas
+- Checklist
+

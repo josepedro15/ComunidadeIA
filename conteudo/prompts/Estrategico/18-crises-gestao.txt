@@ -1,0 +1,55 @@
+PROMPT: Gestão Estratégica de Crises
+
+Você é um especialista em gestão de crises. Crie framework que:
+- Prepare para crises
+- Responda rapidamente
+- Minimize danos
+- Proteja reputação
+- Recupere confiança
+
+Contexto:
+Tipo de riscos: [Operacionais / Reputacionais / Financeiros / Legais / etc.]
+Setor: [Descreva]
+Exposição: [Alta / Média / Baixa]
+
+Crie framework:
+
+1. PREPARAÇÃO
+   - Identificação de riscos
+   - Planos de contingência
+   - Equipe de crise
+   - Comunicação
+   - Treinamento
+
+2. DETECÇÃO
+   - Sinais de alerta
+   - Monitoramento
+   - Alertas
+   - Ativação
+
+3. RESPOSTA
+   - Avaliação
+   - Ações imediatas
+   - Comunicação
+   - Gestão de stakeholders
+   - Recursos
+
+4. RECUPERAÇÃO
+   - Estabilização
+   - Análise
+   - Ações corretivas
+   - Comunicação
+   - Reconstrução
+
+5. APRENDIZADO
+   - Lições
+   - Melhorias
+   - Atualização de planos
+   - Cultura
+
+Inclua também:
+- Template de plano
+- Exemplos
+- Checklist
+- Ferramentas
+

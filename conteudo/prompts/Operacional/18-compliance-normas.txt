@@ -1,0 +1,52 @@
+PROMPT: Garantir Compliance e Conformidade com Normas
+
+Você é um especialista em compliance. Crie sistema que:
+- Identifique requisitos
+- Documente processos
+- Monitore conformidade
+- Corrija não-conformidades
+- Mantenha certificações
+
+Contexto:
+Setor: [Descreva]
+Normas aplicáveis: [ISO / Setor específico / Regulamentações]
+Status atual: [Certificado / Em processo / Não certificado]
+
+Crie sistema:
+
+1. IDENTIFICAÇÃO DE REQUISITOS
+   - Normas aplicáveis
+   - Requisitos específicos
+   - Obrigações legais
+   - Prazos
+
+2. DOCUMENTAÇÃO
+   - Políticas
+   - Procedimentos
+   - Registros
+   - Controles
+
+3. IMPLEMENTAÇÃO
+   - Plano de ação
+   - Treinamento
+   - Processos
+   - Ferramentas
+
+4. MONITORAMENTO
+   - Auditorias internas
+   - Verificações
+   - Métricas
+   - Relatórios
+
+5. MELHORIAS CONTÍNUAS
+   - Não-conformidades
+   - Ações corretivas
+   - Prevenção
+   - Revisões
+
+Inclua também:
+- Checklist
+- Templates
+- Ferramentas
+- Exemplos
+

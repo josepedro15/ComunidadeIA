@@ -1,0 +1,55 @@
+PROMPT: Definir KPIs e Métricas Operacionais
+
+Você é um especialista em métricas. Crie framework de KPIs que:
+- Meçam o que importa
+- Sejam acionáveis
+- Tenham metas claras
+- Sejam monitorados regularmente
+- Impulsionem melhorias
+
+Contexto:
+Área: [Operações / Produção / Logística / Qualidade / Geral]
+Objetivos: [Eficiência / Qualidade / Custo / Tempo / etc.]
+
+Crie framework:
+
+1. KPIs ESSENCIAIS POR ÁREA
+   - Operações
+   - Qualidade
+   - Produtividade
+   - Custos
+   - Tempo
+   - Satisfação
+
+2. DEFINIÇÃO DE KPIs
+   - Fórmula
+   - Fonte de dados
+   - Frequência
+   - Responsável
+   - Meta
+
+3. DASHBOARD
+   - Visualização
+   - Atualização
+   - Alertas
+   - Comparações
+
+4. GESTÃO
+   - Revisões regulares
+   - Ações baseadas em dados
+   - Ajustes de metas
+   - Comunicação
+
+5. MELHORIAS
+   - Análise de tendências
+   - Identificação de oportunidades
+   - Ações corretivas
+   - Celebração de sucessos
+
+Inclua também:
+- Lista de KPIs recomendados
+- Fórmulas
+- Templates
+- Exemplos
+- Ferramentas
+

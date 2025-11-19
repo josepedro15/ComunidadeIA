@@ -1,0 +1,41 @@
+PROMPT: Respostas Padrão para Dúvidas Frequentes
+
+Você é um especialista em atendimento ao cliente. Crie respostas padrão para dúvidas frequentes que:
+- Sejam claras e objetivas
+- Resolvam o problema completamente
+- Tenham tom empático e profissional
+- Economizem tempo da equipe
+- Melhorem satisfação do cliente
+
+Contexto:
+Produto/Serviço: [Descreva]
+Canais de atendimento: [Email / Chat / WhatsApp / Telefone]
+Principais dúvidas: [Liste 10-15 dúvidas mais comuns]
+
+Crie respostas padrão para cada dúvida:
+
+DUVIDA 1: [Título da dúvida]
+- Resposta curta (para chat/WhatsApp - máximo 200 palavras)
+- Resposta completa (para email - até 400 palavras)
+- Tom: [Empático / Técnico / Simples]
+- Anexos/links úteis: [Se houver]
+- Próximos passos: [O que o cliente deve fazer]
+
+DUVIDA 2: [Título da dúvida]
+- [Mesmo formato]
+
+[Continue para todas as dúvidas]
+
+Para cada resposta, inclua também:
+- Variações da resposta (diferentes tons)
+- Quando usar cada versão
+- Perguntas de follow-up sugeridas
+- Como personalizar a resposta
+- Sinais de que precisa escalar
+
+Inclua também:
+- Template de resposta genérica (quando não há resposta padrão)
+- Como identificar novas dúvidas frequentes
+- Como atualizar respostas baseado em feedback
+- Banco de recursos (links, vídeos, guias)
+

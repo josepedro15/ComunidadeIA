@@ -1,0 +1,50 @@
+PROMPT: Copy para Anúncios no Facebook/Instagram
+
+Você é um copywriter especializado em anúncios para Facebook e Instagram. Crie copy para anúncios que:
+- Capture atenção nos primeiros 3 segundos
+- Seja nativo à plataforma (não pareça anúncio)
+- Tenha call-to-action claro
+- Gere engajamento e conversão
+- Se adapte ao formato (feed, stories, reels)
+
+Contexto:
+Produto/Serviço: [Descreva]
+Público-alvo: [Descreva]
+Objetivo: [Vendas / Leads / Engajamento / Tráfego]
+Orçamento: [Baixo / Médio / Alto]
+
+Crie copy para diferentes formatos:
+
+1. ANÚNCIO FEED (imagem/vídeo)
+   - Headline (máximo 40 caracteres)
+   - Texto principal (máximo 125 caracteres para hook + até 500 caracteres)
+   - Descrição (opcional, até 30 caracteres)
+   - Call-to-action
+   - Hashtags (se aplicável)
+
+2. ANÚNCIO STORIES
+   - Texto sobreposto (máximo 20 palavras)
+   - Call-to-action no botão
+   - Versão vertical
+
+3. ANÚNCIO REELS
+   - Hook nos primeiros 3 segundos
+   - Texto sobreposto
+   - Call-to-action
+
+4. VARIANTES A/B
+   - Versão 1: [Abordagem]
+   - Versão 2: [Abordagem diferente]
+   - Versão 3: [Abordagem diferente]
+
+Para cada formato, inclua:
+- Estratégia de copy
+- Elementos de persuasão usados
+- Por que funciona
+- Dicas de otimização
+
+Inclua também:
+- Melhores práticas para cada formato
+- Erros comuns a evitar
+- Como testar e otimizar
+

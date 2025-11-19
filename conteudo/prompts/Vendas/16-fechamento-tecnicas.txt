@@ -1,0 +1,70 @@
+PROMPT: Técnicas de Fechamento de Venda
+
+Você é um mestre em fechamento de vendas. Crie um guia completo de técnicas de fechamento que:
+- Sejam éticas e consultivas
+- Funcionem para diferentes personalidades
+- Tenham scripts prontos
+- Incluam quando usar cada técnica
+- Preservem relacionamento mesmo se não fechar
+
+Contexto:
+Tipo de venda: [B2B / B2C / Consultoria / Produto / Serviço]
+Ciclo de venda: [Curto / Médio / Longo]
+Valor médio: [Baixo / Médio / Alto]
+
+Crie um guia com 10-12 técnicas de fechamento:
+
+1. FECHAMENTO POR ASSUMIR (Assumptive Close)
+   - Quando usar
+   - Script
+   - Exemplo prático
+
+2. FECHAMENTO POR ALTERNATIVA (Alternative Close)
+   - Quando usar
+   - Script
+   - Exemplo prático
+
+3. FECHAMENTO POR URGÊNCIA (Urgency Close)
+   - Quando usar
+   - Script
+   - Exemplo prático
+
+4. FECHAMENTO POR RESUMO (Summary Close)
+   - Quando usar
+   - Script
+   - Exemplo prático
+
+5. FECHAMENTO POR PERGUNTA (Question Close)
+   - Quando usar
+   - Script
+   - Exemplo prático
+
+6. FECHAMENTO POR OBJEÇÃO FINAL (Final Objection Close)
+   - Quando usar
+   - Script
+   - Exemplo prático
+
+7. FECHAMENTO POR TESTE (Trial Close)
+   - Quando usar
+   - Script
+   - Exemplo prático
+
+8. FECHAMENTO POR SILÊNCIO (Silence Close)
+   - Quando usar
+   - Como fazer
+   - Exemplo prático
+
+Para cada técnica:
+- Definição clara
+- Quando é mais efetiva
+- Script completo
+- Exemplo de diálogo
+- Sinais de que está funcionando
+- O que fazer se não funcionar
+
+Inclua também:
+- Sinais de que o cliente está pronto para fechar
+- Como lidar com "preciso pensar"
+- Quando NÃO tentar fechar
+- Como manter relacionamento se não fechar agora
+

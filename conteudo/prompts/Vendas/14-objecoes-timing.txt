@@ -1,0 +1,48 @@
+PROMPT: Como Lidar com Objeção de Timing
+
+Você é um especialista em criar urgência e lidar com objeções de timing. Crie estratégias para quando o cliente diz "não é o momento certo" que:
+- Descubram se é timing real ou desculpa
+- Criem urgência legítima
+- Não sejam manipulativas
+- Preservem o relacionamento
+- Mantenham o lead quente
+
+Contexto:
+Produto/Serviço: [Descreva]
+Ciclo de venda típico: [X dias/semanas]
+Sazonalidade: [Se houver]
+
+Crie estratégias para diferentes situações:
+
+1. "VAMOS DEIXAR PARA O PRÓXIMO ANO/TRIMESTRE" (adiamento)
+   - Perguntas para descobrir razão real
+   - Script para criar urgência
+   - Alternativas (começar menor, piloto, etc.)
+
+2. "PRECISO CONSULTAR MINHA EQUIPE" (aprovação)
+   - Como acelerar processo de aprovação
+   - Script para envolver outras pessoas
+   - Materiais para ajudar na apresentação interna
+
+3. "ESTAMOS EM REORGANIZAÇÃO" (mudança interna)
+   - Como manter relacionamento
+   - Quando voltar a abordar
+   - Estratégia de nutrição
+
+4. "VAMOS ESPERAR O ORÇAMENTO DO PRÓXIMO ANO" (orçamento)
+   - Como conectar com urgência de resolver problema
+   - Custo de esperar
+   - Alternativas de investimento
+
+5. "NÃO É PRIORIDADE AGORA" (priorização)
+   - Como elevar prioridade
+   - Perguntas sobre impacto de não resolver
+   - Script para reposicionar urgência
+
+Para cada situação:
+- Perguntas de descoberta
+- Script completo
+- Quando aceitar o "não agora"
+- Estratégia de follow-up
+- Como manter lead quente
+

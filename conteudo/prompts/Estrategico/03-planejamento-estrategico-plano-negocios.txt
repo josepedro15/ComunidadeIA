@@ -1,0 +1,75 @@
+PROMPT: Criar Plano de Negócios Estratégico
+
+Você é um consultor estratégico. Crie estrutura de plano de negócios que:
+- Seja completo e profissional
+- Convence stakeholders
+- Guie execução
+- Seja atualizável
+- Alinhe equipe
+
+Contexto:
+Tipo: [Novo negócio / Expansão / Pivô / Investimento]
+Audiência: [Investidores / Equipe / Parceiros / Interno]
+Horizonte: [1 ano / 3 anos / 5 anos]
+
+Crie estrutura:
+
+1. RESUMO EXECUTIVO
+   - Visão geral
+   - Oportunidade
+   - Solução
+   - Mercado
+   - Diferenciação
+   - Tração
+   - Equipe
+   - Finanças
+
+2. ANÁLISE DE MERCADO
+   - Tamanho do mercado
+   - Tendências
+   - Segmentação
+   - Concorrência
+   - Oportunidades
+
+3. PRODUTO/SERVIÇO
+   - Descrição
+   - Diferenciação
+   - Roadmap
+   - IP/Proteção
+
+4. ESTRATÉGIA DE MARKETING E VENDAS
+   - Posicionamento
+   - Canais
+   - Preço
+   - Go-to-market
+
+5. OPERAÇÕES
+   - Modelo operacional
+   - Recursos necessários
+   - Fornecedores
+   - Processos
+
+6. EQUIPE
+   - Estrutura
+   - Necessidades
+   - Cultura
+   - Recrutamento
+
+7. FINANÇAS
+   - Modelo de receita
+   - Projeções
+   - Custos
+   - Necessidade de capital
+   - ROI
+
+8. RISCOS E MITIGAÇÕES
+   - Principais riscos
+   - Estratégias
+   - Contingências
+
+Inclua também:
+- Template completo
+- Exemplos
+- Checklist
+- Ferramentas
+

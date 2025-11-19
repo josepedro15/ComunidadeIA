@@ -1,0 +1,167 @@
+PROMPT: Automação de Marketing Digital
+
+Você é um especialista em automação de marketing. Crie uma estratégia completa de automação que:
+- Economize tempo
+- Melhore resultados
+- Personalize experiências
+- Escale operações
+- Seja executável
+
+Contexto:
+Tamanho do negócio: [Pequeno / Médio / Grande]
+Orçamento: [Baixo / Médio / Alto]
+Ferramentas atuais: [Liste se houver]
+Objetivos: [Vendas / Leads / Engajamento / Eficiência]
+
+Crie estratégia completa:
+
+1. ÁREAS PARA AUTOMATIZAR
+
+   a) Email Marketing
+      - Sequências de boas-vindas
+      - Drip campaigns
+      - Abandoned cart
+      - Reativação
+      - Segmentação automática
+   
+   b) Redes Sociais
+      - Agendamento de posts
+      - Respostas automáticas
+      - Menções e hashtags
+      - Relatórios automáticos
+   
+   c) Lead Nurturing
+      - Qualificação automática
+      - Scoring de leads
+      - Distribuição de leads
+      - Follow-up automático
+   
+   d) Conteúdo
+      - Distribuição de conteúdo
+      - Repurposing automático
+      - Agendamento
+      - Análise de performance
+   
+   e) Vendas
+      - Propostas automáticas
+      - Follow-up de vendas
+      - Onboarding de clientes
+      - Upsell/cross-sell
+
+2. FERRAMENTAS RECOMENDADAS
+
+   Por categoria:
+   
+   a) Email Marketing
+      - Opções gratuitas
+      - Opções pagas
+      - Comparativo
+      - Recomendação por tamanho
+   
+   b) Redes Sociais
+      - [Mesmo formato]
+   
+   c) CRM e Automação
+      - [Mesmo formato]
+   
+   d) Agendamento
+      - [Mesmo formato]
+   
+   e) Análise
+      - [Mesmo formato]
+
+3. AUTOMAÇÕES PRIORITÁRIAS
+
+   Começar por (quick wins):
+   
+   1. [Automação] - Impacto: Alto | Esforço: Baixo
+      - Como implementar
+      - Ferramenta recomendada
+      - Tempo economizado
+   
+   2. [Automação] - Impacto: Alto | Esforço: Médio
+      - [Mesmo formato]
+   
+   [Continue...]
+
+4. WORKFLOWS DE AUTOMAÇÃO
+
+   Crie workflows detalhados:
+   
+   a) Workflow: Lead Nurturing
+      - Trigger: [Ação que inicia]
+      - Condições: [Se/Então]
+      - Ações: [O que acontece]
+      - Timeline: [Quando]
+      - Ferramenta: [Qual usar]
+   
+   b) Workflow: Abandoned Cart
+      - [Mesmo formato]
+   
+   c) Workflow: Boas-vindas
+      - [Mesmo formato]
+   
+   [Continue para workflows principais]
+
+5. SEGMENTAÇÃO AUTOMÁTICA
+
+   - Critérios de segmentação
+   - Como configurar
+   - Tags e listas
+   - Manutenção
+
+6. PERSONALIZAÇÃO
+
+   - Como personalizar em escala
+   - Dados a coletar
+   - Dinâmicos a usar
+   - Limites e ética
+
+7. INTEGRAÇÕES
+
+   - Integrações essenciais
+   - Como conectar ferramentas
+   - Zapier/Make workflows
+   - APIs quando necessário
+
+8. TESTES E OTIMIZAÇÃO
+
+   - Como testar automações
+   - Métricas a acompanhar
+   - Ajustes baseados em dados
+   - Melhorias contínuas
+
+9. IMPLEMENTAÇÃO
+
+   Fase 1 (Primeiro mês):
+   - [Automações a implementar]
+   - Recursos necessários
+   - Timeline
+   
+   Fase 2 (Mês 2-3):
+   - [Automações a implementar]
+   
+   Fase 3 (Ongoing):
+   - [Automações avançadas]
+
+10. ROI E MÉTRICAS
+
+    - Como medir ROI de automação
+    - Tempo economizado
+    - Melhorias em resultados
+    - Métricas a acompanhar
+
+11. ERROS COMUNS
+
+    - O que evitar
+    - Como não parecer robótico
+    - Manter humanização
+    - Testes antes de ativar
+
+Inclua também:
+- Checklist de implementação
+- Template de workflows
+- Orçamento sugerido
+- Recursos de aprendizado
+- Como escalar automações
+

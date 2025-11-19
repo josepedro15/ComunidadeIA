@@ -1,0 +1,122 @@
+PROMPT: Criar Conteúdo Otimizado para SEO
+
+Você é um especialista em criar conteúdo que rankeia bem no Google. Crie um guia e template para criar conteúdo otimizado que:
+- Rankeie para palavras-chave alvo
+- Seja valioso para o leitor
+- Tenha estrutura otimizada
+- Gere backlinks naturalmente
+- Converta visitantes em leads/clientes
+
+Contexto:
+Tipo de conteúdo: [Artigo de blog / Página de produto / Guia / Landing page]
+Palavra-chave principal: [Mencione]
+Público-alvo: [Descreva]
+Objetivo: [SEO / Conversão / Autoridade]
+
+Crie guia completo:
+
+1. PESQUISA E ESTRUTURA
+
+   a) Pesquisa de Conteúdo
+      - Análise de concorrentes que rankeiam
+      - Gaps de conteúdo
+      - Perguntas relacionadas
+      - Tópicos relacionados
+   
+   b) Estrutura do Conteúdo
+      - Título otimizado (H1)
+      - Introdução (primeiros 100 palavras)
+      - Subtítulos (H2, H3)
+      - Conclusão
+      - Comprimento ideal
+
+2. OTIMIZAÇÃO ON-PAGE
+
+   a) Elementos Técnicos
+      - Título (Title Tag) - máximo 60 caracteres
+      - Meta Description - máximo 160 caracteres
+      - URL otimizada
+      - Headers (H1, H2, H3) com palavras-chave
+      - Alt text em imagens
+      - Links internos
+      - Links externos (autoridade)
+   
+   b) Densidade de Palavras-chave
+      - Palavra-chave principal (1-2%)
+      - Palavras-chave secundárias
+      - Variações e sinônimos
+      - LSI keywords
+
+3. ESTRUTURA DO CONTEÚDO
+
+   Template completo:
+   
+   INTRODUÇÃO (100-150 palavras)
+   - Hook
+   - Contexto
+   - O que o leitor vai aprender
+   - Palavra-chave principal no primeiro parágrafo
+   
+   CORPO (dividido em seções H2)
+   
+   Seção 1: [Título H2 com palavra-chave]
+   - Conteúdo (300-500 palavras)
+   - Subtítulos H3 quando necessário
+   - Imagens/exemplos
+   
+   Seção 2: [Título H2]
+   - [Mesmo formato]
+   
+   [Continue para todas as seções]
+   
+   CONCLUSÃO (100-150 palavras)
+   - Resumo dos pontos principais
+   - Call-to-action
+   - Próximos passos
+
+4. ELEMENTOS DE ENGAGEMENT
+   - Perguntas retóricas
+   - Listas e bullet points
+   - Imagens e infográficos
+   - Citações e estatísticas
+   - Exemplos práticos
+   - CTAs estratégicos
+
+5. OTIMIZAÇÃO PARA FEATURED SNIPPETS
+   - Como estruturar para snippet
+   - Perguntas diretas
+   - Listas numeradas
+   - Tabelas
+   - Definições
+
+6. INTERNAL LINKING
+   - Estratégia de links internos
+   - Anchor texts otimizados
+   - Páginas para linkar
+   - Estrutura de silos
+
+7. CALL-TO-ACTION
+   - CTAs estratégicos no conteúdo
+   - Formulários de lead
+   - Links para produtos/serviços
+   - Download de recursos
+
+8. CHECKLIST DE PUBLICAÇÃO
+   - [ ] Título otimizado
+   - [ ] Meta description
+   - [ ] Headers com palavras-chave
+   - [ ] Imagens com alt text
+   - [ ] Links internos
+   - [ ] Links externos
+   - [ ] CTA incluído
+   - [ ] Mobile-friendly
+   - [ ] Velocidade de carregamento
+   - [ ] Schema markup (se aplicável)
+
+Inclua também:
+- Ferramentas de otimização
+- Como medir sucesso
+- Ajustes pós-publicação
+- Estratégia de atualização
+- Promoção do conteúdo
+

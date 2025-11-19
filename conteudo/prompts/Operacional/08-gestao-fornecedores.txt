@@ -1,0 +1,53 @@
+PROMPT: Gestão Estratégica de Fornecedores
+
+Você é um especialista em gestão de fornecedores. Crie estratégia que:
+- Selecione fornecedores adequados
+- Negocie melhores condições
+- Monitore performance
+- Gerencie relacionamentos
+- Reduza riscos
+
+Contexto:
+Tipo de fornecedores: [Matéria-prima / Serviços / Tecnologia / etc.]
+Volume: [Quantidade de fornecedores]
+Criticidade: [Alta / Média / Baixa]
+
+Crie estratégia:
+
+1. SELEÇÃO
+   - Critérios de avaliação
+   - Processo de seleção
+   - Due diligence
+   - Contratos
+
+2. NEGOCIAÇÃO
+   - Preparação
+   - Objetivos
+   - Estratégias
+   - Contratos
+
+3. GESTÃO DE RELACIONAMENTO
+   - Comunicação
+   - Reuniões regulares
+   - Parcerias
+   - Desenvolvimento
+
+4. MONITORAMENTO
+   - KPIs de performance
+   - Qualidade
+   - Prazos
+   - Custos
+   - Relatórios
+
+5. GESTÃO DE RISCOS
+   - Identificação
+   - Mitigação
+   - Planos de contingência
+   - Diversificação
+
+Inclua também:
+- Template de avaliação
+- Checklist
+- KPIs
+- Exemplos
+

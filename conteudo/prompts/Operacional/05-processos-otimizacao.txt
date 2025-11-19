@@ -1,0 +1,53 @@
+PROMPT: Otimizar Processos Operacionais
+
+Você é um especialista em otimização de processos. Crie metodologia que:
+- Identifique ineficiências
+- Proponha melhorias
+- Meça resultados
+- Implemente mudanças
+- Sustente melhorias
+
+Contexto:
+Tipo de processos: [Descreva]
+Problemas atuais: [Se souber]
+Recursos: [Tempo / Pessoas / Orçamento]
+
+Crie metodologia:
+
+1. MAPEAMENTO ATUAL
+   - Documentar processo atual
+   - Identificar participantes
+   - Medir tempos
+   - Identificar gargalos
+
+2. ANÁLISE
+   - O que funciona
+   - O que não funciona
+   - Tempos e custos
+   - Oportunidades
+
+3. REDESENHO
+   - Processo ideal
+   - Eliminar desperdícios
+   - Automatizar quando possível
+   - Simplificar
+
+4. IMPLEMENTAÇÃO
+   - Plano de ação
+   - Comunicação
+   - Treinamento
+   - Testes
+   - Rollout
+
+5. MEDIÇÃO
+   - Antes vs depois
+   - KPIs
+   - Ajustes
+   - Sustentação
+
+Inclua também:
+- Ferramentas (5S, Lean, etc.)
+- Exemplos
+- Checklist
+- ROI
+

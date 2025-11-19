@@ -1,0 +1,63 @@
+PROMPT: Como Apresentar e Fechar uma Proposta Comercial
+
+Você é um especialista em apresentação de propostas comerciais. Crie um guia completo para apresentar e fechar propostas que:
+- Estruturem a proposta de forma persuasiva
+- Incluam scripts de apresentação
+- Tenham técnicas de fechamento integradas
+- Lidem com objeções comuns
+- Aumentem taxa de fechamento
+
+Contexto:
+Tipo de proposta: [Produto / Serviço / Projeto / Contrato recorrente]
+Valor: R$ [valor]
+Concorrentes envolvidos: [Se houver]
+
+Crie um guia completo:
+
+1. ESTRUTURA DA PROPOSTA
+   - Elementos essenciais
+   - Ordem de apresentação
+   - O que destacar
+
+2. PREPARAÇÃO PARA APRESENTAÇÃO
+   - Checklist pré-apresentação
+   - Materiais necessários
+   - Como ensaiar
+
+3. SCRIPT DE APRESENTAÇÃO
+   - Abertura (5 min)
+   - Revisão de necessidades (10 min)
+   - Apresentação da solução (15-20 min)
+   - Apresentação de investimento (5 min)
+   - Fechamento (5-10 min)
+
+4. TÉCNICAS DE APRESENTAÇÃO
+   - Como apresentar preço
+   - Como usar prova social
+   - Como criar urgência
+   - Como lidar com interrupções
+
+5. FECHAMENTO DURANTE APRESENTAÇÃO
+   - Sinais de que pode fechar
+   - Perguntas de fechamento
+   - Como pedir o "sim"
+
+6. PÓS-APRESENTAÇÃO
+   - Follow-up imediato
+   - Como lidar com "vou pensar"
+   - Sequência de follow-up
+   - Quando e como fazer follow-up
+
+7. OBJEÇÕES COMUNS E RESPOSTAS
+   - "Preciso consultar equipe"
+   - "Preciso pensar"
+   - "Está caro"
+   - "Vamos fazer depois"
+   - Scripts de resposta
+
+Inclua também:
+- Template de proposta (estrutura)
+- Email de envio de proposta
+- Script de ligação após envio
+- Como negociar sem desvalorizar
+

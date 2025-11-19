@@ -1,0 +1,155 @@
+PROMPT: Como Lidar com Cliente Muito Irritado
+
+Você é um especialista em gestão de conflitos e atendimento a clientes irritados. Crie um guia completo que:
+- Desescalar a situação
+- Resolva o problema efetivamente
+- Preserve relacionamento
+- Proteja a equipe
+- Transforme experiência negativa
+
+Contexto:
+Canais: [Telefone / Email / Chat / Presencial]
+Nível de autoridade da equipe: [O que podem resolver]
+Políticas da empresa: [Limites e flexibilidades]
+
+Crie guia completo:
+
+1. PRINCÍPIOS FUNDAMENTAIS
+
+   - Não levar para o pessoal
+   - Cliente está irritado com situação, não com você
+   - Objetivo: resolver problema, não "ganhar" discussão
+   - Empatia genuína
+   - Manter calma
+
+2. TÉCNICAS DE DESESCALAÇÃO
+
+   a) Escuta Ativa
+      - Deixar cliente desabafar
+      - Não interromper
+      - Demonstrar que está ouvindo
+      - Resumir o que entendeu
+   
+   b) Validação
+      - Reconhecer frustração
+      - Validar sentimentos (sem admitir culpa se não houver)
+      - Frases poderosas
+   
+   c) Empatia
+      - Demonstrar compreensão
+      - Colocar-se no lugar do cliente
+      - Tom de voz (se telefone)
+   
+   d) Foco em Solução
+      - Mudar foco de problema para solução
+      - Perguntas que direcionam
+      - Opções de resolução
+
+3. SCRIPTS POR SITUAÇÃO
+
+   a) Cliente Gritando/Ofendendo
+      - O que fazer
+      - O que dizer
+      - Quando pausar conversa
+      - Como retomar
+   
+   b) Cliente Exigindo Algo Impossível
+      - Como comunicar limites
+      - Alternativas a oferecer
+      - Script
+   
+   c) Cliente Repetindo Mesma Reclamação
+      - Como abordar
+      - Script
+      - Quando escalar
+   
+   d) Cliente Ameaçando (cancelar, processo, etc.)
+      - Como lidar
+      - Script
+      - Quando escalar urgentemente
+
+4. FRASES PODEROSAS
+
+   Frases que ajudam:
+   - "Entendo sua frustração..."
+   - "Você tem razão em estar..."
+   - "Vamos resolver isso juntos..."
+   - "O que posso fazer para..."
+   - "Vou fazer o possível para..."
+   - [Mais frases]
+
+   Frases a EVITAR:
+   - "Calma..."
+   - "Não foi nossa culpa..."
+   - "É política da empresa..."
+   - "Não posso fazer nada..."
+   - [Mais frases]
+
+5. PROCESSO PASSO A PASSO
+
+   1. Respirar e manter calma
+   2. Escutar completamente
+   3. Validar e demonstrar empatia
+   4. Resumir problema
+   5. Oferecer solução
+   6. Confirmar entendimento
+   7. Agir imediatamente
+   8. Follow-up
+
+6. QUANDO ESCALAR
+
+   Escalar imediatamente quando:
+   - Cliente ameaçando legalmente
+   - Cliente sendo abusivo com equipe
+   - Situação fora de controle
+   - Necessita autorização superior
+   - Cliente VIP com problema grave
+
+7. COMUNICAÇÃO POR CANAL
+
+   a) Telefone
+      - Tom de voz
+      - Pausas estratégicas
+      - Técnicas específicas
+   
+   b) Email/Chat
+      - Linguagem escrita
+      - Emojis (usar com cuidado)
+      - Formatação
+   
+   c) Presencial
+      - Linguagem corporal
+      - Espaço pessoal
+      - Quando chamar segurança
+
+8. PÓS-RESOLUÇÃO
+
+   - Follow-up obrigatório
+   - Verificar satisfação
+   - Aprender com situação
+   - Documentar para melhorias
+   - Cuidar da equipe (debriefing)
+
+9. CUIDADO COM A EQUIPE
+
+   - Como lidar com estresse
+   - Debriefing após situação difícil
+   - Suporte emocional
+   - Quando fazer pausa
+   - Recursos disponíveis
+
+10. CASOS ESPECÍFICOS
+
+    - Cliente com histórico de problemas
+    - Cliente que sempre reclama
+    - Cliente sob influência
+    - Cliente com necessidades especiais
+    - Situações extremas
+
+Inclua também:
+- Checklist de ação
+- Quando transferir para supervisor
+- Política de "firing" de clientes (se aplicável)
+- Métricas de sucesso
+- Treinamento recomendado
+

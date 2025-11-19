@@ -1,0 +1,55 @@
+PROMPT: Estratégia de Fusão e Aquisição (M&A)
+
+Você é um especialista em M&A. Crie framework que:
+- Identifique oportunidades
+- Avalie alvos
+- Estruture transação
+- Gerencie integração
+- Maximize valor
+
+Contexto:
+Tipo: [Comprador / Vendedor]
+Objetivo: [Crescimento / Sinergias / Mercado / Tecnologia]
+Tamanho: [Pequeno / Médio / Grande]
+
+Crie framework:
+
+1. ESTRATÉGIA
+   - Objetivos
+   - Critérios de alvo
+   - Tipo de transação
+   - Timing
+
+2. IDENTIFICAÇÃO E AVALIAÇÃO
+   - Sourcing
+   - Due diligence
+   - Valoração
+   - Sinergias
+   - Riscos
+
+3. NEGOCIAÇÃO
+   - Estrutura
+   - Preço
+   - Termos
+   - Condições
+   - Contrato
+
+4. INTEGRAÇÃO
+   - Planejamento
+   - Execução
+   - Cultura
+   - Sistemas
+   - Pessoas
+
+5. REALIZAÇÃO DE VALOR
+   - Sinergias
+   - Métricas
+   - Ajustes
+   - Sucesso
+
+Inclua também:
+- Template de análise
+- Checklist
+- Exemplos
+- Ferramentas
+

@@ -1,0 +1,188 @@
+PROMPT: Estratégia de Coleta de Feedback do Cliente
+
+Você é um especialista em coletar e usar feedback de clientes. Crie uma estratégia completa que:
+- Colete feedback em múltiplos momentos
+- Seja fácil para o cliente
+- Gere insights acionáveis
+- Melhore experiência
+- Feche o loop
+
+Contexto:
+Canais de coleta: [Email / In-app / Site / Pós-atendimento / etc.]
+Frequência: [Após cada interação / Periódica / Eventos específicos]
+Recursos: [Ferramentas / Orçamento]
+
+Crie estratégia completa:
+
+1. MOMENTOS DE COLETA
+
+   a) Pós-Atendimento
+      - Imediato (após resolução)
+      - Curto prazo (24-48h)
+      - Quando coletar
+      - O que perguntar
+   
+   b) Pós-Compra
+      - Após primeira compra
+      - Após uso inicial
+      - Após X dias
+      - O que perguntar
+   
+   c) Periódico
+      - Mensal/Trimestral
+      - Anual
+      - NPS regular
+      - O que perguntar
+   
+   d) Eventos Específicos
+      - Após cancelamento
+      - Após upgrade
+      - Após problema resolvido
+      - O que perguntar
+
+2. MÉTODOS DE COLETA
+
+   a) Pesquisas
+      - Email
+      - In-app
+      - Site
+      - SMS
+      - Tipos de perguntas
+   
+   b) Entrevistas
+      - Quando fazer
+      - Como recrutar
+      - Roteiro
+      - Frequência
+   
+   c) Grupos Focais
+      - Quando usar
+      - Como organizar
+      - Tópicos
+   
+   d) Feedback Espontâneo
+      - Como facilitar
+      - Onde coletar
+      - Como processar
+
+3. TIPOS DE FEEDBACK
+
+   a) Satisfação (CSAT)
+      - Quando usar
+      - Perguntas
+      - Escala
+      - Follow-up
+   
+   b) NPS (Net Promoter Score)
+      - Quando usar
+      - Pergunta
+      - Segmentação
+      - Ações por segmento
+   
+   c) Esforço (CES)
+      - Quando usar
+      - Perguntas
+      - Insights
+   
+   d) Feedback Qualitativo
+      - Perguntas abertas
+      - Quando usar
+      - Como analisar
+
+4. DESIGN DE PESQUISAS
+
+   Princípios:
+   - Curta e objetiva
+   - Linguagem simples
+   - Uma ideia por pergunta
+   - Ordem lógica
+   - Mobile-friendly
+   - Fácil de responder
+
+   Template de pesquisa:
+   - Introdução
+   - Perguntas principais (3-5)
+   - Pergunta aberta (1-2)
+   - Demografia (opcional)
+   - Agradecimento
+
+5. AUMENTAR TAXA DE RESPOSTA
+
+   - Timing ideal
+   - Assunto/título atraente
+   - Personalização
+   - Incentivos (se aplicável)
+   - Lembretes
+   - Facilidade
+   - Valor percebido
+
+6. ANÁLISE DE FEEDBACK
+
+   a) Quantitativo
+      - Métricas principais
+      - Tendências
+      - Segmentação
+      - Comparações
+      - Benchmarking
+   
+   b) Qualitativo
+      - Análise de texto
+      - Temas principais
+      - Sentimento
+      - Insights
+      - Citações poderosas
+
+7. AÇÕES BASEADAS EM FEEDBACK
+
+   a) Feedback Positivo
+      - Agradecimento
+      - Compartilhamento interno
+      - Uso em marketing
+      - Reconhecimento
+      - Pedido de referência
+   
+   b) Feedback Negativo
+      - Ação imediata
+      - Investigação
+      - Resolução
+      - Follow-up
+      - Aprendizado
+   
+   c) Feedback Neutro
+      - Entender melhor
+      - Converter em positivo
+      - Melhorias
+
+8. FECHAR O LOOP
+
+   - Como comunicar ações tomadas
+   - Transparência
+   - Agradecimento
+   - Atualizações
+   - Reconhecimento de contribuição
+
+9. FERRAMENTAS E TECNOLOGIA
+
+   - Ferramentas de pesquisa
+   - Plataformas de feedback
+   - Análise de texto
+   - Integrações
+   - Automações
+   - Dashboards
+
+10. CULTURA DE FEEDBACK
+
+    - Feedback como prioridade
+    - Todos ouvem feedback
+    - Ações baseadas em dados
+    - Melhorias contínuas
+    - Comunicação com clientes
+
+Inclua também:
+- Templates de pesquisas
+- Exemplos práticos
+- Checklist de coleta
+- Como priorizar ações
+- ROI de feedback
+- Erros comuns
+

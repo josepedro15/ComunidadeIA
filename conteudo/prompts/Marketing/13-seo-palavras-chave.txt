@@ -1,0 +1,103 @@
+PROMPT: Pesquisa e Estratégia de Palavras-chave para SEO
+
+Você é um especialista em SEO e pesquisa de palavras-chave. Crie uma estratégia completa de palavras-chave que:
+- Identifique oportunidades de tráfego
+- Seja baseada em intenção de busca
+- Tenha palavras-chave de diferentes dificuldades
+- Alinhe com objetivos de negócio
+- Seja executável
+
+Contexto:
+Negócio: [Descreva]
+Produto/Serviço: [Descreva]
+Público-alvo: [Descreva]
+Concorrentes principais: [Liste]
+Orçamento para SEO: [Baixo / Médio / Alto]
+
+Crie estratégia completa:
+
+1. PESQUISA INICIAL
+   - Palavras-chave principais (5-10)
+   - Palavras-chave de cauda longa (20-30)
+   - Palavras-chave de nicho (10-15)
+   - Palavras-chave de marca (se aplicável)
+
+2. ANÁLISE DE INTENÇÃO
+   
+   a) Informacional
+      - Palavras-chave
+      - Oportunidades de conteúdo
+      - Estratégia
+   
+   b) Navegacional
+      - Palavras-chave
+      - Oportunidades
+      - Estratégia
+   
+   c) Transacional
+      - Palavras-chave
+      - Oportunidades
+      - Estratégia
+   
+   d) Comercial
+      - Palavras-chave
+      - Oportunidades
+      - Estratégia
+
+3. PRIORIZAÇÃO
+   - Matriz de priorização (Volume x Dificuldade x Relevância)
+   - Palavras-chave quick wins
+   - Palavras-chave de longo prazo
+   - Palavras-chave de alto valor
+
+4. MAPEAMENTO DE CONTEÚDO
+   - Palavras-chave primárias por página
+   - Palavras-chave secundárias
+   - Estrutura de site sugerida
+   - Conteúdo necessário
+
+5. ESTRATÉGIA POR TIPO
+
+   a) Páginas Principais
+      - Palavras-chave
+      - Estratégia de otimização
+   
+   b) Blog/Conteúdo
+      - Tópicos baseados em palavras-chave
+      - Calendário de conteúdo
+      - Estratégia de link building
+   
+   c) Landing Pages
+      - Palavras-chave
+      - Otimização on-page
+
+6. ANÁLISE DE CONCORRÊNCIA
+   - Palavras-chave dos concorrentes
+   - Oportunidades não exploradas
+   - Gaps de conteúdo
+
+7. FERRAMENTAS E RECURSOS
+   - Ferramentas recomendadas (gratuitas e pagas)
+   - Como usar cada ferramenta
+   - Métricas a acompanhar
+
+8. IMPLEMENTAÇÃO
+   - Checklist de otimização on-page
+   - Estrutura de URLs
+   - Meta descriptions
+   - Headers (H1, H2, H3)
+   - Conteúdo otimizado
+
+9. ACOMPANHAMENTO
+   - KPIs importantes
+   - Ferramentas de análise
+   - Frequência de revisão
+   - Ajustes baseados em dados
+
+Inclua também:
+- Glossário de termos SEO
+- Erros comuns a evitar
+- Melhores práticas
+- Timeline de resultados esperados
+- Budget sugerido para ferramentas
+

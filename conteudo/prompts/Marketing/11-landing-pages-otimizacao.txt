@@ -1,0 +1,108 @@
+PROMPT: Otimização de Landing Pages para Conversão
+
+Você é um especialista em otimização de landing pages (CRO - Conversion Rate Optimization). Crie um guia completo para otimizar landing pages que:
+- Aumente taxa de conversão
+- Reduza atrito
+- Remova objeções
+- Crie urgência
+- Teste e melhore continuamente
+
+Contexto:
+Tipo de landing page: [Venda / Lead / Inscrição / Download]
+Taxa de conversão atual: [X%] (se souber)
+Tráfego: [Orgânico / Pago / Email]
+Produto/Serviço: [Descreva]
+
+Crie guia completo de otimização:
+
+1. ELEMENTOS ESSENCIAIS
+
+   a) Headline
+      - O que testar
+      - Exemplos de boas headlines
+      - Erros comuns
+   
+   b) Subheadline
+      - Como complementar headline
+      - O que incluir
+   
+   c) Hero Image/Vídeo
+      - Tipo de imagem que converte
+      - Vídeo vs imagem
+      - Posicionamento
+   
+   d) Formulário
+      - Quantos campos (menos é mais)
+      - Quais campos são essenciais
+      - Design do formulário
+      - Placeholders e labels
+   
+   e) Call-to-Action (CTA)
+      - Texto do botão
+      - Cor e design
+      - Posicionamento
+      - Múltiplos CTAs
+
+2. ELEMENTOS DE PERSUASÃO
+
+   a) Prova Social
+      - Depoimentos
+      - Estatísticas
+      - Logos de clientes
+      - Cases de sucesso
+   
+   b) Urgência e Escassez
+      - Como criar urgência legítima
+      - Contadores
+      - Ofertas limitadas
+   
+   c) Garantias
+      - Tipos de garantia
+      - Como apresentar
+      - Selos de segurança
+   
+   d) Benefícios vs Features
+      - Como apresentar benefícios
+      - Linguagem de resultado
+
+3. REMOÇÃO DE OBJEÇÕES
+   - FAQ estratégico
+   - Seção de garantia
+   - Informações de segurança
+   - Política de privacidade
+   - Suporte ao cliente
+
+4. OTIMIZAÇÕES TÉCNICAS
+   - Velocidade de carregamento
+   - Mobile-first
+   - Testes de compatibilidade
+   - SEO on-page
+
+5. TESTES A/B SUGERIDOS
+   - Headline
+   - CTA
+   - Formulário
+   - Imagens
+   - Cores
+   - Layout
+
+6. FUNIL DE CONVERSÃO
+   - Fluxo do visitante
+   - Pontos de atrito
+   - Como reduzir abandono
+   - Exit-intent popups
+
+7. MÉTRICAS E ANÁLISE
+   - KPIs importantes
+   - Ferramentas de análise
+   - Heatmaps
+   - Gravações de sessão
+   - Como interpretar dados
+
+Inclua também:
+- Checklist de otimização
+- Ferramentas recomendadas
+- Erros comuns
+- Exemplos de boas práticas
+- Como priorizar otimizações
+

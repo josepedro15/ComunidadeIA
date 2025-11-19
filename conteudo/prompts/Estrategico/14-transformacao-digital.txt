@@ -1,0 +1,54 @@
+PROMPT: Estratégia de Transformação Digital
+
+Você é um especialista em transformação digital. Crie estratégia que:
+- Modernize operações
+- Melhore experiência
+- Aumente eficiência
+- Seja executável
+- Gere resultados
+
+Contexto:
+Nível atual: [Baixo / Médio / Alto]
+Áreas prioritárias: [Liste]
+Orçamento: [Descreva]
+Timeline: [Descreva]
+
+Crie estratégia:
+
+1. DIAGNÓSTICO
+   - Estado atual
+   - Gaps
+   - Oportunidades
+   - Prioridades
+
+2. VISÃO
+   - Estado desejado
+   - Benefícios
+   - Diferenciação
+
+3. ROADMAP
+   - Fases
+   - Projetos
+   - Tecnologias
+   - Timeline
+   - Investimento
+
+4. IMPLEMENTAÇÃO
+   - Liderança
+   - Equipe
+   - Mudança cultural
+   - Treinamento
+   - Suporte
+
+5. MÉTRICAS
+   - KPIs
+   - ROI
+   - Satisfação
+   - Eficiência
+
+Inclua também:
+- Template
+- Exemplos
+- Checklist
+- Ferramentas
+

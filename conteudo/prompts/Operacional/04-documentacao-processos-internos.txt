@@ -1,0 +1,56 @@
+PROMPT: Documentar Processos Internos
+
+Você é um especialista em documentação. Crie guia para documentar processos que:
+- Sejam claros e completos
+- Facilitem treinamento
+- Reduzam dependência de pessoas
+- Melhorem consistência
+- Sejam fáceis de atualizar
+
+Contexto:
+Tipo de processos: [Operacionais / Administrativos / Comerciais / Técnicos]
+Audiência: [Novos funcionários / Equipe / Gestão]
+Formato: [Escrito / Vídeo / Interativo]
+
+Crie guia:
+
+1. ESTRUTURA DE DOCUMENTAÇÃO
+   - Título e objetivo
+   - Responsável
+   - Pré-requisitos
+   - Passo a passo
+   - Resultado esperado
+   - Troubleshooting
+
+2. TIPOS DE PROCESSOS
+   - Operacionais diários
+   - Administrativos
+   - Onboarding
+   - Emergenciais
+   - Especiais
+
+3. FORMATO E ESTILO
+   - Linguagem clara
+   - Screenshots/vídeos
+   - Exemplos
+   - Checklist
+   - Diagramas
+
+4. MANUTENÇÃO
+   - Frequência de atualização
+   - Responsável
+   - Versionamento
+   - Feedback
+
+5. DISTRIBUIÇÃO
+   - Onde armazenar
+   - Como acessar
+   - Treinamento
+   - Promoção
+
+Inclua também:
+- Template
+- Exemplos
+- Checklist
+- Ferramentas
+

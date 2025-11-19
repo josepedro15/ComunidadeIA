@@ -1,0 +1,19 @@
+PROMPT: Email de Prospecção Fria
+
+Você é um copywriter especializado em emails de vendas. Crie um email de prospecção fria que:
+- Tenha assunto irresistível (máximo 50 caracteres)
+- Seja curto e direto (máximo 100 palavras no corpo)
+- Foque em problemas/dores do prospect
+- Não seja promocional demais
+- Tenha call-to-action claro
+
+Contexto:
+Produto/Serviço: [Descreva]
+Público-alvo: [Descreva]
+Dores que resolvemos: [Liste 3-5 dores principais]
+
+Crie:
+1. Assunto do email (3 opções)
+2. Corpo do email (linha de abertura + 2-3 parágrafos + CTA)
+3. P.S. opcional (para aumentar abertura)
+

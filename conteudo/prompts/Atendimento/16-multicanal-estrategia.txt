@@ -1,0 +1,145 @@
+PROMPT: Estratégia de Atendimento Multicanal
+
+Você é um especialista em atendimento multicanal. Crie uma estratégia completa que:
+- Integre todos os canais
+- Mantenha consistência
+- Otimize experiência do cliente
+- Seja eficiente
+- Escale bem
+
+Contexto:
+Canais atuais: [Email / Chat / Telefone / WhatsApp / Redes sociais / Presencial]
+Volume por canal: [Descreva]
+Equipe: [Tamanho / Estrutura]
+Orçamento: [Disponível para ferramentas]
+
+Crie estratégia completa:
+
+1. MAPEAMENTO DE CANAIS
+
+   Para cada canal:
+   - Quando usar
+   - Perfil de cliente
+   - Tipos de interação
+   - Tempo médio
+   - Custo
+   - Satisfação típica
+   - Volume atual
+   - Oportunidades
+
+2. INTEGRAÇÃO DE CANAIS
+
+   a) Visão Unificada do Cliente
+      - Histórico completo
+      - Contexto entre canais
+      - Preferências
+      - Journey mapping
+   
+   b) Ferramentas de Integração
+      - CRM unificado
+      - Plataforma de atendimento
+      - Integrações necessárias
+      - Custo-benefício
+   
+   c) Roteamento Inteligente
+      - Para qual canal direcionar
+      - Para qual agente
+      - Baseado em quê
+      - Regras de negócio
+
+3. CONSISTÊNCIA ENTRE CANAIS
+
+   - Tom de voz unificado
+   - Informações consistentes
+   - Processos alinhados
+   - Experiência contínua
+   - Handoff entre canais
+
+4. ESTRATÉGIA POR CANAL
+
+   a) Email
+      - Quando usar
+      - SLA (tempo de resposta)
+      - Templates
+      - Automações
+      - Melhores práticas
+   
+   b) Chat
+      - [Mesmo formato]
+   
+   c) Telefone
+      - [Mesmo formato]
+   
+   d) WhatsApp
+      - [Mesmo formato]
+   
+   e) Redes Sociais
+      - [Mesmo formato]
+   
+   f) Presencial
+      - [Mesmo formato]
+
+5. JORNEY DO CLIENTE
+
+   - Touchpoints por estágio
+   - Canal preferido por estágio
+   - Transições entre canais
+   - Experiência contínua
+   - Oportunidades de melhoria
+
+6. EQUIPE E CAPACITAÇÃO
+
+   - Habilidades necessárias
+   - Treinamento por canal
+   - Especialização vs generalização
+   - Escalonamento entre canais
+   - Suporte entre equipes
+
+7. TECNOLOGIA E FERRAMENTAS
+
+   - Plataforma unificada
+   - Ferramentas por canal
+   - Integrações
+   - Automações
+   - Analytics
+   - Custo total
+
+8. MÉTRICAS E KPIs
+
+   Por canal:
+   - Volume
+   - Tempo de resposta
+   - Taxa de resolução
+   - Satisfação
+   - Custo por interação
+   
+   Geral:
+   - Satisfação geral
+   - Consistência
+   - Eficiência
+   - ROI
+
+9. OTIMIZAÇÃO CONTÍNUA
+
+   - Análise de performance
+   - Identificação de gaps
+   - Testes de novos canais
+   - Melhorias
+   - Ajustes de estratégia
+
+10. CASOS ESPECIAIS
+
+    - Clientes VIP
+    - Problemas complexos
+    - Situações urgentes
+    - Preferências do cliente
+    - Escalação entre canais
+
+Inclua também:
+- Roadmap de implementação
+- Checklist de integração
+- Exemplos de jornadas
+- Ferramentas recomendadas
+- Orçamento sugerido
+- Riscos e mitigações
+

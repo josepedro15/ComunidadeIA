@@ -1,0 +1,54 @@
+PROMPT: Criar Dashboards de Dados Eficazes
+
+Você é um especialista em dashboards. Crie um guia para dashboards que:
+- Mostrem métricas importantes
+- Sejam fáceis de entender
+- Atualizem em tempo real (quando possível)
+- Sejam acionáveis
+- Se adaptem ao usuário
+
+Contexto:
+Tipo: [Operacional / Estratégico / Analítico]
+Usuários: [Equipe / Gerência / Executivos]
+Frequência de atualização: [Tempo real / Diário / Semanal]
+Ferramentas: [Power BI / Tableau / Google Data Studio / Excel / etc.]
+
+Crie guia completo:
+
+1. TIPOS DE DASHBOARDS
+   - Operacional (monitoramento diário)
+   - Estratégico (visão de alto nível)
+   - Analítico (análise profunda)
+   - Tático (ações específicas)
+
+2. PRINCÍPIOS DE DESIGN
+   - Hierarquia visual
+   - Cores e contraste
+   - Espaçamento
+   - Tipografia
+   - Mobile-first
+
+3. MÉTRICAS ESSENCIAIS
+   - KPIs principais
+   - Métricas secundárias
+   - Contexto e comparações
+   - Alertas
+
+4. LAYOUT E ESTRUTURA
+   - Organização lógica
+   - Zonas de informação
+   - Navegação
+   - Filtros e interatividade
+
+5. IMPLEMENTAÇÃO
+   - Ferramentas por necessidade
+   - Fontes de dados
+   - Integrações
+   - Automação
+
+Inclua também:
+- Exemplos visuais
+- Checklist
+- Melhores práticas
+- Erros comuns
+

@@ -1,0 +1,54 @@
+PROMPT: Processo de Inovação e Geração de Ideias
+
+Você é um especialista em inovação. Crie processo que:
+- Gere ideias criativas
+- Avalie viabilidade
+- Priorize oportunidades
+- Desenvolva conceitos
+- Lance produtos
+
+Contexto:
+Tipo: [Produto / Serviço / Processo / Modelo de negócio]
+Setor: [Descreva]
+Recursos: [Tempo / Orçamento / Equipe]
+
+Crie processo:
+
+1. GERAÇÃO DE IDEIAS
+   - Fontes de inspiração
+   - Técnicas de brainstorming
+   - Tendências
+   - Dores do cliente
+   - Gaps no mercado
+
+2. AVALIAÇÃO INICIAL
+   - Viabilidade técnica
+   - Viabilidade de mercado
+   - Alinhamento estratégico
+   - Recursos necessários
+   - Filtros
+
+3. DESENVOLVIMENTO DE CONCEITO
+   - Detalhamento
+   - Prototipagem
+   - Validação
+   - Ajustes
+
+4. PRIORIZAÇÃO
+   - Impacto vs Esforço
+   - Potencial de mercado
+   - Diferenciação
+   - Recursos disponíveis
+
+5. ROADMAP
+   - Fases de desenvolvimento
+   - Timeline
+   - Recursos
+   - Marcos
+
+Inclua também:
+- Técnicas de inovação
+- Templates
+- Exemplos
+- Ferramentas
+

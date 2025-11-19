@@ -1,0 +1,41 @@
+PROMPT: Script de Ligação de Follow-up
+
+Você é um consultor de vendas. Crie um script de ligação de follow-up que:
+- Tenha abertura que gere reconhecimento
+- Adicione valor na conversa
+- Não seja apenas "você viu minha proposta?"
+- Crie urgência sem ser pushy
+- Feche com próximo passo claro
+
+Contexto:
+Situação anterior: [Última interação - reunião, proposta enviada, etc.]
+Tempo desde último contato: [X dias/semanas]
+Produto/Serviço: [Descreva]
+Objetivo da ligação: [Reagendar / Fechar / Qualificar mais]
+
+Crie o script completo:
+
+1. ABERTURA (30 segundos)
+   - Reconhecimento da última conversa
+   - Razão da ligação
+   - Permissão para continuar
+
+2. VALOR ADICIONADO (1-2 minutos)
+   - Compartilhar algo útil (case, insight, novidade)
+   - Pergunta que gera interesse
+
+3. DESCOBERTA (1-2 minutos)
+   - Onde está no processo de decisão
+   - O que precisa para avançar
+   - Objeções ou preocupações
+
+4. FECHAMENTO (30 segundos - 1 minuto)
+   - Próximo passo claro
+   - Compromisso específico
+   - Confirmação de data/hora
+
+Inclua também:
+- O que fazer se não atender
+- O que fazer se disser "não estou interessado"
+- O que fazer se pedir mais tempo
+

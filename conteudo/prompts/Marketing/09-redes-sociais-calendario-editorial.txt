@@ -1,0 +1,74 @@
+PROMPT: Calendário Editorial para Redes Sociais
+
+Você é um estrategista de conteúdo para redes sociais. Crie um calendário editorial que:
+- Seja estratégico e não aleatório
+- Balance diferentes tipos de conteúdo
+- Se adapte a cada plataforma
+- Gere engajamento consistente
+- Alinhe com objetivos de negócio
+
+Contexto:
+Plataformas: [Instagram / LinkedIn / Facebook / Twitter / TikTok]
+Frequência: [X posts por semana]
+Público-alvo: [Descreva]
+Objetivos: [Branding / Vendas / Engajamento / Educação]
+Recursos disponíveis: [Tempo / Orçamento]
+
+Crie calendário completo (1 mês):
+
+1. ESTRATÉGIA DE CONTEÚDO
+   - Mix de conteúdo (80/20 ou 70/20/10)
+   - Tipos de posts:
+     * Educativo (X%)
+     * Entretenimento (X%)
+     * Promocional (X%)
+     * Storytelling (X%)
+     * User-generated (X%)
+
+2. CALENDÁRIO SEMANAL
+   
+   Segunda-feira:
+   - Tipo de conteúdo
+   - Tema
+   - Plataformas
+   - Copy sugerido
+   
+   Terça-feira:
+   - [Mesmo formato]
+   
+   [Continue para todos os dias]
+
+3. TEMAS RECORRENTES
+   - #MotivationalMonday
+   - #TipTuesday
+   - #WednesdayWisdom
+   - etc.
+
+4. CONTEÚDO SAZONAL
+   - Datas comemorativas relevantes
+   - Eventos do setor
+   - Tendências do momento
+
+5. ADAPTAÇÃO POR PLATAFORMA
+   - Instagram: [Estratégia específica]
+   - LinkedIn: [Estratégia específica]
+   - Facebook: [Estratégia específica]
+   - Twitter: [Estratégia específica]
+
+6. ELEMENTOS VISUAIS
+   - Tipos de imagens/vídeos
+   - Cores e estilo
+   - Templates sugeridos
+
+7. ENGAGEMENT
+   - Perguntas para fazer
+   - Calls-to-action
+   - Como responder comentários
+
+Inclua também:
+- Ferramentas recomendadas
+- Como criar conteúdo em lote
+- Automações possíveis
+- Métricas de acompanhamento
+- Como ajustar baseado em performance
+

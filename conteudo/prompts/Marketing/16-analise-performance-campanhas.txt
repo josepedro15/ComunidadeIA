@@ -1,0 +1,150 @@
+PROMPT: Análise de Performance de Campanhas de Marketing
+
+Você é um analista de marketing digital. Crie um framework completo para analisar performance de campanhas que:
+- Meça o que importa
+- Identifique oportunidades de melhoria
+- Seja fácil de entender
+- Gere insights acionáveis
+- Conecte métricas com resultados de negócio
+
+Contexto:
+Tipo de campanha: [Email / Redes sociais / Google Ads / Facebook Ads / Conteúdo]
+Objetivo: [Vendas / Leads / Engajamento / Branding]
+Período: [X dias/semanas]
+Orçamento: [Se aplicável]
+
+Crie framework completo:
+
+1. MÉTRICAS ESSENCIAIS POR CANAL
+
+   a) Email Marketing
+      - Taxa de abertura (Open Rate)
+      - Taxa de clique (CTR)
+      - Taxa de conversão
+      - Taxa de descadastro
+      - Revenue por email
+      - ROI
+   
+   b) Redes Sociais
+      - Alcance (Reach)
+      - Impressões
+      - Engajamento (likes, comentários, shares)
+      - Taxa de engajamento
+      - Seguidores ganhos
+      - Cliques no link
+      - Conversões
+   
+   c) Google Ads
+      - Impressões
+      - Cliques (Clicks)
+      - CTR
+      - CPC (Custo por Clique)
+      - Conversões
+      - CPA (Custo por Aquisição)
+      - ROAS (Return on Ad Spend)
+   
+   d) Facebook/Instagram Ads
+      - Alcance
+      - Impressões
+      - Cliques
+      - CTR
+      - CPC
+      - Conversões
+      - CPA
+      - ROAS
+   
+   e) Conteúdo/SEO
+      - Tráfego orgânico
+      - Palavras-chave rankeadas
+      - Taxa de conversão
+      - Tempo na página
+      - Taxa de rejeição
+      - Backlinks ganhos
+
+2. MÉTRICAS DE FUNIL
+
+   a) Topo do Funil (Awareness)
+      - Alcance
+      - Impressões
+      - Brand awareness
+   
+   b) Meio do Funil (Consideration)
+      - Visitas ao site
+      - Tempo na página
+      - Páginas por sessão
+      - Retorno de visitantes
+   
+   c) Fundo do Funil (Conversion)
+      - Leads gerados
+      - Taxa de conversão
+      - Custo por lead
+      - Vendas
+      - ROI
+
+3. DASHBOARD DE PERFORMANCE
+
+   Crie estrutura de dashboard:
+   
+   - Resumo executivo (KPIs principais)
+   - Performance por canal
+   - Performance por campanha
+   - Tendências e comparações
+   - Alertas e anomalias
+
+4. ANÁLISE E INSIGHTS
+
+   a) O que está funcionando
+      - Campanhas de melhor performance
+      - Canais mais eficientes
+      - Conteúdo que converte
+      - Segmentos mais responsivos
+   
+   b) O que não está funcionando
+      - Campanhas abaixo da meta
+      - Canais ineficientes
+      - Conteúdo que não engaja
+      - Segmentos problemáticos
+   
+   c) Oportunidades
+      - Onde escalar
+      - Onde otimizar
+      - Onde testar
+      - Gaps identificados
+
+5. RELATÓRIO DE PERFORMANCE
+
+   Template de relatório:
+   
+   - Resumo executivo
+   - Métricas principais vs metas
+   - Performance por canal
+   - Análise de campanhas
+   - Insights e recomendações
+   - Próximos passos
+
+6. TESTES E OTIMIZAÇÕES
+   - Testes A/B realizados
+   - Resultados
+   - Aprendizados
+   - Otimizações implementadas
+   - Próximos testes
+
+7. ROI E ATRIBUIÇÃO
+   - Cálculo de ROI por canal
+   - Modelo de atribuição
+   - Lifetime Value (LTV)
+   - Payback period
+
+8. FERRAMENTAS E AUTOMAÇÃO
+   - Ferramentas recomendadas
+   - Dashboards automáticos
+   - Alertas configurados
+   - Integrações
+
+Inclua também:
+- Template de relatório
+- Frequência de análise recomendada
+- Como apresentar para stakeholders
+- Erros comuns na análise
+- Como priorizar otimizações
+

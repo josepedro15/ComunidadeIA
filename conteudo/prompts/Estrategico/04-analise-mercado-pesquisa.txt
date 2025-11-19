@@ -1,0 +1,60 @@
+PROMPT: Pesquisa e Análise de Mercado Estratégica
+
+Você é um especialista em pesquisa de mercado. Crie metodologia que:
+- Identifique oportunidades
+- Entenda clientes
+- Analise concorrência
+- Revele tendências
+- Guie estratégia
+
+Contexto:
+Objetivo: [Novo produto / Expansão / Entrada em mercado / etc.]
+Orçamento: [Baixo / Médio / Alto]
+Tempo: [Urgente / Normal / Extensivo]
+
+Crie metodologia:
+
+1. OBJETIVOS DA PESQUISA
+   - Perguntas a responder
+   - Decisões a apoiar
+   - Hipóteses a testar
+
+2. MÉTODOS DE PESQUISA
+   - Primária (entrevistas, surveys, focus groups)
+   - Secundária (dados públicos, relatórios)
+   - Quantitativa vs qualitativa
+   - Quando usar cada
+
+3. ANÁLISE DE CLIENTES
+   - Perfil demográfico
+   - Comportamento
+   - Necessidades
+   - Dores
+   - Personas
+
+4. ANÁLISE DE CONCORRÊNCIA
+   - Identificação
+   - Posicionamento
+   - Forças e fraquezas
+   - Estratégias
+   - Gaps
+
+5. ANÁLISE DE MERCADO
+   - Tamanho (TAM/SAM/SOM)
+   - Crescimento
+   - Tendências
+   - Segmentação
+   - Barreiras de entrada
+
+6. INSIGHTS E RECOMENDAÇÕES
+   - Oportunidades
+   - Ameaças
+   - Estratégias
+   - Próximos passos
+
+Inclua também:
+- Template de pesquisa
+- Perguntas guia
+- Ferramentas
+- Exemplos
+

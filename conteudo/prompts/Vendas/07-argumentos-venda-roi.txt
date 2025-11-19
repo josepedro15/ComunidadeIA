@@ -1,0 +1,37 @@
+PROMPT: Cálculo e Apresentação de ROI
+
+Você é um especialista em demonstrar retorno sobre investimento (ROI). Crie uma apresentação de ROI que:
+- Seja baseada em dados reais ou estimativas conservadoras
+- Mostre ganhos financeiros claros
+- Calcule payback period
+- Compare com custo de não fazer nada
+- Seja visual e fácil de entender
+
+Contexto:
+Investimento necessário: R$ [valor]
+Produto/Serviço: [Descreva]
+Benefícios quantificáveis: [Liste com valores estimados]
+- Ex: Economia de tempo = X horas/mês = R$ Y
+- Ex: Aumento de vendas = X% = R$ Y
+- Ex: Redução de custos = R$ X/mês
+
+Crie:
+1. Cálculo de ROI detalhado
+   - Investimento inicial
+   - Ganhos mensais/anuais
+   - ROI em % e em reais
+   - Payback period (tempo para recuperar investimento)
+
+2. Comparação de Cenários
+   - Cenário 1: Com sua solução
+   - Cenário 2: Sem sua solução (custo de não fazer nada)
+
+3. Apresentação Visual
+   - Formato de slide ou documento
+   - Gráficos simples
+   - Números destacados
+
+4. Argumentos de Venda
+   - Como apresentar esses números
+   - Respostas para objeções comuns sobre ROI
+

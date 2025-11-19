@@ -1,0 +1,49 @@
+PROMPT: Como Lidar com Objeção de Preço
+
+Você é um especialista em superar objeções de preço. Crie estratégias e scripts para lidar com objeções de preço que:
+- Não desvalorizem seu produto
+- Mostrem valor antes de falar de preço
+- Usem diferentes técnicas conforme a situação
+- Preservem o relacionamento
+- Fechem a venda quando possível
+
+Contexto:
+Produto/Serviço: [Descreva]
+Preço: R$ [valor]
+Investimento médio do mercado: [Se souber]
+Principais concorrentes e preços: [Se souber]
+
+Crie estratégias para diferentes situações:
+
+1. "É MUITO CARO" (objeção genérica)
+   - Técnica: Reframing de valor
+   - Script completo
+   - Perguntas para descobrir o que "caro" significa
+
+2. "NÃO TENHO ORÇAMENTO" (sem dinheiro)
+   - Técnica: Descobrir se é falta de dinheiro ou prioridade
+   - Script completo
+   - Alternativas (parcelamento, menor investimento, etc.)
+
+3. "CONCORRENTE X É MAIS BARATO" (comparação)
+   - Técnica: Diferenciação de valor
+   - Script completo
+   - Comparação justa
+
+4. "PRECISO PENSAR POR CAUSA DO PREÇO" (timing)
+   - Técnica: Criar urgência com valor
+   - Script completo
+   - Ofertas de incentivo (se aplicável)
+
+5. "NÃO VALE ESSE INVESTIMENTO" (valor não percebido)
+   - Técnica: Reapresentar ROI
+   - Script completo
+   - Cálculo de ROI personalizado
+
+Para cada situação, inclua:
+- O que NÃO fazer
+- Perguntas poderosas
+- Script passo a passo
+- Quando oferecer desconto (se aplicável)
+- Como fechar após superar objeção
+

@@ -1,0 +1,65 @@
+PROMPT: Como Personalizar Propostas Comerciais
+
+Você é um consultor de vendas consultivas. Crie um guia para personalizar propostas comerciais que:
+- Mostrem que você entendeu o cliente
+- Destaquem relevância específica
+- Aumentem taxa de aceitação
+- Economizem tempo na criação
+- Mantenham qualidade profissional
+
+Contexto:
+Template base disponível: [Sim/Não]
+Tempo médio para criar proposta: [X horas]
+Volume de propostas: [X por mês]
+
+Crie um guia completo:
+
+1. INFORMAÇÕES A COLETAR ANTES
+   - Checklist de descoberta
+   - Perguntas essenciais
+   - Onde encontrar informações
+
+2. ELEMENTOS DE PERSONALIZAÇÃO
+   - O que SEMPRE personalizar
+   - O que pode ser template
+   - Nível de personalização por tipo de cliente
+
+3. PERSONALIZAÇÃO POR SEÇÃO
+   - Capa: [Como personalizar]
+   - Situação atual: [Como personalizar]
+   - Solução: [Como personalizar]
+   - Investimento: [Como personalizar]
+   - Próximos passos: [Como personalizar]
+
+4. USO DE CASES E PROVA SOCIAL
+   - Como escolher cases relevantes
+   - Como adaptar cases para o cliente
+   - Onde inserir na proposta
+
+5. LINGUAGEM E TOM
+   - Como adaptar linguagem ao cliente
+   - Tom formal vs informal
+   - Jargões do setor
+
+6. VALORES E BENEFÍCIOS
+   - Como destacar benefícios mais relevantes
+   - Como calcular ROI específico
+   - Como conectar com objetivos do cliente
+
+7. PROCESSO EFICIENTE
+   - Template base + personalização
+   - Checklist rápido
+   - Tempo estimado por seção
+   - Ferramentas recomendadas
+
+8. EXEMPLOS PRÁTICOS
+   - Exemplo 1: Cliente pequeno, proposta simples
+   - Exemplo 2: Cliente grande, proposta detalhada
+   - Exemplo 3: Proposta urgente, personalização mínima
+
+Inclua também:
+- Template de checklist de personalização
+- Script de perguntas para descoberta
+- Quando NÃO personalizar demais
+- Como balancear tempo vs personalização
+

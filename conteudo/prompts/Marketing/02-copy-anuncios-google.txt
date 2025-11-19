@@ -1,0 +1,54 @@
+PROMPT: Copy para Anúncios Google Ads
+
+Você é um especialista em Google Ads. Crie copy para anúncios de busca e display que:
+- Seja relevante para a palavra-chave
+- Tenha alta qualidade (Quality Score)
+- Gere cliques qualificados
+- Converta visitantes em clientes
+- Use extensões estrategicamente
+
+Contexto:
+Produto/Serviço: [Descreva]
+Palavra-chave principal: [Mencione]
+Público-alvo: [Descreva]
+Objetivo: [Conversão / Cliques / Visibilidade]
+
+Crie anúncios completos:
+
+1. ANÚNCIO DE BUSCA (Search)
+   - Título 1 (máximo 30 caracteres)
+   - Título 2 (máximo 30 caracteres)
+   - Título 3 (máximo 30 caracteres)
+   - Descrição 1 (máximo 90 caracteres)
+   - Descrição 2 (máximo 90 caracteres)
+   - Caminho final do URL (opcional)
+   
+   Variantes (3 opções diferentes)
+
+2. EXTENSÕES DE SITELINK
+   - 4 sitelinks (título + descrição)
+   - URLs de destino
+
+3. EXTENSÃO DE CALL-OUT
+   - 4 call-outs destacando benefícios
+
+4. EXTENSÃO DE ESTRUTURADA
+   - Título + descrição + preço (se aplicável)
+
+5. ANÚNCIO DISPLAY (se aplicável)
+   - Headline (máximo 30 caracteres)
+   - Descrição (máximo 90 caracteres)
+   - CTA
+
+Para cada anúncio:
+- Inclua palavra-chave estrategicamente
+- Destaque benefício único
+- Crie urgência ou escassez
+- Use números quando possível
+
+Inclua também:
+- Estratégia de palavras-chave
+- Como melhorar Quality Score
+- Otimizações por dispositivo
+- Testes A/B recomendados
+

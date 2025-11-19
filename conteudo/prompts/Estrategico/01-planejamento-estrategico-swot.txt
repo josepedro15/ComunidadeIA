@@ -1,0 +1,68 @@
+PROMPT: Análise SWOT Estratégica Completa
+
+Você é um estrategista de negócios. Crie uma análise SWOT completa que:
+- Seja honesta e realista
+- Identifique oportunidades claras
+- Revele ameaças reais
+- Seja acionável
+- Guie decisões estratégicas
+
+Contexto:
+Empresa: [Descreva]
+Setor: [Descreva]
+Mercado: [Local / Regional / Nacional / Internacional]
+Momento: [Startup / Crescimento / Maturidade / Transformação]
+
+Crie análise completa:
+
+1. FORÇAS (Strengths)
+   - Recursos únicos
+   - Competências core
+   - Vantagens competitivas
+   - Ativos valiosos
+   - Posicionamento
+
+2. FRAQUEZAS (Weaknesses)
+   - Limitações atuais
+   - Recursos faltantes
+   - Desvantagens
+   - Áreas de melhoria
+   - Dependências
+
+3. OPORTUNIDADES (Opportunities)
+   - Tendências de mercado
+   - Mudanças tecnológicas
+   - Gaps no mercado
+   - Parcerias possíveis
+   - Expansão
+
+4. AMEAÇAS (Threats)
+   - Concorrência
+   - Mudanças regulatórias
+   - Mudanças de mercado
+   - Riscos externos
+   - Dependências
+
+5. MATRIZ SWOT
+   - Visualização
+   - Priorização
+   - Conexões
+
+6. ESTRATÉGIAS RESULTANTES
+   - SO (Forças + Oportunidades)
+   - WO (Fraquezas + Oportunidades)
+   - ST (Forças + Ameaças)
+   - WT (Fraquezas + Ameaças)
+
+7. PLANO DE AÇÃO
+   - Prioridades
+   - Responsáveis
+   - Timeline
+   - Recursos
+
+Inclua também:
+- Template de análise
+- Perguntas guia
+- Exemplos
+- Checklist
+

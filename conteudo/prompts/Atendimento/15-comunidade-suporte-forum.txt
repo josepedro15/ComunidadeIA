@@ -1,0 +1,149 @@
+PROMPT: Criar Comunidade de Suporte (Fórum/Comunidade)
+
+Você é um especialista em comunidades de suporte. Crie uma estratégia completa para comunidade que:
+- Reduza carga de atendimento
+- Crie valor para membros
+- Construa conhecimento coletivo
+- Engaje usuários
+- Escale suporte
+
+Contexto:
+Produto/Serviço: [Descreva]
+Tipo de usuários: [Técnicos / Não-técnicos / Mistos]
+Volume de dúvidas: [X por dia/semana]
+Recursos: [Tempo / Orçamento / Equipe]
+
+Crie estratégia completa:
+
+1. OBJETIVOS DA COMUNIDADE
+
+   - Reduzir tickets de suporte
+   - Criar base de conhecimento
+   - Engajar usuários
+   - Construir defensores
+   - Co-criar soluções
+   - Feedback de produto
+
+2. PLATAFORMA E FERRAMENTAS
+
+   Opções:
+   - Fórum próprio
+   - Discord
+   - Slack
+   - Facebook Groups
+   - Reddit
+   - Plataforma dedicada
+   
+   Comparativo:
+   - Prós e contras
+   - Custo
+   - Facilidade de uso
+   - Recursos
+   - Recomendação
+
+3. ESTRUTURA DA COMUNIDADE
+
+   a) Categorias/Tópicos
+      - Por tipo de dúvida
+      - Por produto/feature
+      - Por nível (iniciante/avançado)
+      - Geral
+      - Feedback
+      - Off-topic
+   
+   b) Regras e Diretrizes
+      - Código de conduta
+      - O que é permitido
+      - Moderação
+      - Consequências
+   
+   c) Hierarquia/Modos
+      - Administradores
+      - Moderadores
+      - Membros VIP
+      - Novos membros
+      - Responsabilidades
+
+4. CONTEÚDO INICIAL
+
+   - FAQs principais
+   - Tutoriais básicos
+   - Guias
+   - Casos de uso
+   - Melhores práticas
+   - Recursos úteis
+
+5. ENGAJAMENTO E CRESCIMENTO
+
+   a) Onboarding de Novos Membros
+      - Boas-vindas
+      - Guia de uso
+      - Primeiros passos
+      - Incentivos
+   
+   b) Ativação
+      - Primeira pergunta
+      - Primeira resposta
+      - Participação em discussões
+      - Gamificação
+   
+   c) Retenção
+      - Conteúdo regular
+      - Discussões ativas
+      - Eventos
+      - Reconhecimento
+      - Benefícios exclusivos
+
+6. MODERAÇÃO
+
+   - Quem modera
+   - Frequência
+   - Diretrizes
+   - Ferramentas
+   - Escalação
+   - Transparência
+
+7. PROGRAMA DE MEMBROS VIP/EMBAIXADORES
+
+   - Critérios de seleção
+   - Benefícios
+   - Responsabilidades
+   - Reconhecimento
+   - Como crescer programa
+
+8. INTEGRAÇÃO COM SUPORTE
+
+   - Quando direcionar para comunidade
+   - Quando comunidade direciona para suporte
+   - Equipe participando
+   - Respostas oficiais
+   - Atualização de conhecimento
+
+9. MÉTRICAS E KPIs
+
+   - Membros ativos
+   - Perguntas/respostas
+   - Taxa de resolução
+   - Tempo médio de resposta
+   - Satisfação
+   - Redução de tickets
+   - Engajamento
+   - Crescimento
+
+10. MANUTENÇÃO E CRESCIMENTO
+
+    - Conteúdo regular
+    - Eventos e webinars
+    - Desafios
+    - Parcerias
+    - Marketing da comunidade
+    - Melhorias contínuas
+
+Inclua também:
+- Plano de lançamento
+- Checklist de setup
+- Templates de conteúdo
+- Exemplos de comunidades
+- Ferramentas recomendadas
+- Orçamento sugerido
+

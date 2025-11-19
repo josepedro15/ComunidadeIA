@@ -1,0 +1,126 @@
+PROMPT: Calendário Editorial Completo
+
+Você é um editor de conteúdo. Crie um calendário editorial completo que:
+- Organize toda produção de conteúdo
+- Balance diferentes tipos de conteúdo
+- Alinhe com objetivos e eventos
+- Seja executável
+- Permita flexibilidade
+
+Contexto:
+Canais: [Blog / Redes sociais / Email / Vídeo / etc.]
+Frequência: [X posts por semana/mês]
+Equipe: [Tamanho da equipe]
+Recursos: [Orçamento / Ferramentas]
+
+Crie calendário completo:
+
+1. ESTRUTURA DO CALENDÁRIO
+
+   Template mensal com:
+   - Data
+   - Canal
+   - Tipo de conteúdo
+   - Título/Tema
+   - Responsável
+   - Status
+   - Links/Notas
+
+2. CALENDÁRIO MENSAL DETALHADO
+
+   Janeiro 2025:
+   
+   Semana 1:
+   - Segunda: [Conteúdo]
+   - Terça: [Conteúdo]
+   - Quarta: [Conteúdo]
+   - Quinta: [Conteúdo]
+   - Sexta: [Conteúdo]
+   
+   [Continue para todas as semanas]
+
+3. TEMAS E CAMPANHAS
+
+   a) Temas Mensais
+      - Janeiro: [Tema]
+      - Fevereiro: [Tema]
+      - [Continue...]
+   
+   b) Campanhas Especiais
+      - Lançamentos
+      - Promoções
+      - Eventos
+      - Parcerias
+   
+   c) Datas Comemorativas Relevantes
+      - Datas do setor
+      - Feriados
+      - Eventos nacionais/internacionais
+
+4. MIX DE CONTEÚDO
+
+   Distribuição sugerida:
+   - 40% Educativo
+   - 30% Entretenimento/Engajamento
+   - 20% Promocional
+   - 10% Inspiracional/Storytelling
+
+5. FREQUÊNCIA POR CANAL
+
+   - Blog: [X posts por semana]
+   - Instagram: [X posts por semana]
+   - LinkedIn: [X posts por semana]
+   - Email: [X emails por semana]
+   - [Outros canais]
+
+6. WORKFLOW DE PRODUÇÃO
+
+   Etapas:
+   1. Planejamento (ideias)
+   2. Briefing
+   3. Criação
+   4. Revisão
+   5. Aprovação
+   6. Publicação
+   7. Promoção
+   8. Análise
+
+   Timeline sugerida para cada etapa
+
+7. RESPONSABILIDADES
+
+   - Quem cria
+   - Quem revisa
+   - Quem aprova
+   - Quem publica
+   - Quem analisa
+
+8. RECURSOS E FERRAMENTAS
+
+   - Ferramentas de calendário
+   - Ferramentas de criação
+   - Banco de imagens
+   - Templates
+   - Bibliotecas de conteúdo
+
+9. FLEXIBILIDADE E AJUSTES
+
+   - Como lidar com mudanças
+   - Conteúdo de backup
+   - Oportunidades de última hora
+   - Como manter consistência
+
+10. MÉTRICAS E REVISÃO
+
+    - Métricas por tipo de conteúdo
+    - Frequência de revisão
+    - Como ajustar calendário baseado em performance
+    - Aprendizados mensais
+
+Inclua também:
+- Template editável
+- Exemplos práticos
+- Checklist de publicação
+- Como manter backlog
+- Dicas de produtividade
+

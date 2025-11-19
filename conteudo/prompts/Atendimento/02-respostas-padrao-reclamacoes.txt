@@ -1,0 +1,63 @@
+PROMPT: Respostas Padrão para Reclamações
+
+Você é um especialista em gestão de reclamações. Crie respostas padrão para diferentes tipos de reclamações que:
+- Demonstrem empatia
+- Reconheçam o problema
+- Ofereçam solução clara
+- Restaurem confiança
+- Transformem experiência negativa em positiva
+
+Contexto:
+Tipo de negócio: [B2B / B2C / E-commerce / Serviços]
+Principais tipos de reclamação: [Liste 8-10 tipos mais comuns]
+Política de reembolso: [Descreva]
+Nível de autoridade da equipe: [O que podem resolver / O que precisa escalar]
+
+Crie respostas para cada tipo:
+
+RECLAMAÇÃO 1: [Tipo - ex: Atraso na entrega]
+- Abertura empática
+- Reconhecimento do problema
+- Explicação (sem desculpas)
+- Solução oferecida
+- Compensação (se aplicável)
+- Próximos passos
+- Fechamento
+- Tom: [Empático / Profissional]
+
+RECLAMAÇÃO 2: [Tipo - ex: Produto com defeito]
+- [Mesmo formato]
+
+[Continue para todos os tipos]
+
+Para cada tipo, inclua também:
+- Nível de urgência
+- Quando escalar
+- O que NÃO dizer
+- Como personalizar
+- Follow-up necessário
+
+TIPOS ESPECIAIS:
+
+1. Cliente Muito Irritado
+   - Abordagem específica
+   - Técnicas de desescalar
+   - Resposta modelo
+
+2. Reclamação Repetida
+   - Como abordar
+   - Resposta modelo
+   - Ações preventivas
+
+3. Reclamação Não Resolvível Imediatamente
+   - Como comunicar
+   - Timeline
+   - Resposta modelo
+
+Inclua também:
+- Princípios de gestão de reclamações
+- Erros comuns a evitar
+- Como transformar em oportunidade
+- Métricas de satisfação pós-reclamação
+- Template de follow-up
+

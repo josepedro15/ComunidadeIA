@@ -1,0 +1,181 @@
+PROMPT: Estratégia de Retenção e Prevenção de Churn
+
+Você é um especialista em retenção de clientes e prevenção de churn. Crie uma estratégia completa que:
+- Identifique clientes em risco
+- Prevenha cancelamentos
+- Aumente lifetime value
+- Melhore retenção
+- Seja proativa
+
+Contexto:
+Tipo de negócio: [Assinatura / Recorrente / Projeto]
+Ciclo de renovação: [Mensal / Trimestral / Anual]
+Taxa de churn atual: [Se souber]
+Principais razões de cancelamento: [Se souber]
+
+Crie estratégia completa:
+
+1. IDENTIFICAÇÃO DE CLIENTES EM RISCO
+
+   Sinais de alerta:
+   - Uso diminuindo
+   - Não acessa há X tempo
+   - Não responde contatos
+   - Reclamações recentes
+   - Busca por cancelamento no site
+   - Comparação com concorrentes
+   - Mudanças de comportamento
+   - [Outros específicos]
+
+   Score de risco:
+   - Como calcular
+   - Níveis (Baixo / Médio / Alto / Crítico)
+   - Ações por nível
+
+2. PROGRAMA DE RETENÇÃO
+
+   a) Prevenção (Clientes Saudáveis)
+      - Acompanhamento regular
+      - Valor contínuo
+      - Engajamento
+      - Comunidade
+   
+   b) Intervenção (Clientes em Risco)
+      - Contato proativo
+      - Investigação
+      - Solução de problemas
+      - Ofertas especiais (se aplicável)
+   
+   c) Recuperação (Clientes Cancelando)
+      - Última tentativa
+      - Ofertas de retenção
+      - Entender razão
+      - Processo de cancelamento
+
+3. RAZÕES COMUNS DE CHURN
+
+   Para cada razão, estratégia:
+   
+   a) Preço
+      - Como abordar
+      - Alternativas
+      - Valor vs preço
+      - Ofertas de retenção
+   
+   b) Não Está Usando
+      - Reengajamento
+      - Educação
+      - Onboarding melhorado
+      - Dicas de uso
+   
+   c) Problemas Técnicos
+      - Resolução rápida
+      - Compensação
+      - Melhorias
+   
+   d) Concorrência
+      - Diferenciação
+      - Valor único
+      - Comparação
+   
+   e) Mudança de Necessidades
+      - Adaptação
+      - Upsell/downgrade
+      - Novos recursos
+
+4. INTERVENÇÕES POR NÍVEL DE RISCO
+
+   Risco Baixo:
+   - Acompanhamento padrão
+   - Conteúdo de valor
+   - Engajamento leve
+   
+   Risco Médio:
+   - Contato proativo
+   - Pesquisa de satisfação
+   - Ofertas de valor
+   
+   Risco Alto:
+   - Ligação pessoal
+   - Investigação profunda
+   - Solução imediata
+   - Ofertas especiais
+   
+   Risco Crítico:
+   - Ação imediata
+   - Escalação
+   - Máxima flexibilidade
+   - Retenção agressiva
+
+5. OFERTAS DE RETENÇÃO
+
+   Quando oferecer:
+   - Cliente cancelando
+   - Cliente em risco alto
+   - Renovação próxima
+   
+   Tipos de ofertas:
+   - Desconto temporário
+   - Upgrade gratuito
+   - Período grátis
+   - Recursos adicionais
+   - Plano personalizado
+   
+   Como estruturar:
+   - Valor da oferta
+   - Condições
+   - Prazo
+   - Comunicação
+
+6. PROCESSO DE CANCELAMENTO
+
+   - Como tornar difícil (sem ser abusivo)
+   - Perguntas durante cancelamento
+   - Ofertas de retenção
+   - Processo simplificado (se realmente quer)
+   - Pesquisa de saída
+   - Reativação futura
+
+7. PROGRAMA DE FIDELIDADE
+
+   - Benefícios para clientes fiéis
+   - Descontos progressivos
+   - Recursos exclusivos
+   - Comunidade VIP
+   - Prioridade
+   - Reconhecimento
+
+8. MÉTRICAS E KPIs
+
+   - Taxa de churn (mensal, anual)
+   - Taxa de retenção
+   - Lifetime Value (LTV)
+   - CAC (Custo de Aquisição)
+   - LTV:CAC ratio
+   - Taxa de recuperação
+   - Tempo até churn
+   - Razões de churn
+
+9. AUTOMAÇÕES
+
+   - Alertas de risco
+   - Emails de reengajamento
+   - Notificações internas
+   - Workflows de retenção
+   - Acompanhamento automático
+
+10. CASOS ESPECIAIS
+
+    - Clientes VIP
+    - Primeiro ano
+    - Renovação anual
+    - Downgrade vs cancelamento
+    - Pausa temporária
+
+Inclua também:
+- Scripts de retenção
+- Templates de comunicação
+- Checklist de intervenção
+- Ferramentas recomendadas
+- Como calcular ROI de retenção
+

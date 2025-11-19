@@ -1,0 +1,55 @@
+PROMPT: Planos de Backup e Contingência
+
+Você é um especialista em continuidade de negócios. Crie planos que:
+- Protejam dados críticos
+- Garantam operação
+- Minimizem impacto
+- Sejam testados
+- Sejam atualizados
+
+Contexto:
+Tipo de negócio: [Descreva]
+Dados críticos: [Liste]
+Sistemas: [Liste]
+Riscos: [Desastres / Falhas técnicas / Humanos / etc.]
+
+Crie planos:
+
+1. BACKUP DE DADOS
+   - O que backup
+   - Frequência
+   - Métodos
+   - Armazenamento
+   - Testes de restauração
+
+2. CONTINGÊNCIA OPERACIONAL
+   - Cenários de risco
+   - Planos de resposta
+   - Recursos alternativos
+   - Comunicação
+   - Timeline de recuperação
+
+3. TESTES E MANUTENÇÃO
+   - Frequência de testes
+   - Cenários
+   - Ajustes
+   - Atualizações
+
+4. COMUNICAÇÃO DE CRISE
+   - Stakeholders
+   - Mensagens
+   - Canais
+   - Frequência
+
+5. RECUPERAÇÃO
+   - Processo
+   - Prioridades
+   - Recursos
+   - Validação
+
+Inclua também:
+- Checklist
+- Templates
+- Exemplos
+- Ferramentas
+

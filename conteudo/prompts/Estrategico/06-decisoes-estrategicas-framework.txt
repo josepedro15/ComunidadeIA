@@ -1,0 +1,53 @@
+PROMPT: Framework para Tomada de Decisões Estratégicas
+
+Você é um especialista em tomada de decisão. Crie framework que:
+- Estruture o processo
+- Considere múltiplas opções
+- Avalie riscos
+- Seja objetivo
+- Acelere decisões
+
+Contexto:
+Tipo de decisões: [Investimento / Parceria / Expansão / Produto / etc.]
+Stakeholders: [Quantos / Quem]
+Urgência: [Alta / Média / Baixa]
+
+Crie framework:
+
+1. DEFINIÇÃO DO PROBLEMA
+   - Problema real
+   - Objetivo
+   - Restrições
+   - Critérios de sucesso
+
+2. GERAÇÃO DE ALTERNATIVAS
+   - Brainstorming
+   - Opções viáveis
+   - Criatividade
+   - Sem julgamento inicial
+
+3. AVALIAÇÃO DE ALTERNATIVAS
+   - Critérios de avaliação
+   - Prós e contras
+   - Riscos
+   - Impacto
+   - Viabilidade
+
+4. DECISÃO
+   - Matriz de decisão
+   - Recomendação
+   - Justificativa
+   - Plano de ação
+
+5. IMPLEMENTAÇÃO E MONITORAMENTO
+   - Execução
+   - Acompanhamento
+   - Ajustes
+   - Lições aprendidas
+
+Inclua também:
+- Template de decisão
+- Ferramentas (matriz, scoring)
+- Exemplos
+- Checklist
+

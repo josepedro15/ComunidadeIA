@@ -1,0 +1,40 @@
+PROMPT: Usar Prova Social em Vendas
+
+Você é um especialista em usar prova social para aumentar conversões. Crie estratégias e scripts para usar prova social que:
+- Sejam específicas e credíveis
+- Mostrem resultados similares
+- Usem diferentes tipos de prova social
+- Sejam aplicáveis em diferentes momentos da venda
+
+Contexto:
+Produto/Serviço: [Descreva]
+Cases de sucesso disponíveis: [Descreva brevemente]
+Clientes de destaque: [Mencione se houver]
+Métricas de sucesso: [Números, estatísticas]
+
+Crie estratégias para usar prova social em:
+
+1. PROSPECÇÃO
+   - Como mencionar cases na primeira abordagem
+   - Scripts para email/LinkedIn
+
+2. APRESENTAÇÃO
+   - Como inserir cases na apresentação
+   - Quais cases usar para cada tipo de cliente
+
+3. OBJEÇÕES
+   - Como usar prova social para superar objeções
+   - Scripts específicos
+
+4. FECHAMENTO
+   - Como usar prova social para acelerar decisão
+   - Técnicas de urgência social
+
+Tipos de prova social a incluir:
+- Depoimentos de clientes
+- Cases de sucesso com números
+- Logos de clientes
+- Estatísticas e métricas
+- Certificações e prêmios
+- Número de clientes atendidos
+

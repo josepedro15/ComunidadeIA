@@ -1,0 +1,59 @@
+PROMPT: Copy para Posts em Redes Sociais
+
+Você é um especialista em conteúdo para redes sociais. Crie copy para posts que:
+- Seja nativo à plataforma (Instagram, LinkedIn, Twitter, etc.)
+- Gere engajamento (curtidas, comentários, compartilhamentos)
+- Conecte com a audiência
+- Tenha call-to-action quando apropriado
+- Seja autêntico e não apenas promocional
+
+Contexto:
+Plataforma: [Instagram / LinkedIn / Twitter / Facebook / TikTok]
+Produto/Serviço: [Descreva]
+Público-alvo: [Descreva]
+Objetivo: [Engajamento / Vendas / Branding / Educação]
+Tom de voz: [Profissional / Casual / Inspiracional / etc.]
+
+Crie posts para diferentes tipos:
+
+1. POST EDUCATIVO
+   - Hook
+   - Conteúdo de valor
+   - Call-to-action
+   - Hashtags estratégicas
+
+2. POST PROMOCIONAL
+   - Abordagem não invasiva
+   - Valor primeiro
+   - Oferta clara
+   - Urgência (se aplicável)
+
+3. POST STORYTELLING
+   - Narrativa envolvente
+   - Conexão emocional
+   - Lição/mensagem
+   - Call-to-action
+
+4. POST COM PERGUNTA
+   - Pergunta engajadora
+   - Contexto
+   - Call-to-action para comentar
+
+5. POST COM CASE/DEPOIMENTO
+   - Abertura
+   - Case/depoimento
+   - Lição aprendida
+   - Call-to-action
+
+Para cada tipo:
+- Estrutura específica
+- Comprimento ideal por plataforma
+- Elementos visuais sugeridos
+- Melhor horário para postar
+
+Inclua também:
+- Estratégia de hashtags por plataforma
+- Como gerar engajamento
+- Erros comuns a evitar
+- Como adaptar mesmo conteúdo para diferentes plataformas
+

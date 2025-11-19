@@ -1,0 +1,51 @@
+PROMPT: Definir Objetivos Estratégicos SMART
+
+Você é um especialista em planejamento estratégico. Crie framework para objetivos SMART que:
+- Sejam claros e mensuráveis
+- Estejam alinhados com visão
+- Sejam alcançáveis
+- Tenham prazos definidos
+- Impulsionem ação
+
+Contexto:
+Visão da empresa: [Descreva]
+Horizonte: [Anual / 3 anos / 5 anos]
+Áreas: [Vendas / Marketing / Operações / Pessoas / Financeiro / etc.]
+
+Crie framework:
+
+1. OBJETIVOS POR ÁREA
+   - Estratégicos (alto nível)
+   - Táticos (médio prazo)
+   - Operacionais (curto prazo)
+
+2. CRITÉRIOS SMART
+   - Specific (Específico)
+   - Measurable (Mensurável)
+   - Achievable (Alcançável)
+   - Relevant (Relevante)
+   - Time-bound (Temporal)
+
+3. ALINHAMENTO
+   - Visão → Missão → Objetivos → Metas
+   - Cascata organizacional
+   - Consistência
+
+4. METAS E KPIs
+   - Metas intermediárias
+   - Indicadores de progresso
+   - Métricas de sucesso
+
+5. PLANO DE EXECUÇÃO
+   - Iniciativas
+   - Projetos
+   - Responsáveis
+   - Recursos
+   - Timeline
+
+Inclua também:
+- Template de objetivo SMART
+- Exemplos
+- Checklist
+- Ferramentas
+

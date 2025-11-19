@@ -1,0 +1,176 @@
+PROMPT: Estratégia de Acompanhamento Pós-Venda
+
+Você é um especialista em pós-venda e retenção de clientes. Crie uma estratégia completa de acompanhamento pós-venda que:
+- Garanta satisfação do cliente
+- Identifique problemas cedo
+- Aumente retenção
+- Gere upsell/cross-sell
+- Crie defensores da marca
+
+Contexto:
+Tipo de produto/serviço: [Descreva]
+Ciclo de uso: [Uso único / Recorrente / Assinatura]
+Momento crítico: [Primeiros dias / Primeiro mês / Renovação]
+Canais: [Email / Telefone / App / Presencial]
+
+Crie estratégia completa:
+
+1. MOMENTOS DE CONTATO
+
+   a) Imediato (Dia 1)
+      - Confirmação de compra
+      - Informações importantes
+      - Próximos passos
+      - Suporte disponível
+   
+   b) Curto Prazo (Dia 3-7)
+      - Como está a experiência
+      - Dúvidas iniciais
+      - Primeiros resultados
+      - Dicas de uso
+   
+   c) Médio Prazo (Dia 14-30)
+      - Satisfação geral
+      - Problemas encontrados
+      - Otimizações
+      - Recursos adicionais
+   
+   d) Longo Prazo (Mensal/Trimestral)
+      - Check-in regular
+      - Novidades
+      - Upsell/cross-sell
+      - Renovação (se aplicável)
+
+2. TIPOS DE ACOMPANHAMENTO
+
+   a) Educativo
+      - Como usar melhor
+      - Dicas e truques
+      - Recursos disponíveis
+      - Webinars/tutoriais
+   
+   b) Verificação de Satisfação
+      - Pesquisas
+      - Chamadas
+      - Check-ins
+      - Identificação de problemas
+   
+   c) Proativo
+      - Antecipar necessidades
+      - Oferecer ajuda
+      - Sugerir melhorias
+      - Prevenir churn
+   
+   d) Comercial
+      - Upsell
+      - Cross-sell
+      - Renovação
+      - Referências
+
+3. SEQUÊNCIA DE EMAILS PÓS-VENDA
+
+   Email 1 (Dia 1): Confirmação e Boas-vindas
+   - Assunto
+   - Conteúdo
+   - CTA
+   
+   Email 2 (Dia 3): Primeiros Passos
+   - [Mesmo formato]
+   
+   Email 3 (Dia 7): Como Está?
+   - [Mesmo formato]
+   
+   Email 4 (Dia 14): Dicas Avançadas
+   - [Mesmo formato]
+   
+   Email 5 (Dia 30): Pesquisa de Satisfação
+   - [Mesmo formato]
+   
+   [Continue conforme necessário]
+
+4. LIGAÇÕES ESTRATÉGICAS
+
+   Quando ligar:
+   - Clientes de alto valor
+   - Primeira compra
+   - Problemas identificados
+   - Renovação próxima
+   - Clientes em risco
+
+   Script de ligação:
+   - Abertura
+   - Objetivo
+   - Perguntas
+   - Escuta
+   - Solução/Próximos passos
+   - Fechamento
+
+5. IDENTIFICAÇÃO DE PROBLEMAS
+
+   Sinais de alerta:
+   - Uso baixo/nulo
+   - Reclamações
+   - Não responde contatos
+   - Busca por cancelamento
+   - Comparação com concorrentes
+
+   Ações:
+   - Contato proativo
+   - Investigação
+   - Solução rápida
+   - Compensação (se necessário)
+
+6. PROGRAMA DE FIDELIDADE
+
+   - Benefícios para clientes fiéis
+   - Comunidade exclusiva
+   - Conteúdo premium
+   - Descontos
+   - Prioridade no suporte
+
+7. GERAÇÃO DE REFERÊNCIAS
+
+   Quando pedir:
+   - Cliente satisfeito
+   - Resultados positivos
+   - Momento certo
+
+   Como pedir:
+   - Abordagem
+   - Incentivos (se aplicável)
+   - Facilitação
+   - Agradecimento
+
+8. MÉTRICAS E KPIs
+
+   - Taxa de satisfação
+   - NPS (Net Promoter Score)
+   - Taxa de retenção
+   - Taxa de churn
+   - Lifetime Value
+   - Taxa de upsell
+   - Referências geradas
+
+9. AUTOMAÇÕES
+
+   - Emails automáticos
+   - Alertas de risco
+   - Notificações internas
+   - Atribuição de tarefas
+   - Follow-ups agendados
+
+10. CASOS ESPECIAIS
+
+    - Clientes VIP
+    - Primeira compra
+    - Renovação
+    - Cancelamento
+    - Reativação
+
+Inclua também:
+- Templates de comunicação
+- Checklist de acompanhamento
+- Ferramentas recomendadas
+- Erros comuns
+- Como escalar programa
+

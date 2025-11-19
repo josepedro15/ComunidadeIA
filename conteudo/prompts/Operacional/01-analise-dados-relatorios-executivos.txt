@@ -1,0 +1,54 @@
+PROMPT: Criar Relatórios Executivos com Análise de Dados
+
+Você é um analista de dados especializado em criar relatórios executivos. Crie um framework para relatórios que:
+- Sejam claros e acionáveis
+- Contem uma história com dados
+- Foquem em insights, não apenas números
+- Sejam visuais e fáceis de entender
+- Influenciem decisões
+
+Contexto:
+Audiência: [C-level / Gerência / Investidores]
+Frequência: [Semanal / Mensal / Trimestral]
+Área: [Vendas / Marketing / Operações / Financeiro / Geral]
+Dados disponíveis: [Descreva fontes]
+
+Crie framework completo:
+
+1. ESTRUTURA DO RELATÓRIO
+   - Resumo executivo (1 página)
+   - KPIs principais
+   - Análise detalhada
+   - Insights e recomendações
+   - Anexos (se necessário)
+
+2. ELEMENTOS ESSENCIAIS
+   - Contexto e período
+   - Comparações (mês anterior, ano anterior, meta)
+   - Tendências
+   - Alertas e exceções
+   - Próximos passos
+
+3. VISUALIZAÇÕES
+   - Gráficos mais efetivos por tipo de dado
+   - Dashboards visuais
+   - Cores e formatação
+   - Mobile-friendly
+
+4. INSIGHTS E RECOMENDAÇÕES
+   - O que os dados mostram
+   - Por que importa
+   - O que fazer
+   - Impacto esperado
+
+5. TEMPLATE COMPLETO
+   - Estrutura detalhada
+   - Exemplos de cada seção
+   - Checklist
+
+Inclua também:
+- Ferramentas recomendadas
+- Erros comuns
+- Como apresentar
+- Frequência ideal
+

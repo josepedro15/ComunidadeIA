@@ -1,0 +1,157 @@
+PROMPT: Criar Pesquisa de Satisfação Eficaz
+
+Você é um especialista em pesquisas de satisfação do cliente. Crie um guia completo para criar pesquisas que:
+- Sejam curtas e objetivas
+- Gerem respostas de qualidade
+- Forneçam insights acionáveis
+- Aumentem taxa de resposta
+- Melhorem experiência do cliente
+
+Contexto:
+Momento da pesquisa: [Após compra / Após suporte / Periódica / Cancelamento]
+Canal: [Email / SMS / In-app / Site]
+Frequência: [Uma vez / Recorrente]
+Objetivo: [Satisfação geral / NPS / CSAT / CES / Específico]
+
+Crie guia completo:
+
+1. TIPOS DE PESQUISAS
+
+   a) NPS (Net Promoter Score)
+      - Pergunta principal
+      - Escala 0-10
+      - Perguntas de follow-up
+      - Quando usar
+   
+   b) CSAT (Customer Satisfaction)
+      - Pergunta principal
+      - Escala
+      - Quando usar
+   
+   c) CES (Customer Effort Score)
+      - Pergunta principal
+      - Quando usar
+   
+   d) Pesquisa Customizada
+      - Quando criar
+      - Estrutura
+
+2. ESTRUTURA DA PESQUISA
+
+   a) Abertura
+      - Título
+      - Introdução
+      - Tempo estimado
+      - Por que é importante
+   
+   b) Perguntas Principais (3-5)
+      - Ordem lógica
+      - Tipos de perguntas
+      - Escalas
+   
+   c) Perguntas Abertas (1-2)
+      - O que perguntar
+      - Como formular
+   
+   d) Fechamento
+      - Agradecimento
+      - Próximos passos
+      - Contato
+
+3. PRINCÍPIOS DE BOAS PERGUNTAS
+
+   - Uma ideia por pergunta
+   - Linguagem simples
+   - Evitar viés
+   - Opções completas
+   - Ordem lógica
+   - Não muito longo
+
+4. TEMPLATE DE PESQUISA NPS
+
+   Pergunta 1: NPS
+   "Em uma escala de 0 a 10, qual a probabilidade de você recomendar [empresa/produto] para um amigo ou colega?"
+   
+   Pergunta 2: Por quê? (aberta)
+   "O que mais te agrada em [empresa/produto]?"
+   
+   Pergunta 3: Melhorias (aberta)
+   "O que poderíamos fazer para melhorar sua experiência?"
+
+5. TEMPLATE DE PESQUISA CSAT
+
+   Pergunta 1: Satisfação Geral
+   "Como você avalia sua satisfação geral com [produto/serviço]?"
+   [Muito insatisfeito / Insatisfeito / Neutro / Satisfeito / Muito satisfeito]
+   
+   Pergunta 2: Aspectos Específicos
+   "Avalie os seguintes aspectos:"
+   - Qualidade do produto
+   - Atendimento
+   - Valor pelo preço
+   - Facilidade de uso
+   [Escala para cada]
+   
+   Pergunta 3: Recomendação
+   "Você recomendaria para outros?"
+   [Sim / Não / Talvez]
+
+6. TIMING DA PESQUISA
+
+   - Quando enviar
+   - Frequência
+   - Momento do dia
+   - Após qual evento
+   - Evitar sobrecarga
+
+7. AUMENTAR TAXA DE RESPOSTA
+
+   - Assunto do email
+   - Personalização
+   - Incentivos (se aplicável)
+   - Lembrete (quando enviar)
+   - Facilidade de resposta
+   - Mobile-friendly
+
+8. ANÁLISE DE RESULTADOS
+
+   - Métricas principais
+   - Segmentação
+   - Tendências
+   - Comparações
+   - Insights acionáveis
+   - Ações baseadas em resultados
+
+9. FOLLOW-UP COM CLIENTES
+
+   a) Clientes Satisfeitos (Promotores)
+      - Agradecimento
+      - Pedido de referência
+      - Programa de fidelidade
+   
+   b) Clientes Neutros (Passivos)
+      - Entender melhor
+      - Melhorar experiência
+      - Converter em promotores
+   
+   c) Clientes Insatisfeitos (Detratores)
+      - Contato imediato
+      - Investigação
+      - Solução
+      - Recuperação
+
+10. FERRAMENTAS E PLATAFORMAS
+
+    - Ferramentas gratuitas
+    - Ferramentas pagas
+    - Integrações
+    - Automações
+    - Análise
+
+Inclua também:
+- Exemplos de pesquisas
+- Templates prontos
+- Checklist de criação
+- Erros comuns
+- Como agir com resultados
+

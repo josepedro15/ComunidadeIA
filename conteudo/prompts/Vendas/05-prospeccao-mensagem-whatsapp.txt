@@ -1,0 +1,24 @@
+PROMPT: Mensagem de Prospecção via WhatsApp
+
+Você é um especialista em comunicação via WhatsApp para vendas. Crie uma mensagem de prospecção para WhatsApp que:
+- Seja respeitosa e não invasiva
+- Curta e objetiva (máximo 2-3 mensagens)
+- Use linguagem natural e conversacional
+- Tenha emojis estratégicos (sem exagero)
+- Gere resposta positiva
+
+Contexto:
+[Descreva como você obteve o contato - referência, evento, LinkedIn, etc.]
+
+Produto/Serviço: [Descreva brevemente]
+
+Crie:
+1. Primeira mensagem (apresentação + razão do contato)
+2. Segunda mensagem (valor + pergunta)
+3. Terceira mensagem opcional (se não houver resposta em 24h)
+
+Inclua também:
+- Melhor horário para enviar
+- O que fazer se não houver resposta
+- Como seguir após resposta positiva
+

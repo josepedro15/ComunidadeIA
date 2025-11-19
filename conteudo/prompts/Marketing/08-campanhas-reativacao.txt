@@ -1,0 +1,85 @@
+PROMPT: Campanha de Reativação de Clientes
+
+Você é um especialista em reativar clientes inativos. Crie uma campanha de reativação que:
+- Identifique clientes reativáveis
+- Use diferentes abordagens
+- Ofereça valor, não apenas desconto
+- Preserve relacionamento
+- Reconquiste clientes
+
+Contexto:
+Tipo de cliente: [B2B / B2C]
+Tempo inativo: [X meses]
+Última compra: [Descreva]
+Produto/Serviço: [Descreva]
+Razão da inatividade: [Se souber]
+
+Crie campanha completa:
+
+1. SEGMENTAÇÃO
+   - Critérios para identificar reativáveis
+   - Segmentação por perfil
+   - Priorização
+
+2. CAMPANHA MULTICANAL
+
+   a) Email de Reativação
+      - Email 1: "Sentimos sua falta" + Oferta especial
+      - Email 2: "Novidades que você perdeu"
+      - Email 3: "Última chance" (se não respondeu)
+      
+   b) SMS/WhatsApp (se tiver permissão)
+      - Mensagem personalizada
+      - Oferta exclusiva
+      
+   c) Retargeting (se aplicável)
+      - Anúncios para visitantes do site
+      - Ofertas personalizadas
+
+3. ABORDAGENS DIFERENTES
+
+   Abordagem 1: Oferta Especial
+   - Desconto ou bônus
+   - Copy
+   - CTA
+   
+   Abordagem 2: Novidades
+   - O que mudou desde última compra
+   - Novos produtos/serviços
+   - Copy
+   - CTA
+   
+   Abordagem 3: Pesquisa
+   - Pedir feedback
+   - Entender razão da inatividade
+   - Copy
+   - CTA
+   
+   Abordagem 4: Valor Agregado
+   - Conteúdo educativo
+   - Dicas e insights
+   - Copy
+   - CTA
+
+4. SEQUÊNCIA DE REATIVAÇÃO
+   - Timing de cada email
+   - Espaçamento
+   - Quando parar
+
+5. SEGMENTAÇÃO ESPECIAL
+   - VIPs (maior valor histórico)
+   - Clientes frequentes que pararam
+   - Clientes de uma compra só
+
+Para cada abordagem:
+- Copy completo
+- Oferta sugerida
+- Canais recomendados
+- Métricas esperadas
+
+Inclua também:
+- Critérios de sucesso
+- Quando considerar cliente perdido
+- Estratégia de longo prazo
+- Como prevenir inatividade futura
+

@@ -1,0 +1,54 @@
+PROMPT: Processo de Revisão Estratégica Contínua
+
+Você é um estrategista. Crie processo de revisão que:
+- Monitore progresso
+- Identifique ajustes
+- Seja ágil
+- Envolva stakeholders
+- Mantenha estratégia relevante
+
+Contexto:
+Frequência: [Mensal / Trimestral / Semestral / Anual]
+Participantes: [Equipe / Liderança / Todos]
+Estratégia atual: [Descreva brevemente]
+
+Crie processo:
+
+1. PREPARAÇÃO
+   - Dados necessários
+   - Métricas
+   - Participantes
+   - Agenda
+
+2. REVISÃO
+   - Progresso vs metas
+   - Mudanças no ambiente
+   - Oportunidades
+   - Ameaças
+   - Aprendizados
+
+3. ANÁLISE
+   - O que está funcionando
+   - O que não está
+   - Por quê
+   - O que mudou
+
+4. AJUSTES
+   - Mudanças necessárias
+   - Prioridades
+   - Recursos
+   - Timeline
+
+5. COMUNICAÇÃO E EXECUÇÃO
+   - Comunicação
+   - Alinhamento
+   - Ações
+   - Acompanhamento
+
+Inclua também:
+- Template de revisão
+- Checklist
+- Exemplos
+- Ferramentas
+- Frequência recomendada
+

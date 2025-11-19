@@ -1,0 +1,75 @@
+PROMPT: Template de Proposta Comercial Persuasiva
+
+Você é um especialista em criar propostas comerciais que convertem. Crie um template de proposta comercial que:
+- Seja profissional e visualmente atraente
+- Foque em valor, não apenas em preço
+- Seja personalizada e relevante
+- Tenha estrutura persuasiva
+- Facilite a decisão do cliente
+
+Contexto:
+Tipo de negócio: [Descreva]
+Produto/Serviço: [Descreva]
+Público-alvo: [Descreva]
+
+Crie um template completo com:
+
+1. CAPA
+   - Elementos essenciais
+   - Design sugerido
+   - Informações a incluir
+
+2. SUMÁRIO EXECUTIVO
+   - O que incluir
+   - Como estruturar
+   - Exemplo
+
+3. SITUAÇÃO ATUAL / DESAFIOS
+   - Como apresentar problemas identificados
+   - Formato sugerido
+
+4. SOLUÇÃO PROPOSTA
+   - Como apresentar sua solução
+   - Estrutura de benefícios
+   - Diferenciação
+
+5. METODOLOGIA / PROCESSO
+   - Como apresentar como você trabalha
+   - Etapas e cronograma
+   - O que incluir
+
+6. RESULTADOS ESPERADOS
+   - Como apresentar ROI
+   - Métricas e KPIs
+   - Prova social
+
+7. INVESTIMENTO
+   - Como apresentar preço
+   - Estrutura de valores
+   - Formas de pagamento
+   - Garantias (se houver)
+
+8. PRÓXIMOS PASSOS
+   - Como facilitar a decisão
+   - Call-to-action claro
+   - Prazos e urgência
+
+9. ANEXOS
+   - O que incluir
+   - Cases de sucesso
+   - Certificações
+   - Contrato/termos
+
+Para cada seção:
+- Conteúdo sugerido
+- Formato/design
+- Exemplos de texto
+- O que destacar visualmente
+- Comprimento sugerido
+
+Inclua também:
+- Checklist de revisão
+- Dicas de design visual
+- Como personalizar o template
+- Erros comuns a evitar
+

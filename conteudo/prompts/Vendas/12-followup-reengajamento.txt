@@ -1,0 +1,47 @@
+PROMPT: Estratégia de Reengajamento de Leads Frios
+
+Você é um especialista em reativar leads que ficaram frios. Crie uma estratégia de reengajamento que:
+- Identifique leads que valem a pena reativar
+- Use diferentes abordagens e canais
+- Adicione valor novo
+- Não seja apenas "lembra de mim?"
+- Tenha critérios claros de quando parar
+
+Contexto:
+Tempo sem contato: [X meses]
+Última interação: [Descreva]
+Razão do esfriamento: [Se souber - orçamento, timing, etc.]
+Produto/Serviço: [Descreva]
+
+Crie uma estratégia completa:
+
+1. ANÁLISE E SEGMENTAÇÃO
+   - Critérios para identificar leads reativáveis
+   - Segmentação por perfil
+   - Priorização
+
+2. ABORDAGENS POR CANAL
+   - Email de reengajamento (3 opções diferentes)
+   - Mensagem LinkedIn
+   - Ligação (se aplicável)
+   - WhatsApp (se tiver contato)
+
+3. GATILHOS DE REATIVAÇÃO
+   - Novidades do produto
+   - Cases de sucesso recentes
+   - Ofertas especiais (se aplicável)
+   - Conteúdo educativo relevante
+
+4. SEQUÊNCIA DE REATIVAÇÃO
+   - Email 1: [Tema]
+   - Email 2: [Tema] (se não responder)
+   - Email 3: [Tema] (última tentativa)
+
+5. CRITÉRIOS DE PARADA
+   - Quando considerar lead perdido
+   - Quando manter em nutrição leve
+
+6. MÉTRICAS DE SUCESSO
+   - Taxa de resposta esperada
+   - Taxa de reativação
+

@@ -1,0 +1,127 @@
+PROMPT: Protocolo de Escalação de Problemas
+
+Você é um especialista em gestão de escalação de atendimento. Crie um protocolo completo de escalação que:
+- Identifique quando escalar
+- Defina níveis de escalação
+- Tenha processos claros
+- Seja eficiente
+- Mantenha cliente informado
+
+Contexto:
+Estrutura da equipe: [Descreva níveis/hierarquia]
+Tipos de problemas: [Técnicos / Comerciais / Financeiros / Reclamações]
+Autoridades por nível: [O que cada nível pode resolver]
+Canais: [Email / Chat / Telefone / Presencial]
+
+Crie protocolo completo:
+
+1. NÍVEIS DE ESCALAÇÃO
+
+   Nível 1: Atendimento Inicial
+   - Responsabilidades
+   - Tipos de problemas que resolve
+   - Quando escalar
+   - Tempo máximo de tentativa
+   
+   Nível 2: Especialista/Supervisor
+   - Responsabilidades
+   - Tipos de problemas que resolve
+   - Quando escalar
+   - Tempo máximo de tentativa
+   
+   Nível 3: Gerência
+   - Responsabilidades
+   - Tipos de problemas que resolve
+   - Quando escalar
+   
+   Nível 4: Diretoria (se aplicável)
+   - Responsabilidades
+   - Quando escalar
+
+2. CRITÉRIOS DE ESCALAÇÃO
+
+   Escalar quando:
+   - Problema fora do escopo
+   - Cliente insatisfeito após tentativas
+   - Problema técnico complexo
+   - Solicitação de desconto/reembolso acima do limite
+   - Cliente VIP
+   - Problema recorrente
+   - Urgência alta
+   - [Outros critérios específicos]
+
+3. PROCESSO DE ESCALAÇÃO
+
+   Passo a passo:
+   1. Identificar necessidade de escalação
+   2. Coletar informações necessárias
+   3. Documentar tentativas anteriores
+   4. Escalar com contexto completo
+   5. Informar cliente
+   6. Acompanhar resolução
+   7. Follow-up com cliente
+
+4. TEMPLATE DE ESCALAÇÃO
+
+   Para equipe (informações a incluir):
+   - ID do ticket/caso
+   - Cliente (nome, ID, histórico)
+   - Problema resumido
+   - Tentativas já realizadas
+   - Informações coletadas
+   - Urgência
+   - Prazo do cliente
+   - Por que precisa escalar
+   - Sugestão de solução (se tiver)
+
+5. COMUNICAÇÃO COM CLIENTE
+
+   Template de mensagem ao cliente:
+   - Reconhecimento
+   - O que foi feito até agora
+   - O que será feito
+   - Quem vai resolver
+   - Prazo esperado
+   - Como será contatado
+   - Contato para dúvidas
+
+6. TIPOS ESPECÍFICOS DE ESCALAÇÃO
+
+   a) Escalação Técnica
+      - Quando escalar
+      - Para quem
+      - Informações necessárias
+      - Processo
+   
+   b) Escalação Comercial
+      - [Mesmo formato]
+   
+   c) Escalação de Reclamação
+      - [Mesmo formato]
+   
+   d) Escalação Urgente
+      - [Mesmo formato]
+
+7. ACOMPANHAMENTO
+
+   - Como acompanhar caso escalado
+   - Prazos de resposta
+   - Quando cobrar atualização
+   - Como manter cliente informado
+   - Como fechar caso
+
+8. MÉTRICAS E MELHORIAS
+
+   - Métricas de escalação
+   - Taxa de escalação por tipo
+   - Tempo médio de resolução
+   - Como reduzir escalações
+   - Treinamento necessário
+
+Inclua também:
+- Checklist de escalação
+- Erros comuns
+- Como evitar escalações desnecessárias
+- Quando NÃO escalar
+- Ferramentas de gestão
+

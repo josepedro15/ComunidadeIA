@@ -1,0 +1,171 @@
+PROMPT: Estratégia de Marketing com Influenciadores
+
+Você é um especialista em marketing de influência. Crie uma estratégia completa que:
+- Identifique influenciadores relevantes
+- Crie parcerias mutuamente benéficas
+- Maximize ROI
+- Seja autêntica
+- Gere resultados mensuráveis
+
+Contexto:
+Produto/Serviço: [Descreva]
+Público-alvo: [Descreva]
+Orçamento: [Baixo / Médio / Alto]
+Objetivo: [Branding / Vendas / Engajamento / Alcance]
+Plataformas: [Instagram / YouTube / TikTok / LinkedIn / etc.]
+
+Crie estratégia completa:
+
+1. IDENTIFICAÇÃO DE INFLUENCIADORES
+
+   a) Critérios de Seleção
+      - Nicho/segmento
+      - Tamanho de audiência (micro, macro, mega)
+      - Taxa de engajamento
+      - Alinhamento de valores
+      - Qualidade do conteúdo
+      - Audiência (demografia, interesses)
+   
+   b) Onde Encontrar
+      - Ferramentas de busca
+      - Hashtags relevantes
+      - Análise de concorrentes
+      - Recomendações
+      - Agências
+
+2. TIPOS DE PARCERIAS
+
+   a) Post Patrocinado
+      - Quando usar
+      - Estrutura
+      - Expectativas
+      - Custo típico
+   
+   b) Product Seeding
+      - Quando usar
+      - Estrutura
+      - Expectativas
+      - Custo típico
+   
+   c) Affiliate/Comissão
+      - Quando usar
+      - Estrutura
+      - Expectativas
+      - Custo típico
+   
+   d) Colaboração de Conteúdo
+      - Quando usar
+      - Estrutura
+      - Expectativas
+      - Custo típico
+   
+   e) Takeover
+      - Quando usar
+      - Estrutura
+      - Expectativas
+      - Custo típico
+   
+   f) Evento/Experiência
+      - Quando usar
+      - Estrutura
+      - Expectativas
+      - Custo típico
+
+3. PROCESSO DE ABORDAGEM
+
+   a) Pesquisa Prévia
+      - Checklist de pesquisa
+      - O que verificar
+      - Red flags
+   
+   b) Primeiro Contato
+      - Email template
+      - Mensagem direta (DM)
+      - O que incluir
+      - O que evitar
+   
+   c) Negociação
+      - O que negociar
+      - Como estruturar acordo
+      - Contratos básicos
+      - Expectativas claras
+
+4. BRIEFING E DIRETRIZES
+
+   Template de briefing:
+   - Objetivo da parceria
+   - Mensagem principal
+   - Pontos obrigatórios
+   - Pontos a evitar
+   - Hashtags e menções
+   - Timeline
+   - Deliverables esperados
+   - Diretrizes de marca
+
+5. CAMPANHAS ESTRATÉGICAS
+
+   a) Campanha de Lançamento
+      - Estratégia
+      - Influenciadores ideais
+      - Timeline
+      - Métricas
+   
+   b) Campanha de Branding
+      - Estratégia
+      - Influenciadores ideais
+      - Timeline
+      - Métricas
+   
+   c) Campanha de Vendas
+      - Estratégia
+      - Influenciadores ideais
+      - Timeline
+      - Métricas
+
+6. MÉTRICAS E ROI
+
+   Métricas a acompanhar:
+   - Alcance
+   - Impressões
+   - Engajamento
+   - Cliques
+   - Conversões
+   - Vendas atribuídas
+   - CPM (Custo por Mil)
+   - ROI
+
+7. GESTÃO DE RELACIONAMENTOS
+
+   - Como manter relacionamento
+   - Parcerias de longo prazo
+   - Programa de embaixadores
+   - Comunidade de influenciadores
+
+8. LEGAL E ÉTICA
+
+   - Disclosures obrigatórios
+   - Contratos básicos
+   - Direitos de uso de conteúdo
+   - Ética em parcerias
+
+9. ORÇAMENTO E NEGOCIAÇÃO
+
+   - Faixas de preço típicas
+   - Como negociar
+   - O que oferecer além de dinheiro
+   - Como maximizar valor
+
+10. CASES E EXEMPLOS
+
+    - Exemplos de parcerias bem-sucedidas
+    - O que aprender
+    - Erros comuns
+    - Melhores práticas
+
+Inclua também:
+- Template de email de abordagem
+- Template de briefing
+- Checklist de seleção
+- Ferramentas recomendadas
+- Como escalar programa
+

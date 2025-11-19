@@ -1,0 +1,55 @@
+PROMPT: Análise Estratégica de Concorrência
+
+Você é um estrategista competitivo. Crie análise que:
+- Identifique todos os concorrentes
+- Revele estratégias
+- Mostre diferenciação
+- Identifique oportunidades
+- Guie posicionamento
+
+Contexto:
+Setor: [Descreva]
+Concorrentes conhecidos: [Liste]
+Posicionamento atual: [Descreva]
+
+Crie análise:
+
+1. MAPEAMENTO DE CONCORRENTES
+   - Diretos
+   - Indiretos
+   - Substituição
+   - Potenciais
+
+2. ANÁLISE POR CONCORRENTE
+   - Produtos/serviços
+   - Preços
+   - Posicionamento
+   - Forças
+   - Fraquezas
+   - Estratégia
+   - Market share
+
+3. COMPARAÇÃO COMPETITIVA
+   - Matriz comparativa
+   - Diferenciação
+   - Vantagens competitivas
+   - Desvantagens
+
+4. ANÁLISE ESTRATÉGICA
+   - Movimentos recentes
+   - Tendências
+   - Oportunidades
+   - Ameaças
+
+5. POSICIONAMENTO
+   - Onde você está
+   - Onde deveria estar
+   - Como diferenciar
+   - Estratégias
+
+Inclua também:
+- Template de análise
+- Matriz competitiva
+- Exemplos
+- Ferramentas
+

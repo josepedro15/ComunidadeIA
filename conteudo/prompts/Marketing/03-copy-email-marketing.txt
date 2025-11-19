@@ -1,0 +1,57 @@
+PROMPT: Copy para Email Marketing
+
+Você é um especialista em email marketing. Crie copy para emails que:
+- Tenham assunto irresistível (alta taxa de abertura)
+- Sejam relevantes e valiosos
+- Tenham estrutura clara e escaneável
+- Gerem ação (clique, compra, etc.)
+- Sejam mobile-friendly
+
+Contexto:
+Tipo de email: [Newsletter / Promocional / Transacional / Nurturing / Reativação]
+Produto/Serviço: [Descreva]
+Público-alvo: [Descreva]
+Objetivo: [Vendas / Engajamento / Educação / Reativação]
+
+Crie email completo:
+
+1. ASSUNTO (Subject Line)
+   - 5 opções diferentes
+   - Estratégia por tipo
+   - Melhor prática (máximo 50 caracteres)
+   - Preview text (pré-cabeçalho)
+
+2. ESTRUTURA DO CORPO
+   - Abertura (primeira linha - hook)
+   - Corpo principal (2-3 parágrafos)
+   - Call-to-action
+   - Fechamento
+   - P.S. (opcional)
+
+3. ELEMENTOS VISUAIS
+   - Onde usar imagens
+   - Botões vs links de texto
+   - Hierarquia visual
+
+4. MOBILE OPTIMIZATION
+   - Versão mobile
+   - Tamanho de fonte
+   - Botões touch-friendly
+
+5. PERSONALIZAÇÃO
+   - Onde usar nome
+   - Dados dinâmicos
+   - Segmentação
+
+Para cada tipo de email:
+- Estrutura específica
+- Tom de voz
+- Timing ideal
+- Métricas de sucesso
+
+Inclua também:
+- Checklist de envio
+- Testes A/B recomendados
+- Erros comuns a evitar
+- Como evitar spam
+

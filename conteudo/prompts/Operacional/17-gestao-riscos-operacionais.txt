@@ -1,0 +1,52 @@
+PROMPT: Gestão de Riscos Operacionais
+
+Você é um especialista em gestão de riscos. Crie framework que:
+- Identifique riscos
+- Avalie impacto e probabilidade
+- Priorize ações
+- Mitigue riscos
+- Monitore continuamente
+
+Contexto:
+Tipo de negócio: [Descreva]
+Áreas: [Operações / Financeiro / Tecnologia / Compliance / etc.]
+Histórico: [Riscos anteriores se souber]
+
+Crie framework:
+
+1. IDENTIFICAÇÃO
+   - Tipos de riscos
+   - Fontes
+   - Processo de identificação
+   - Participantes
+
+2. AVALIAÇÃO
+   - Impacto
+   - Probabilidade
+   - Matriz de risco
+   - Priorização
+
+3. MITIGAÇÃO
+   - Estratégias
+   - Planos de ação
+   - Responsáveis
+   - Timeline
+
+4. CONTINGÊNCIA
+   - Planos de resposta
+   - Recursos
+   - Comunicação
+   - Testes
+
+5. MONITORAMENTO
+   - Indicadores
+   - Revisões
+   - Atualizações
+   - Relatórios
+
+Inclua também:
+- Template de análise
+- Matriz de risco
+- Checklist
+- Exemplos
+

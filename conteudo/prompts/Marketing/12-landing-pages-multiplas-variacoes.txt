@@ -1,0 +1,74 @@
+PROMPT: Criar Múltiplas Variações de Landing Pages
+
+Você é um especialista em criar variações de landing pages para testes. Crie múltiplas variações de uma landing page que:
+- Testem diferentes abordagens
+- Sejam baseadas em hipóteses claras
+- Tenham elementos mensuráveis
+- Maximizem aprendizado
+- Aumentem conversão
+
+Contexto:
+Produto/Serviço: [Descreva]
+Oferta: [Descreva]
+Público-alvo: [Descreva]
+Objetivo: [Venda / Lead / Inscrição]
+
+Crie 3-5 variações completas:
+
+VARIAÇÃO 1: Abordagem Direta (Benefício Imediato)
+- Headline: [Foco em resultado rápido]
+- Estrutura: [Descreva]
+- Elementos principais: [Liste]
+- Hipótese: [Por que esta abordagem deve funcionar]
+- Copy completa
+
+VARIAÇÃO 2: Abordagem Educativa (Autoridade)
+- Headline: [Foco em educação/valor]
+- Estrutura: [Descreva]
+- Elementos principais: [Liste]
+- Hipótese: [Por que esta abordagem deve funcionar]
+- Copy completa
+
+VARIAÇÃO 3: Abordagem Social (Prova Social)
+- Headline: [Foco em outros clientes]
+- Estrutura: [Descreva]
+- Elementos principais: [Liste]
+- Hipótese: [Por que esta abordagem deve funcionar]
+- Copy completa
+
+VARIAÇÃO 4: Abordagem Urgente (Escassez)
+- Headline: [Foco em urgência]
+- Estrutura: [Descreva]
+- Elementos principais: [Liste]
+- Hipótese: [Por que esta abordagem deve funcionar]
+- Copy completa
+
+VARIAÇÃO 5: Abordagem Minimalista (Simplicidade)
+- Headline: [Foco em simplicidade]
+- Estrutura: [Descreva]
+- Elementos principais: [Liste]
+- Hipótese: [Por que esta abordagem deve funcionar]
+- Copy completa
+
+Para cada variação:
+- Layout sugerido
+- Elementos visuais
+- Ordem de elementos
+- CTA específico
+- Elementos únicos
+
+PLANO DE TESTE:
+- Qual testar primeiro
+- Como dividir tráfego
+- Tamanho de amostra necessário
+- Duração do teste
+- Critérios de sucesso
+- Como interpretar resultados
+
+Inclua também:
+- Elementos comuns entre variações
+- O que manter constante
+- Ferramentas de teste
+- Como implementar testes
+- Próximos passos após resultados
+

@@ -1,0 +1,167 @@
+PROMPT: Processo de Onboarding Técnico de Clientes
+
+Você é um especialista em onboarding de clientes. Crie um processo completo de onboarding técnico que:
+- Facilite início do uso
+- Reduza curva de aprendizado
+- Prevenha problemas comuns
+- Aumente adoção
+- Melhore retenção
+
+Contexto:
+Produto/Serviço: [Descreva]
+Complexidade: [Simples / Média / Complexa]
+Tempo médio de setup: [X horas/dias]
+Suporte necessário: [Alto / Médio / Baixo]
+
+Crie processo completo:
+
+1. FASES DO ONBOARDING
+
+   Fase 1: Pré-Onboarding (Antes da compra)
+   - Expectativas
+   - Requisitos
+   - Preparação
+   - Materiais
+   
+   Fase 2: Setup Inicial (Primeiros dias)
+   - Configuração básica
+   - Primeiros passos
+   - Suporte ativo
+   - Validação
+   
+   Fase 3: Adoção (Primeira semana)
+   - Uso básico
+   - Recursos principais
+   - Suporte reativo
+   - Check-ins
+   
+   Fase 4: Proficiência (Primeiro mês)
+   - Uso avançado
+   - Otimizações
+   - Melhores práticas
+   - Autonomia
+
+2. CHECKLIST DE ONBOARDING
+
+   Checklist completo:
+   - [ ] Conta criada
+   - [ ] Email de boas-vindas enviado
+   - [ ] Configuração inicial
+   - [ ] Primeiro acesso
+   - [ ] Tutorial básico
+   - [ ] Primeira ação realizada
+   - [ ] Configurações importantes
+   - [ ] Integrações (se aplicável)
+   - [ ] Equipe treinada (se B2B)
+   - [ ] Primeiro resultado alcançado
+   - [ ] Check-in realizado
+   - [ ] Onboarding completo
+
+3. MATERIAIS DE ONBOARDING
+
+   a) Email de Boas-vindas
+      - Conteúdo
+      - Links importantes
+      - Próximos passos
+      - Suporte disponível
+   
+   b) Guia de Início Rápido
+      - Passos essenciais
+      - Screenshots
+      - Vídeo (se houver)
+   
+   c) Tutorial Interativo
+      - Tour pelo produto
+      - Primeiras ações
+      - Dicas
+   
+   d) Vídeos Tutoriais
+      - Setup inicial
+      - Funcionalidades principais
+      - Casos de uso
+   
+   e) Base de Conhecimento
+      - Artigos relevantes
+      - FAQs
+      - Troubleshooting
+
+4. AUTOMAÇÕES DE ONBOARDING
+
+   Sequência automática:
+   - Email 1 (Dia 0): Boas-vindas
+   - Email 2 (Dia 1): Primeiros passos
+   - Email 3 (Dia 3): Dicas e truques
+   - Email 4 (Dia 7): Como está?
+   - Email 5 (Dia 14): Recursos avançados
+   
+   Para cada email:
+   - Assunto
+   - Conteúdo
+   - CTA
+   - Timing
+
+5. SUPORTE DURANTE ONBOARDING
+
+   - Canais disponíveis
+   - Horários
+   - Tempo de resposta
+   - Prioridade
+   - Proatividade
+   - Check-ins agendados
+
+6. MÉTRICAS DE SUCESSO
+
+   - Taxa de conclusão de onboarding
+   - Tempo até primeira ação
+   - Tempo até valor percebido
+   - Taxa de adoção
+   - Taxa de retenção pós-onboarding
+   - Satisfação com onboarding
+   - Problemas encontrados
+
+7. PERSONALIZAÇÃO
+
+   - Por tipo de cliente
+   - Por segmento
+   - Por uso pretendido
+   - Por nível técnico
+   - Caminhos diferentes
+
+8. IDENTIFICAÇÃO DE PROBLEMAS
+
+   Sinais de problema:
+   - Não completou setup
+   - Não acessa há X dias
+   - Múltiplas tentativas sem sucesso
+   - Muitas dúvidas
+   - Reclamações
+
+   Ações:
+   - Contato proativo
+   - Suporte adicional
+   - Reonboarding
+   - Investigação
+
+9. MELHORIAS CONTÍNUAS
+
+   - Coletar feedback
+   - Analisar métricas
+   - Identificar fricções
+   - Testar melhorias
+   - Iterar processo
+
+10. CASOS ESPECIAIS
+
+    - Clientes técnicos vs não-técnicos
+    - Empresas grandes vs pequenas
+    - Primeiro uso vs migração
+    - Integrações complexas
+    - Personalizações
+
+Inclua também:
+- Templates de comunicação
+- Scripts de check-in
+- Checklist editável
+- Ferramentas recomendadas
+- Exemplos práticos
+

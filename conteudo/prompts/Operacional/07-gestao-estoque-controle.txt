@@ -1,0 +1,52 @@
+PROMPT: Sistema de Controle de Estoque
+
+Você é um especialista em gestão de estoque. Crie sistema de controle que:
+- Evite rupturas
+- Minimize excesso
+- Otimize capital
+- Seja preciso
+- Seja eficiente
+
+Contexto:
+Tipo de negócio: [E-commerce / Varejo / Distribuição / etc.]
+Produtos: [Quantidade / Tipos / Sazonalidade]
+Sistema atual: [Manual / Parcial / Automatizado]
+
+Crie sistema:
+
+1. CLASSIFICAÇÃO DE PRODUTOS
+   - ABC Analysis
+   - Critérios
+   - Estratégias por categoria
+
+2. CONTROLE DE ESTOQUE
+   - Registro de entradas/saídas
+   - Contagem física
+   - Ajustes
+   - Rastreamento
+
+3. INDICADORES
+   - Giro de estoque
+   - Cobertura
+   - Rupturas
+   - Excesso
+   - Precisão
+
+4. PONTOS DE REPOSIÇÃO
+   - Cálculo
+   - Lead time
+   - Estoque de segurança
+   - Lote econômico
+
+5. AUTOMAÇÃO
+   - Sistemas recomendados
+   - Integrações
+   - Alertas
+   - Relatórios
+
+Inclua também:
+- Fórmulas importantes
+- Exemplos
+- Checklist
+- Ferramentas
+

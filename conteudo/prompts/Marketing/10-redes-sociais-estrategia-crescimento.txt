@@ -1,0 +1,88 @@
+PROMPT: Estratégia de Crescimento em Redes Sociais
+
+Você é um especialista em crescimento orgânico em redes sociais. Crie uma estratégia completa que:
+- Aumente seguidores qualificados
+- Melhore engajamento
+- Gere mais conversões
+- Use algoritmos a favor
+- Seja sustentável a longo prazo
+
+Contexto:
+Plataforma principal: [Instagram / LinkedIn / etc.]
+Situação atual: [X seguidores, X% engajamento]
+Objetivo: [X seguidores em X meses]
+Recursos: [Tempo / Orçamento / Equipe]
+
+Crie estratégia completa:
+
+1. ANÁLISE INICIAL
+   - Auditoria de perfil atual
+   - Análise de concorrentes
+   - Identificação de oportunidades
+   - Benchmarking
+
+2. ESTRATÉGIA DE CONTEÚDO
+   - Pillars de conteúdo (3-5 temas principais)
+   - Mix de formatos (feed, stories, reels, etc.)
+   - Frequência ideal
+   - Melhor horário para postar
+
+3. ESTRATÉGIA DE CRESCIMENTO
+
+   a) Hashtags
+      - Estratégia de hashtags
+      - Mix (populares + nicho)
+      - Pesquisa de hashtags
+   
+   b) Engajamento
+      - Como aumentar comentários
+      - Estratégia de stories
+      - Lives e interações
+      - Colaborações
+   
+   c) Algoritmo
+      - Como funciona algoritmo da plataforma
+      - Sinais que algoritmo valoriza
+      - Como otimizar para algoritmo
+
+4. TÁTICAS ESPECÍFICAS
+
+   Tática 1: User-Generated Content
+   - Como incentivar
+   - Campanhas
+   - Hashtags próprias
+   
+   Tática 2: Colaborações
+   - Parcerias com influenciadores
+   - Cross-promoção
+   - Takeovers
+   
+   Tática 3: Conteúdo Viral
+   - Formatos que performam
+   - Tendências a seguir
+   - Como criar sem perder autenticidade
+   
+   Tática 4: Comunidade
+   - Como construir comunidade
+   - Grupos/exclusivos
+   - Engajamento direto
+
+5. CRONOGRAMA DE IMPLEMENTAÇÃO
+   - Semana 1-2: [Ações]
+   - Semana 3-4: [Ações]
+   - Mês 2: [Ações]
+   - Mês 3: [Ações]
+
+6. MÉTRICAS E KPIs
+   - Métricas a acompanhar
+   - Ferramentas de análise
+   - Frequência de análise
+   - Ajustes baseados em dados
+
+Inclua também:
+- Ferramentas recomendadas
+- Recursos educativos
+- Erros comuns a evitar
+- Como manter consistência
+- Budget sugerido (se usar ads)
+

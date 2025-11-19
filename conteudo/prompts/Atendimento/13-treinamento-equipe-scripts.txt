@@ -1,0 +1,187 @@
+PROMPT: Criar Scripts de Treinamento para Equipe de Atendimento
+
+Você é um especialista em treinamento de equipes de atendimento. Crie scripts de treinamento que:
+- Padronizem atendimento
+- Melhorem qualidade
+- Reduzam tempo de treinamento
+- Aumentem confiança da equipe
+- Melhorem resultados
+
+Contexto:
+Tamanho da equipe: [Pequena / Média / Grande]
+Experiência média: [Iniciante / Intermediária / Avançada]
+Canais: [Telefone / Email / Chat / Presencial]
+Produto/Serviço: [Descreva]
+
+Crie scripts completos:
+
+1. ONBOARDING INICIAL
+
+   Módulo 1: Conhecimento do Produto/Serviço
+   - O que precisa saber
+   - Recursos de aprendizado
+   - Testes de conhecimento
+   - Timeline
+   
+   Módulo 2: Processos e Ferramentas
+   - Sistemas usados
+   - Como usar cada ferramenta
+   - Processos internos
+   - Documentação
+   
+   Módulo 3: Comunicação
+   - Tom de voz
+   - Linguagem a usar
+   - O que evitar
+   - Exemplos práticos
+   
+   Módulo 4: Cenários Comuns
+   - Situações mais frequentes
+   - Como lidar
+   - Scripts básicos
+   - Prática
+
+2. SCRIPTS POR SITUAÇÃO
+
+   Situação 1: Atendimento Inicial
+   - Abertura
+   - Coleta de informações
+   - Identificação de necessidade
+   - Resolução
+   - Fechamento
+   - Script completo
+   
+   Situação 2: Reclamação
+   - [Mesmo formato]
+   
+   Situação 3: Dúvida Técnica
+   - [Mesmo formato]
+   
+   Situação 4: Venda/Upsell
+   - [Mesmo formato]
+   
+   [Continue para situações principais]
+
+3. TÉCNICAS DE COMUNICAÇÃO
+
+   a) Escuta Ativa
+      - O que é
+      - Como fazer
+      - Exemplos
+      - Exercícios
+   
+   b) Empatia
+      - Como demonstrar
+      - Frases poderosas
+      - Evitar frases que não ajudam
+      - Prática
+   
+   c) Clareza
+      - Linguagem simples
+      - Evitar jargões
+      - Confirmação de entendimento
+      - Exemplos
+   
+   d) Resolução de Problemas
+      - Processo
+      - Perguntas certas
+      - Soluções criativas
+      - Quando escalar
+
+4. SCRIPTS POR CANAL
+
+   a) Telefone
+      - Tom de voz
+      - Ritmo
+      - Pausas
+      - Scripts completos
+      - Gravações de exemplo
+   
+   b) Email
+      - Estrutura
+      - Tom escrito
+      - Formatação
+      - Templates
+      - Exemplos
+   
+   c) Chat
+      - Linguagem
+      - Velocidade
+      - Emojis (quando usar)
+      - Scripts
+      - Exemplos
+   
+   d) Presencial
+      - Linguagem corporal
+      - Contato visual
+      - Espaço pessoal
+      - Scripts
+      - Exemplos
+
+5. CASOS PRÁTICOS
+
+   Caso 1: [Descrição]
+   - Situação
+   - Resposta errada (o que evitar)
+   - Resposta certa (script)
+   - Por que funciona
+   - Lições aprendidas
+   
+   [Continue para 10-15 casos]
+
+6. ROLE PLAY
+
+   Cenários para prática:
+   - Cliente irritado
+   - Dúvida complexa
+   - Solicitação incomum
+   - Venda consultiva
+   - Escalação
+   
+   Para cada cenário:
+   - Contexto
+   - Objetivo
+   - Como praticar
+   - Feedback
+
+7. REFORÇO CONTÍNUO
+
+   - Sessões semanais/mensais
+   - Tópicos de reforço
+   - Novos scripts
+   - Melhores práticas
+   - Casos reais
+   - Feedback de qualidade
+
+8. AVALIAÇÃO E FEEDBACK
+
+   - Critérios de avaliação
+   - Como dar feedback
+   - Métricas de qualidade
+   - Melhorias individuais
+   - Reconhecimento
+
+9. RECURSOS DE APOIO
+
+   - Base de conhecimento
+   - Scripts de referência rápida
+   - FAQ interno
+   - Vídeos tutoriais
+   - Mentoria
+   - Comunidade interna
+
+10. ESPECIALIZAÇÕES
+
+    - Treinamento avançado
+    - Especialistas por área
+    - Certificações internas
+    - Carreira na equipe
+    - Liderança
+
+Inclua também:
+- Plano de treinamento completo
+- Materiais de apoio
+- Checklist de competências
+- Ferramentas de avaliação
+- Como manter atualizado
+

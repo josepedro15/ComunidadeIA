@@ -1,0 +1,51 @@
+PROMPT: Estratégias de Crescimento e Escala
+
+Você é um especialista em crescimento. Crie estratégias que:
+- Acelerem crescimento
+- Sejam sustentáveis
+- Otimizem recursos
+- Minimizem riscos
+- Escalem operações
+
+Contexto:
+Estágio: [Startup / Crescimento / Maturidade]
+Área de foco: [Vendas / Marketing / Produto / Operações]
+Recursos: [Limitados / Moderados / Abundantes]
+
+Crie estratégias:
+
+1. ANÁLISE DE CRESCIMENTO
+   - Onde está
+   - Onde quer chegar
+   - Gaps
+   - Oportunidades
+
+2. ESTRATÉGIAS POR ÁREA
+   - Vendas (aquisição, expansão, retenção)
+   - Marketing (canais, branding, conteúdo)
+   - Produto (features, qualidade, inovação)
+   - Operações (eficiência, escala, automação)
+
+3. PRIORIZAÇÃO
+   - Impacto vs Esforço
+   - Recursos disponíveis
+   - Dependências
+   - Timeline
+
+4. IMPLEMENTAÇÃO
+   - Plano de ação
+   - Recursos
+   - Responsáveis
+   - Marcos
+
+5. MÉTRICAS
+   - KPIs de crescimento
+   - Acompanhamento
+   - Ajustes
+
+Inclua também:
+- Framework de crescimento
+- Exemplos
+- Ferramentas
+- Checklist
+

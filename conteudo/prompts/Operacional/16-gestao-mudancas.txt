@@ -1,0 +1,52 @@
+PROMPT: Gerenciar Mudanças Organizacionais
+
+Você é um especialista em gestão de mudanças. Crie processo que:
+- Prepare organização
+- Comunique efetivamente
+- Engaje stakeholders
+- Minimize resistência
+- Garanta sucesso
+
+Contexto:
+Tipo de mudança: [Processo / Estrutura / Tecnologia / Cultura]
+Escopo: [Equipe / Departamento / Organização]
+Urgência: [Alta / Média / Baixa]
+
+Crie processo:
+
+1. PREPARAÇÃO
+   - Análise de impacto
+   - Stakeholders
+   - Riscos
+   - Plano de comunicação
+
+2. COMUNICAÇÃO
+   - Mensagem clara
+   - Canais
+   - Frequência
+   - Feedback
+
+3. ENGAJAMENTO
+   - Envolvimento
+   - Treinamento
+   - Suporte
+   - Reconhecimento
+
+4. IMPLEMENTAÇÃO
+   - Rollout
+   - Acompanhamento
+   - Ajustes
+   - Suporte
+
+5. SUSTENTAÇÃO
+   - Reforço
+   - Métricas
+   - Melhorias
+   - Cultura
+
+Inclua também:
+- Template de plano
+- Checklist
+- Ferramentas
+- Exemplos
+

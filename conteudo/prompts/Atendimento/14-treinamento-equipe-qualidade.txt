@@ -1,0 +1,157 @@
+PROMPT: Programa de Garantia de Qualidade no Atendimento
+
+Você é um especialista em qualidade de atendimento. Crie um programa completo de garantia de qualidade que:
+- Padronize excelência
+- Identifique oportunidades de melhoria
+- Desenvolva a equipe
+- Melhore satisfação do cliente
+- Seja mensurável
+
+Contexto:
+Tamanho da equipe: [Descreva]
+Canais: [Liste]
+Volume de atendimentos: [X por dia/semana]
+Recursos: [Tempo / Ferramentas / Orçamento]
+
+Crie programa completo:
+
+1. CRITÉRIOS DE QUALIDADE
+
+   Dimensões de avaliação:
+   
+   a) Comunicação (25%)
+      - Clareza
+      - Tom de voz
+      - Empatia
+      - Profissionalismo
+      - Gramática/ortografia
+   
+   b) Resolução (30%)
+      - Resolveu problema?
+      - Solução correta?
+      - Eficiência
+      - Follow-up necessário?
+   
+   c) Processo (20%)
+      - Seguiu procedimentos?
+      - Documentação correta?
+      - Uso de ferramentas
+      - Tempo adequado?
+   
+   d) Experiência do Cliente (25%)
+      - Cliente satisfeito?
+      - Expectativas atendidas?
+      - Relacionamento preservado?
+      - NPS/CSAT
+
+2. SISTEMA DE PONTUAÇÃO
+
+   - Escala (1-5 ou 0-100)
+   - Peso de cada dimensão
+   - Critérios específicos
+   - Exemplos de cada nível
+   - Pontuação mínima aceitável
+
+3. PROCESSO DE AVALIAÇÃO
+
+   a) Frequência
+      - Por atendente (X por mês)
+      - Por canal
+      - Aleatória vs selecionada
+   
+   b) Seleção de Amostras
+      - Critérios de seleção
+      - Representatividade
+      - Casos especiais
+   
+   c) Avaliadores
+      - Quem avalia
+      - Treinamento de avaliadores
+      - Calibração
+      - Consistência
+
+4. FERRAMENTAS DE AVALIAÇÃO
+
+   - Formulário de avaliação
+   - Checklist
+   - Rubrica detalhada
+   - Sistema de gestão
+   - Dashboard
+   - Relatórios
+
+5. FEEDBACK E DESENVOLVIMENTO
+
+   a) Feedback Individual
+      - Como dar feedback
+      - Frequência
+      - Sessões 1-on-1
+      - Plano de desenvolvimento
+   
+   b) Feedback de Equipe
+      - Sessões de grupo
+      - Melhores práticas compartilhadas
+      - Casos de estudo
+      - Treinamento adicional
+   
+   c) Reconhecimento
+      - Destaques
+      - Recompensas
+      - Certificações
+      - Progressão
+
+6. MÉTRICAS E RELATÓRIOS
+
+   Métricas principais:
+   - Score médio de qualidade
+   - Score por atendente
+   - Score por canal
+   - Tendências
+   - Áreas de melhoria
+   - Áreas de excelência
+
+   Relatórios:
+   - Individual (mensal)
+   - Equipe (semanal/mensal)
+   - Gerencial (mensal/trimestral)
+   - Executivo (trimestral)
+
+7. AÇÕES CORRETIVAS
+
+   - Quando score abaixo do esperado
+   - Plano de melhoria
+   - Treinamento adicional
+   - Acompanhamento
+   - Quando considerar outras ações
+
+8. MELHORIAS CONTÍNUAS
+
+   - Análise de tendências
+   - Identificação de padrões
+   - Atualização de critérios
+   - Novos treinamentos
+   - Compartilhamento de melhores práticas
+
+9. INTEGRAÇÃO COM OUTRAS MÉTRICAS
+
+   - CSAT/NPS
+   - Tempo de resolução
+   - Taxa de resolução na primeira interação
+   - Produtividade
+   - Retenção de clientes
+
+10. CASOS ESPECIAIS
+
+    - Atendimentos complexos
+    - Clientes difíceis
+    - Situações únicas
+    - Contexto considerado
+    - Flexibilidade na avaliação
+
+Inclua também:
+- Template de avaliação
+- Rubrica completa
+- Exemplos de avaliações
+- Script de feedback
+- Ferramentas recomendadas
+- Como implementar programa
+

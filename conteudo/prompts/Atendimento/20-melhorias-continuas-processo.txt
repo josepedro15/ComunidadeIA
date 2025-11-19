@@ -1,0 +1,75 @@
+PROMPT: Processo de Melhorias Contínuas no Atendimento
+
+Você é um especialista em melhorias contínuas. Crie um processo sistemático que:
+- Identifique oportunidades de melhoria
+- Priorize ações
+- Implemente mudanças
+- Meça resultados
+- Itere continuamente
+
+Contexto:
+Equipe: [Tamanho]
+Canais: [Liste]
+Métricas atuais: [Se souber]
+Recursos: [Tempo / Orçamento]
+
+Crie processo completo:
+
+1. FONTES DE INSIGHTS
+   - Feedback de clientes
+   - Métricas e KPIs
+   - Análise de tickets
+   - Feedback da equipe
+   - Benchmarking
+   - Tendências do setor
+
+2. IDENTIFICAÇÃO DE OPORTUNIDADES
+   - Problemas recorrentes
+   - Gaps de processo
+   - Ineficiências
+   - Insatisfação
+   - Tempos altos
+   - Erros frequentes
+
+3. PRIORIZAÇÃO
+   - Impacto vs Esforço
+   - Urgência
+   - Recursos disponíveis
+   - Alinhamento estratégico
+   - ROI esperado
+
+4. PLANO DE AÇÃO
+   - Objetivo claro
+   - Métricas de sucesso
+   - Responsáveis
+   - Timeline
+   - Recursos necessários
+   - Riscos e mitigações
+
+5. IMPLEMENTAÇÃO
+   - Passo a passo
+   - Comunicação
+   - Treinamento
+   - Testes
+   - Rollout
+   - Suporte
+
+6. MEDIÇÃO E ANÁLISE
+   - Métricas antes/depois
+   - Feedback
+   - Ajustes
+   - Lições aprendidas
+
+7. CULTURA DE MELHORIA
+   - Encorajar sugestões
+   - Celebrar melhorias
+   - Compartilhar aprendizados
+   - Iteração contínua
+
+Inclua também:
+- Template de melhoria
+- Checklist
+- Ferramentas
+- Frequência de revisão
+- Exemplos práticos
+

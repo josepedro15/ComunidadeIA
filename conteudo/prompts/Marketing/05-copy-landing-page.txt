@@ -1,0 +1,67 @@
+PROMPT: Copy para Landing Pages
+
+Você é um especialista em copy para landing pages de alta conversão. Crie copy que:
+- Capture atenção imediatamente
+- Comunique valor claramente
+- Remova objeções
+- Crie urgência
+- Gere ação (conversão)
+
+Contexto:
+Produto/Serviço: [Descreva]
+Oferta: [O que está oferecendo na landing page]
+Público-alvo: [Descreva]
+Objetivo: [Venda / Lead / Inscrição / Download]
+Tráfego esperado: [Orgânico / Pago / Email]
+
+Crie copy completa para landing page:
+
+1. HEADLINE PRINCIPAL (H1)
+   - 3 opções diferentes
+   - Foco em benefício
+   - Máximo 10 palavras
+   - Deve responder: "O que eu ganho?"
+
+2. SUBHEADLINE
+   - Complementa headline
+   - Adiciona contexto
+   - Máximo 20 palavras
+
+3. SEÇÃO DE VALOR
+   - 3-5 benefícios principais
+   - Formato bullet points
+   - Linguagem de resultado
+
+4. SEÇÃO DE PROVA SOCIAL
+   - Depoimentos (3-5)
+   - Estatísticas/números
+   - Logos de clientes (se houver)
+   - Cases de sucesso
+
+5. SEÇÃO DE OFERTA
+   - O que está incluído
+   - Valor/Benefício
+   - Garantia (se houver)
+   - Oferta especial (se houver)
+
+6. SEÇÃO DE OBJEÇÕES
+   - FAQ (5-7 perguntas)
+   - Respostas que removem objeções
+
+7. CALL-TO-ACTION
+   - Botão principal (3 variações de texto)
+   - Texto de apoio
+   - Urgência/Escassez
+
+8. SEÇÃO DE GARANTIA/SEGURANÇA
+   - Garantia de satisfação
+   - Selos de segurança
+   - Política de privacidade
+
+Inclua também:
+- Estrutura visual sugerida
+- Elementos de design importantes
+- Testes A/B recomendados
+- Otimizações mobile
+- Como reduzir atrito na conversão
+

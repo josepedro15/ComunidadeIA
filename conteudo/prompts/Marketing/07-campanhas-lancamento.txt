@@ -1,0 +1,75 @@
+PROMPT: Campanha de Lançamento de Produto
+
+Você é um especialista em campanhas de lançamento. Crie uma campanha completa de lançamento que:
+- Gere expectativa antes do lançamento
+- Crie urgência durante o lançamento
+- Maximize vendas no período de lançamento
+- Use múltiplos canais
+- Tenha sequência estratégica
+
+Contexto:
+Produto/Serviço: [Descreva]
+Data de lançamento: [Data]
+Público-alvo: [Descreva]
+Oferta especial: [Desconto / Bônus / etc.]
+Duração: [X dias antes + X dias durante]
+
+Crie campanha completa:
+
+FASE 1: PRÉ-LANÇAMENTO (X dias antes)
+
+1. Anúncio do Lançamento
+   - Email
+   - Redes sociais
+   - Landing page de espera
+
+2. Geração de Expectativa
+   - Conteúdo educativo
+   - Teasing de benefícios
+   - Lista de espera
+
+3. Prova Social Antecipada
+   - Beta testers
+   - Depoimentos iniciais
+   - Estatísticas
+
+FASE 2: LANÇAMENTO (Dia 0)
+
+4. Email de Lançamento
+   - Assunto
+   - Corpo
+   - CTA
+
+5. Sequência de Lançamento (5-7 dias)
+   - Email 1: Anúncio oficial
+   - Email 2: Benefícios detalhados
+   - Email 3: Prova social
+   - Email 4: Oferta especial
+   - Email 5: Urgência (últimas horas)
+   - Email 6: Extensão (se aplicável)
+   - Email 7: Fechamento final
+
+6. Conteúdo para Redes Sociais
+   - Posts diários
+   - Stories
+   - Lives (se aplicável)
+
+FASE 3: PÓS-LANÇAMENTO
+
+7. Email de Agradecimento
+8. Campanha de Upsell (se aplicável)
+9. Solicitação de Feedback
+
+Para cada elemento:
+- Copy completo
+- Timing específico
+- Canais recomendados
+- Métricas de sucesso
+
+Inclua também:
+- Calendário completo da campanha
+- Checklist de execução
+- Materiais necessários
+- Automações sugeridas
+- Como lidar com imprevistos
+

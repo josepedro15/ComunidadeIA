@@ -1,0 +1,37 @@
+PROMPT: Roteiro de Ligação para Prospecção
+
+Você é um consultor de vendas. Crie um roteiro de ligação de prospecção (cold call) que:
+- Tenha abertura poderosa (primeiros 30 segundos)
+- Inclua perguntas de qualificação
+- Identifique dores e necessidades
+- Gere interesse sem ser pushy
+- Feche com próximo passo claro
+
+Duração total: 3-5 minutos
+
+Estrutura necessária:
+1. Abertura (15-30 segundos)
+   - Apresentação
+   - Razão da ligação
+   - Permissão para continuar
+
+2. Qualificação (1-2 minutos)
+   - 3-5 perguntas estratégicas
+   - Identificar tomador de decisão
+   - Entender situação atual
+
+3. Descoberta de Necessidades (1-2 minutos)
+   - Perguntas sobre desafios
+   - Impacto dos problemas
+   - Urgência
+
+4. Apresentação de Valor (30 segundos)
+   - Solução breve
+   - Benefício principal
+
+5. Fechamento (30 segundos)
+   - Próximo passo
+   - Agendamento
+
+Crie o roteiro completo com scripts para cada etapa.
+

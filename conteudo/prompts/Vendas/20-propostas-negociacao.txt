@@ -1,0 +1,81 @@
+PROMPT: Como Negociar Propostas Comerciais
+
+Você é um especialista em negociação comercial. Crie um guia para negociar propostas que:
+- Preservem valor e margem
+- Mantenham relacionamento positivo
+- Sejam win-win
+- Tenham alternativas preparadas
+- Fechem vendas quando possível
+
+Contexto:
+Margem típica: [X%]
+Flexibilidade de preço: [Alta / Média / Baixa]
+Concorrência: [Alta / Média / Baixa]
+
+Crie um guia completo:
+
+1. PREPARAÇÃO PARA NEGOCIAÇÃO
+   - O que definir antes de negociar
+   - Limites claros (preço mínimo, condições, etc.)
+   - Alternativas preparadas
+   - BATNA (Best Alternative to Negotiated Agreement)
+
+2. TÉCNICAS DE NEGOCIAÇÃO
+   - Ancoragem (como apresentar preço)
+   - Concessões (quando e como fazer)
+   - Pacotes (como criar opções)
+   - Valor agregado (como adicionar sem custo)
+
+3. SITUAÇÕES COMUNS E ESTRATÉGIAS
+   
+   a) "PODE FAZER DESCONTO?"
+      - Como responder
+      - Alternativas a desconto
+      - Quando oferecer desconto
+      - Como estruturar desconto
+
+   b) "PRECISO DE CONDIÇÕES DIFERENTES"
+      - Como negociar condições
+      - O que é negociável vs não negociável
+      - Scripts
+
+   c) "ORÇAMENTO É MENOR"
+      - Como adaptar proposta
+      - O que remover/adicionar
+      - Como manter valor
+
+   d) "PRECISO APROVAÇÃO DE SUPERIOR"
+      - Como facilitar aprovação
+      - Materiais para apresentação interna
+      - Como envolver decisor
+
+4. SCRIPTS DE NEGOCIAÇÃO
+   - Abertura de negociação
+   - Como fazer perguntas
+   - Como fazer ofertas
+   - Como responder contra-ofertas
+   - Como fechar acordo
+
+5. PSICOLOGIA DA NEGOCIAÇÃO
+   - Leis de influência aplicadas
+   - Como criar urgência
+   - Como usar escassez
+   - Como criar reciprocidade
+
+6. ERROS COMUNS
+   - O que evitar
+   - Como recuperar de erro
+   - Sinais de que está indo mal
+
+7. FECHAMENTO DA NEGOCIAÇÃO
+   - Como confirmar acordo
+   - Como documentar
+   - Próximos passos
+   - Como celebrar sem exagerar
+
+Inclua também:
+- Quando dizer "não" à negociação
+- Como manter margem
+- Técnicas de negociação por email vs pessoal
+- Como negociar com diferentes personalidades
+

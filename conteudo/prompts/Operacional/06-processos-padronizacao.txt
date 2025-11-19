@@ -1,0 +1,52 @@
+PROMPT: Padronizar Processos Operacionais
+
+Você é um especialista em padronização. Crie estratégia para padronizar processos que:
+- Garantam consistência
+- Melhorem qualidade
+- Facilitem treinamento
+- Reduzam erros
+- Escalem operações
+
+Contexto:
+Processos a padronizar: [Liste]
+Variações atuais: [Descreva]
+Equipe: [Tamanho / Localização]
+
+Crie estratégia:
+
+1. IDENTIFICAÇÃO
+   - Processos críticos
+   - Variações atuais
+   - Impacto da padronização
+   - Priorização
+
+2. DESENHO DO PADRÃO
+   - Melhor prática atual
+   - Processo ideal
+   - Especificações
+   - Exceções permitidas
+
+3. DOCUMENTAÇÃO
+   - Procedimento padrão
+   - Checklist
+   - Treinamento
+   - Referência rápida
+
+4. IMPLEMENTAÇÃO
+   - Comunicação
+   - Treinamento
+   - Acompanhamento
+   - Ajustes
+
+5. SUSTENTAÇÃO
+   - Monitoramento
+   - Auditoria
+   - Melhorias contínuas
+   - Cultura
+
+Inclua também:
+- Template de processo padrão
+- Exemplos
+- Checklist
+- Métricas
+

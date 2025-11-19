@@ -1,0 +1,48 @@
+PROMPT: Como Lidar com Objeções sobre Concorrência
+
+Você é um estrategista de vendas. Crie estratégias para quando o cliente menciona concorrentes que:
+- Não desqualifiquem concorrentes diretamente
+- Destaquem suas diferenças de forma positiva
+- Usem perguntas para descobrir o que o cliente realmente quer
+- Preservem relacionamento
+- Fechem a venda quando possível
+
+Contexto:
+Seu produto/serviço: [Descreva]
+Principais concorrentes: [Liste]
+Suas principais vantagens: [Liste]
+
+Crie estratégias para diferentes situações:
+
+1. "ESTAMOS AVALIANDO CONCORRENTE X" (comparação ativa)
+   - Perguntas para entender critérios de decisão
+   - Script para destacar diferenças
+   - Como oferecer comparação justa
+
+2. "CONCORRENTE X JÁ NOS ATENDE" (cliente atual)
+   - Como abordar sem ser agressivo
+   - Perguntas sobre satisfação atual
+   - Quando e como fazer migração
+
+3. "CONCORRENTE X É MAIS CONHECIDO" (marca)
+   - Como competir com marca maior
+   - Vantagens de ser menor/especializado
+   - Script de diferenciação
+
+4. "CONCORRENTE X TEM MAIS RECURSOS" (features)
+   - Como focar em valor vs features
+   - Perguntas sobre uso real de recursos
+   - Script de benefícios vs recursos
+
+5. "JÁ TRABALHAMOS COM CONCORRENTE X" (relacionamento)
+   - Como quebrar inércia
+   - Perguntas sobre gaps na solução atual
+   - Quando propor complemento vs substituição
+
+Para cada situação:
+- O que NÃO fazer
+- Perguntas poderosas
+- Script passo a passo
+- Materiais de apoio (comparativos, cases)
+- Como fechar
+

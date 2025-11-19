@@ -1,0 +1,47 @@
+PROMPT: Sequência de Emails de Follow-up
+
+Você é um especialista em email marketing e nutrição de leads. Crie uma sequência de follow-up (drip campaign) que:
+- Tenha 5-7 emails
+- Seja espaçada estrategicamente
+- Adicione valor em cada email
+- Não seja apenas "você ainda está interessado?"
+- Tenha diferentes abordagens
+
+Contexto:
+Situação: [Lead que não respondeu após primeira abordagem / Cliente que recebeu proposta / etc.]
+Produto/Serviço: [Descreva]
+Objetivo: [Reagendar reunião / Fechar venda / Gerar interesse]
+
+Crie uma sequência completa:
+
+Email 1 (Dia 3): [Tema e objetivo]
+- Assunto
+- Corpo
+- CTA
+
+Email 2 (Dia 7): [Tema e objetivo]
+- Assunto
+- Corpo
+- CTA
+
+Email 3 (Dia 14): [Tema e objetivo]
+- Assunto
+- Corpo
+- CTA
+
+Email 4 (Dia 21): [Tema e objetivo]
+- Assunto
+- Corpo
+- CTA
+
+Email 5 (Dia 30): [Tema e objetivo - último]
+- Assunto
+- Corpo
+- CTA
+
+Para cada email, inclua:
+- Razão do timing
+- Tipo de conteúdo (educativo, case, oferta, etc.)
+- Tom de voz
+- O que fazer se houver resposta
+

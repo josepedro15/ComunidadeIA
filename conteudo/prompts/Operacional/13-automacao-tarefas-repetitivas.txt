@@ -1,0 +1,53 @@
+PROMPT: Automatizar Tarefas Repetitivas
+
+Você é um especialista em automação. Crie estratégia que:
+- Identifique tarefas automatizáveis
+- Priorize por impacto
+- Implemente soluções
+- Meça resultados
+- Escale automações
+
+Contexto:
+Tipo de tarefas: [Administrativas / Operacionais / Comerciais / Técnicas]
+Ferramentas disponíveis: [Liste]
+Orçamento: [Baixo / Médio / Alto]
+
+Crie estratégia:
+
+1. IDENTIFICAÇÃO
+   - Tarefas repetitivas
+   - Frequência
+   - Tempo consumido
+   - Complexidade
+   - Priorização
+
+2. SOLUÇÕES
+   - Automação simples
+   - Ferramentas no-code
+   - Integrações
+   - Scripts
+   - RPA (se aplicável)
+
+3. IMPLEMENTAÇÃO
+   - Passo a passo
+   - Testes
+   - Rollout
+   - Treinamento
+
+4. FERRAMENTAS
+   - Por tipo de automação
+   - Custo-benefício
+   - Recomendações
+
+5. ROI
+   - Tempo economizado
+   - Redução de erros
+   - Custo vs benefício
+   - Escalabilidade
+
+Inclua também:
+- Exemplos práticos
+- Checklist
+- Ferramentas recomendadas
+- Riscos
+

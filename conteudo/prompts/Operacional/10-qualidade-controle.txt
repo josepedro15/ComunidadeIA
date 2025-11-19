@@ -1,0 +1,52 @@
+PROMPT: Sistema de Controle de Qualidade
+
+Você é um especialista em qualidade. Crie sistema de controle que:
+- Garanta padrões
+- Identifique problemas cedo
+- Prevenha defeitos
+- Melhore continuamente
+- Satisfaça clientes
+
+Contexto:
+Tipo: [Produto / Serviço / Processo]
+Padrões: [Internos / ISO / Setor]
+Volume: [Alto / Médio / Baixo]
+
+Crie sistema:
+
+1. PADRÕES DE QUALIDADE
+   - Definição
+   - Especificações
+   - Tolerâncias
+   - Documentação
+
+2. CONTROLES
+   - Pontos de verificação
+   - Frequência
+   - Métodos
+   - Responsáveis
+
+3. INSPEÇÃO E TESTES
+   - Quando inspecionar
+   - O que testar
+   - Métodos
+   - Amostragem
+
+4. AÇÕES CORRETIVAS
+   - Identificação de problemas
+   - Análise de causa
+   - Correção
+   - Prevenção
+
+5. MELHORIAS CONTÍNUAS
+   - Métricas
+   - Análise
+   - Ajustes
+   - Cultura
+
+Inclua também:
+- Checklist
+- Templates
+- Ferramentas
+- Exemplos
+

@@ -1,0 +1,171 @@
+PROMPT: Dashboard de Métricas de Atendimento
+
+Você é um analista de atendimento ao cliente. Crie um framework completo de métricas e dashboard que:
+- Meça o que importa
+- Seja fácil de entender
+- Gere insights acionáveis
+- Acompanhe tendências
+- Melhore performance
+
+Contexto:
+Tamanho da equipe: [Descreva]
+Canais: [Liste]
+Volume: [X atendimentos por dia/semana]
+Ferramentas: [CRM / Sistema de tickets / etc.]
+
+Crie framework completo:
+
+1. MÉTRICAS ESSENCIAIS
+
+   a) Volume e Produtividade
+      - Total de tickets/interações
+      - Por canal
+      - Por agente
+      - Por tipo
+      - Tendências
+   
+   b) Tempo
+      - Tempo de primeira resposta
+      - Tempo de resolução
+      - Tempo médio de atendimento
+      - Tempo em fila
+      - SLA compliance
+   
+   c) Qualidade
+      - Taxa de resolução na primeira interação
+      - Score de qualidade
+      - Taxa de reabertura
+      - Erros
+      - Satisfação (CSAT/NPS)
+   
+   d) Eficiência
+      - Tickets por agente
+      - Utilização de capacidade
+      - Custo por ticket
+      - ROI
+   
+   e) Satisfação do Cliente
+      - CSAT
+      - NPS
+      - Taxa de elogios
+      - Taxa de reclamações
+      - Retenção
+
+2. DASHBOARD EXECUTIVO
+
+   Visão de alto nível:
+   - KPIs principais
+   - Tendências
+   - Comparações (mês anterior, ano anterior)
+   - Alertas
+   - Gráficos visuais
+   
+   Elementos:
+   - Resumo executivo
+   - Métricas principais
+   - Gráficos de tendência
+   - Heatmap de volume
+   - Top problemas
+   - Ações recomendadas
+
+3. DASHBOARD OPERACIONAL
+
+   Para gestão diária:
+   - Tickets em aberto
+   - Tempo médio atual
+   - Agentes disponíveis
+   - Fila de espera
+   - Alertas de SLA
+   - Distribuição de carga
+   
+   Atualização: Tempo real ou próximo disso
+
+4. DASHBOARD POR CANAL
+
+   Métricas específicas por canal:
+   - Email: Taxa de resposta, tempo médio
+   - Chat: Tempo de espera, taxa de resolução
+   - Telefone: Tempo de atendimento, taxa de abandono
+   - [Outros canais]
+   
+   Comparativo entre canais
+
+5. DASHBOARD POR AGENTE
+
+   Performance individual:
+   - Volume atendido
+   - Tempo médio
+   - Qualidade
+   - Satisfação
+   - Tendências
+   - Rankings (se aplicável)
+   - Áreas de melhoria
+
+6. ANÁLISE DE TENDÊNCIAS
+
+   - Volume ao longo do tempo
+   - Sazonalidade
+   - Picos e vales
+   - Correlações
+   - Previsões
+   - Anomalias
+
+7. ANÁLISE DE CAUSA RAIZ
+
+   - Problemas mais frequentes
+   - Tempo de resolução por tipo
+   - Canais mais eficientes
+   - Padrões identificados
+   - Oportunidades de melhoria
+
+8. RELATÓRIOS REGULARES
+
+   a) Diário
+      - Resumo do dia
+      - Alertas
+      - Ações imediatas
+   
+   b) Semanal
+      - Performance da semana
+      - Tendências
+      - Comparações
+      - Insights
+   
+   c) Mensal
+      - Análise completa
+      - Metas vs realizado
+      - Recomendações
+      - Plano de ação
+
+9. ALERTAS E NOTIFICAÇÕES
+
+   Quando alertar:
+   - SLA em risco
+   - Volume acima do normal
+   - Satisfação caindo
+   - Problemas recorrentes
+   - Anomalias
+   
+   Para quem:
+   - Agentes
+   - Supervisores
+   - Gerência
+   - Diretoria
+
+10. FERRAMENTAS E IMPLEMENTAÇÃO
+
+    - Ferramentas recomendadas
+    - Como configurar
+    - Fontes de dados
+    - Integrações
+    - Automações
+    - Custo
+
+Inclua também:
+- Template de dashboard
+- Exemplos visuais
+- Fórmulas de cálculo
+- Como interpretar métricas
+- Ações baseadas em métricas
+- Checklist de implementação
+

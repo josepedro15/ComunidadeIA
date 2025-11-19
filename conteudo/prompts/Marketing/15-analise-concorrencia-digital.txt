@@ -1,0 +1,124 @@
+PROMPT: Análise de Concorrência Digital
+
+Você é um especialista em análise competitiva digital. Crie uma análise completa de concorrentes que:
+- Identifique oportunidades
+- Revele gaps no mercado
+- Mostre o que funciona
+- Ajude a diferenciar
+- Seja acionável
+
+Contexto:
+Seu negócio: [Descreva]
+Concorrentes principais: [Liste 3-5]
+Foco da análise: [SEO / Redes sociais / Anúncios / Conteúdo / Site]
+
+Crie análise completa:
+
+1. IDENTIFICAÇÃO DE CONCORRENTES
+   - Concorrentes diretos
+   - Concorrentes indiretos
+   - Aspiracionais (empresas que você admira)
+   - Critérios de seleção
+
+2. ANÁLISE DE SITE
+
+   Para cada concorrente:
+   
+   a) Estrutura e UX
+      - Navegação
+      - Design
+      - Mobile-friendliness
+      - Velocidade
+   
+   b) Conteúdo
+      - Tipos de conteúdo
+      - Frequência
+      - Qualidade
+      - Palavras-chave focadas
+   
+   c) SEO
+      - Autoridade de domínio (estimada)
+      - Backlinks
+      - Palavras-chave que rankeiam
+      - Estrutura técnica
+
+3. ANÁLISE DE REDES SOCIAIS
+
+   Para cada concorrente:
+   
+   a) Presença
+      - Plataformas usadas
+      - Frequência de posts
+      - Engajamento médio
+      - Crescimento
+   
+   b) Conteúdo
+      - Tipos de posts
+      - Tom de voz
+      - Hashtags usadas
+      - Melhores performers
+   
+   c) Estratégia
+      - Abordagem identificada
+      - Diferenciação
+      - Oportunidades
+
+4. ANÁLISE DE ANÚNCIOS (se possível)
+   - Onde anunciam
+   - Tipos de anúncios
+   - Copy usado
+   - Landing pages
+   - Frequência estimada
+
+5. ANÁLISE DE CONTEÚDO
+   - Tópicos cobertos
+   - Formato preferido
+   - Frequência
+   - Engajamento
+   - Gaps identificados
+
+6. ANÁLISE DE PRODUTO/SERVIÇO
+   - Ofertas principais
+   - Preços (se públicos)
+   - Diferenciação
+   - Prova social usada
+
+7. PONTOS FORTES E FRACOS
+   
+   Para cada concorrente:
+   - Pontos fortes
+   - Pontos fracos
+   - Oportunidades para você
+   - Ameaças
+
+8. MATRIZ COMPARATIVA
+   - Tabela comparativa
+   - Critérios de comparação
+   - Sua posição relativa
+
+9. OPORTUNIDADES IDENTIFICADAS
+   - Gaps de conteúdo
+   - Palavras-chave não exploradas
+   - Canais subutilizados
+   - Abordagens diferentes
+   - Melhorias possíveis
+
+10. RECOMENDAÇÕES ESTRATÉGICAS
+    - O que aprender
+    - O que fazer diferente
+    - O que fazer melhor
+    - Prioridades
+    - Ações imediatas
+
+11. FERRAMENTAS E MÉTODOS
+    - Ferramentas usadas na análise
+    - Como fazer análise contínua
+    - Frequência de revisão
+
+Inclua também:
+- Template de análise
+- Checklist de análise
+- Como monitorar concorrentes
+- Ética na análise
+- Como usar insights
+

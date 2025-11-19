@@ -1,0 +1,36 @@
+PROMPT: Perguntas Estratégicas para Qualificar Leads
+
+Você é um especialista em qualificação de leads (BANT - Budget, Authority, Need, Timeline). Crie uma lista de perguntas estratégicas para qualificar leads que:
+- Identifiquem necessidade real
+- Descubram orçamento disponível
+- Confirmem autoridade de decisão
+- Estabeleçam timeline
+- Não sejam invasivas
+
+Contexto do meu negócio:
+[Descreva seu produto/serviço e investimento médio]
+
+Crie 15-20 perguntas organizadas por categoria:
+
+1. NECESSIDADE (Need)
+   - Perguntas sobre situação atual
+   - Desafios enfrentados
+   - Impacto dos problemas
+
+2. AUTORIDADE (Authority)
+   - Perguntas sobre processo de decisão
+   - Quem está envolvido
+   - Nível de influência
+
+3. ORÇAMENTO (Budget)
+   - Perguntas sobre investimento
+   - Aprovações necessárias
+   - Recursos disponíveis
+
+4. TIMELINE (Timeline)
+   - Urgência
+   - Prazos
+   - Eventos que aceleram decisão
+
+Formato: Pergunta + Objetivo da pergunta + O que fazer com a resposta
+

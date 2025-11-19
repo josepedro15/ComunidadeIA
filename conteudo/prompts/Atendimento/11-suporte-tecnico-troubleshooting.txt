@@ -1,0 +1,151 @@
+PROMPT: Guia de Troubleshooting Técnico
+
+Você é um especialista em suporte técnico. Crie um guia completo de troubleshooting que:
+- Resolva problemas comuns rapidamente
+- Seja fácil de seguir
+- Economize tempo da equipe
+- Melhore resolução na primeira interação
+- Seja atualizado regularmente
+
+Contexto:
+Produto/Serviço: [Descreva]
+Tipo de suporte: [Software / Hardware / SaaS / E-commerce / etc.]
+Principais problemas: [Liste 10-15 problemas mais comuns]
+Nível técnico do público: [Iniciante / Intermediário / Avançado]
+
+Crie guia completo:
+
+1. PROBLEMAS MAIS COMUNS
+
+   Para cada problema:
+   
+   PROBLEMA 1: [Título claro]
+   - Descrição do problema
+   - Sintomas
+   - Causas possíveis
+   - Solução passo a passo:
+     1. [Passo 1]
+     2. [Passo 2]
+     3. [Passo 3]
+   - Soluções alternativas (se primeira não funcionar)
+   - Quando escalar para equipe técnica
+   - Links/recursos úteis
+   - Screenshots/vídeos (quando aplicável)
+
+   [Continue para todos os problemas]
+
+2. PROCESSO DE DIAGNÓSTICO
+
+   Checklist de diagnóstico:
+   - Informações a coletar do cliente
+   - Perguntas a fazer
+   - Testes a realizar
+   - Logs a verificar
+   - Ordem de tentativas
+
+3. SOLUÇÕES POR CATEGORIA
+
+   a) Problemas de Acesso/Login
+      - Esqueceu senha
+      - Conta bloqueada
+      - Erro de autenticação
+      - [Outros]
+   
+   b) Problemas de Performance
+      - Lento
+      - Travamentos
+      - Timeout
+      - [Outros]
+   
+   c) Problemas de Integração
+      - API não funciona
+      - Webhook falhando
+      - Sincronização
+      - [Outros]
+   
+   d) Problemas de Pagamento
+      - Transação recusada
+      - Cobrança duplicada
+      - Reembolso
+      - [Outros]
+   
+   e) Problemas de Configuração
+      - Setup inicial
+      - Configurações perdidas
+      - Permissões
+      - [Outros]
+
+4. FERRAMENTAS E RECURSOS
+
+   - Ferramentas de diagnóstico
+   - Logs e onde encontrar
+   - Comandos úteis
+   - Links para documentação
+   - Vídeos tutoriais
+   - Base de conhecimento
+
+5. COMUNICAÇÃO COM CLIENTE
+
+   Template de mensagem:
+   - Reconhecimento do problema
+   - Solução proposta
+   - Passos claros
+   - O que fazer se não resolver
+   - Tempo estimado
+   - Follow-up
+
+6. ESCALAÇÃO TÉCNICA
+
+   Quando escalar:
+   - Problema complexo
+   - Soluções não funcionaram
+   - Requer acesso de desenvolvedor
+   - Bug identificado
+   - [Outros critérios]
+
+   Como escalar:
+   - Informações a incluir
+   - Contexto completo
+   - Tentativas realizadas
+   - Logs/evidências
+   - Urgência
+
+7. PREVENÇÃO
+
+   - Como prevenir problemas comuns
+   - Boas práticas
+   - Configurações recomendadas
+   - Manutenção preventiva
+   - Educação do cliente
+
+8. ATUALIZAÇÃO DO GUIA
+
+   - Como identificar novos problemas
+   - Processo de atualização
+   - Feedback da equipe
+   - Análise de tickets
+   - Frequência de revisão
+
+9. MÉTRICAS
+
+   - Taxa de resolução na primeira interação
+   - Tempo médio de resolução
+   - Problemas mais frequentes
+   - Gaps no guia
+   - Satisfação do cliente
+
+10. TREINAMENTO DA EQUIPE
+
+    - Como usar o guia
+    - Quando consultar
+    - Como contribuir
+    - Atualizações regulares
+    - Casos práticos
+
+Inclua também:
+- Template de troubleshooting
+- Checklist de diagnóstico
+- Glossário técnico
+- Erros comuns na resolução
+- Como documentar soluções
+
