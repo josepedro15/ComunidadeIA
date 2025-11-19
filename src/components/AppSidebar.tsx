@@ -48,9 +48,6 @@ export function AppSidebar() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Debug
-  console.log("AppSidebar - isAdmin:", isAdmin, "profile:", profile);
-
   const handleSignOut = async () => {
     const { error } = await signOut();
     if (error) {

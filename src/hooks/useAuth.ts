@@ -22,14 +22,14 @@ export function useAuth() {
 
   useEffect(() => {
     // Verifica sessão inicial
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    supabase.auth.getSession().then(async ({ data: { session } }) => {
       if (session?.user) {
         setAuthState((prev) => ({
           ...prev,
           user: session.user,
-          loading: false,
+          loading: true, // Mantém loading true até carregar o perfil
         }));
-        loadUserProfile(session.user.id);
+        await loadUserProfile(session.user.id);
       } else {
         setAuthState((prev) => ({ ...prev, loading: false }));
       }
@@ -43,9 +43,9 @@ export function useAuth() {
         setAuthState((prev) => ({
           ...prev,
           user: session.user,
-          loading: false,
+          loading: true, // Mantém loading true até carregar o perfil
         }));
-        loadUserProfile(session.user.id);
+        await loadUserProfile(session.user.id);
       } else {
         setAuthState({
           user: null,
@@ -75,6 +75,7 @@ export function useAuth() {
         ...prev,
         profile: data,
         isAdmin: data?.is_admin ?? false,
+        loading: false, // Só marca como não loading após carregar o perfil
       }));
     } catch (error) {
       console.error("Erro ao carregar perfil:", error);
@@ -82,6 +83,7 @@ export function useAuth() {
         ...prev,
         profile: null,
         isAdmin: false,
+        loading: false, // Marca como não loading mesmo em caso de erro
       }));
     }
   };
