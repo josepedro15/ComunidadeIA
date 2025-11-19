@@ -8,7 +8,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { useParams, useNavigate } from "react-router-dom";
 import { BookOpen, Clock, CheckCircle2, Play, ArrowLeft, Download, ExternalLink } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { toast } from "sonner";
 
 export default function ModuloDetalhes() {
@@ -73,6 +73,88 @@ export default function ModuloDetalhes() {
       return progressoMap;
     },
     enabled: !!user && !!aulas && aulas.length > 0,
+  });
+
+  // Função para gerar signed URL se necessário
+  const getVideoUrl = async (videoUrl: string): Promise<string> => {
+    // Se já é uma URL externa (YouTube, Vimeo, etc), retornar direto
+    if (videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be') || videoUrl.includes('vimeo.com')) {
+      return videoUrl;
+    }
+
+    // Se é uma signed URL do Supabase (já tem token), retornar direto
+    if (videoUrl.includes('supabase.co/storage/v1/object/sign/')) {
+      return videoUrl;
+    }
+
+    // Se é uma URL pública do Supabase Storage (bucket público)
+    if (videoUrl.includes('supabase.co/storage/v1/object/public/')) {
+      // Extrair bucket e path
+      const match = videoUrl.match(/\/storage\/v1\/object\/public\/([^\/]+)\/(.+)/);
+      if (match) {
+        const bucketName = match[1];
+        const objectPath = match[2].split('?')[0]; // Remove query params
+        
+        // Tentar gerar signed URL (mais seguro para buckets privados)
+        const { data: signedData, error } = await supabase.storage
+          .from(bucketName)
+          .createSignedUrl(objectPath, 3600); // 1 hora
+
+        if (!error && signedData) {
+          return signedData.signedUrl;
+        }
+        
+        // Se não conseguir signed URL, retornar URL pública original
+        return videoUrl;
+      }
+    }
+
+    // Se é um path relativo (formato: videos/path/to/file.mp4)
+    if (videoUrl.startsWith('videos/') || videoUrl.startsWith('materiais/')) {
+      const [bucketName, ...pathParts] = videoUrl.split('/');
+      const objectPath = pathParts.join('/');
+      
+      const { data: signedData, error } = await supabase.storage
+        .from(bucketName)
+        .createSignedUrl(objectPath, 3600); // 1 hora
+
+      if (!error && signedData) {
+        return signedData.signedUrl;
+      }
+      
+      // Se não conseguir, tentar URL pública
+      const { data: { publicUrl } } = supabase.storage
+        .from(bucketName)
+        .getPublicUrl(objectPath);
+      
+      return publicUrl || videoUrl;
+    }
+
+    // Retornar URL original se não conseguir processar
+    return videoUrl;
+  };
+
+  // Buscar signed URLs para vídeos do Supabase
+  const { data: videoUrls } = useQuery({
+    queryKey: ["video-signed-urls", aulas?.map(a => a.id), aulas?.map(a => a.video_url)],
+    queryFn: async () => {
+      if (!aulas) return {};
+      
+      const urlMap: Record<string, string> = {};
+      await Promise.all(
+        aulas.map(async (aula) => {
+          try {
+            urlMap[aula.id] = await getVideoUrl(aula.video_url);
+          } catch (error) {
+            console.error(`Erro ao gerar signed URL para aula ${aula.id}:`, error);
+            urlMap[aula.id] = aula.video_url; // Fallback para URL original
+          }
+        })
+      );
+      return urlMap;
+    },
+    enabled: !!aulas && aulas.length > 0,
+    staleTime: 50 * 60 * 1000, // Cache por 50 minutos (signed URLs duram 1 hora)
   });
 
   // Mutation para atualizar progresso
@@ -234,8 +316,8 @@ export default function ModuloDetalhes() {
                   {/* Player de Vídeo */}
                   <div className="aspect-video bg-black rounded-lg overflow-hidden">
                     {(() => {
-                      const videoUrl = aulaAtual.video_url;
-                      const isSupabaseStorage = videoUrl.includes('supabase.co/storage') || videoUrl.includes('supabase');
+                      // Usar signed URL se disponível, senão usar URL original
+                      const videoUrl = videoUrls?.[aulaAtual.id] || aulaAtual.video_url;
                       
                       // YouTube
                       if (videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be')) {

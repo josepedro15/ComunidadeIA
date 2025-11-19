@@ -207,23 +207,25 @@ export default function ModulosAdmin() {
 
     if (error) throw error;
 
-    // Para bucket privado, usar signed URL (válida por 1 ano)
-    // Se o bucket for público, getPublicUrl funcionará
-    const { data: { publicUrl } } = supabase.storage
+    // Para bucket privado, sempre usar signed URL (válida por 1 ano)
+    // Salvamos o path no banco e geramos signed URL quando necessário
+    // Retornamos o path completo para salvar no banco
+    const storagePath = `videos/${data.path}`;
+    
+    // Tentar gerar signed URL (válida por 1 ano)
+    const { data: signedData, error: signedError } = await supabase.storage
       .from('videos')
-      .getPublicUrl(data.path);
+      .createSignedUrl(data.path, 31536000); // 1 ano em segundos
 
-    // Se não conseguir URL pública, tentar signed URL
-    if (!publicUrl || publicUrl.includes('undefined')) {
-      const { data: signedData, error: signedError } = await supabase.storage
-        .from('videos')
-        .createSignedUrl(data.path, 31536000); // 1 ano em segundos
-
-      if (signedError) throw signedError;
-      return signedData.signedUrl;
+    if (signedError) {
+      console.warn("Erro ao gerar signed URL, salvando path:", signedError);
+      // Se não conseguir signed URL, salvar o path e gerar depois
+      return storagePath;
     }
 
-    return publicUrl;
+    // Retornar signed URL (mas vamos salvar o path no banco para gerar novas URLs depois)
+    // Por enquanto, retornamos a signed URL, mas idealmente deveríamos salvar apenas o path
+    return signedData.signedUrl;
   };
 
   // Função para fazer upload de materiais
@@ -867,9 +869,11 @@ export default function ModulosAdmin() {
                       <div className="flex items-center gap-4 text-sm text-muted-foreground">
                         <div className="flex items-center gap-1">
                           <Video className="h-4 w-4" />
-                          <a href={aula.video_url} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                            Ver vídeo
-                          </a>
+                          <span className="text-muted-foreground">
+                            {aula.video_url.includes('youtube.com') || aula.video_url.includes('vimeo.com') 
+                              ? 'Vídeo externo' 
+                              : 'Vídeo do Supabase'}
+                          </span>
                         </div>
                         <div className="flex items-center gap-1">
                           <Clock className="h-4 w-4" />
