@@ -7,9 +7,11 @@ import { Progress } from "@/components/ui/progress";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 export default function Modulos() {
   const { user, profile } = useAuth();
+  const navigate = useNavigate();
 
   // Buscar módulos do banco
   const { data: modulos, isLoading } = useQuery({
@@ -163,6 +165,11 @@ export default function Modulos() {
                       className="w-full mt-auto" 
                       variant={progressoPercent > 0 ? "default" : "outline"}
                       disabled={!temAcesso}
+                      onClick={() => {
+                        if (temAcesso) {
+                          navigate(`/modulos/${modulo.id}`);
+                        }
+                      }}
                     >
                       {!temAcesso ? (
                         <>

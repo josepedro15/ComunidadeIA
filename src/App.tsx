@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
 import Modulos from "./pages/Modulos";
+import ModuloDetalhes from "./pages/ModuloDetalhes";
 import Ferramentas from "./pages/Ferramentas";
 import Prompts from "./pages/Prompts";
 import Lives from "./pages/Lives";
@@ -48,6 +49,14 @@ const App = () => (
             element={
               <ProtectedRoute>
                 <Modulos />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/modulos/:id"
+            element={
+              <ProtectedRoute>
+                <ModuloDetalhes />
               </ProtectedRoute>
             }
           />
