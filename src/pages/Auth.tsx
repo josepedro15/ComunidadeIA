@@ -36,21 +36,35 @@ export default function Auth() {
     setError(null);
     setIsLoading(true);
 
-    const { error } = await signIn(email, password);
+    try {
+      const { error } = await signIn(email, password);
 
-    if (error) {
-      setError(
-        error.message === "Invalid login credentials"
-          ? "Email ou senha incorretos"
-          : error.message
-      );
+      if (error) {
+        // Mensagens de erro mais amigáveis
+        let errorMessage = error.message;
+        
+        if (error.message === "Invalid login credentials") {
+          errorMessage = "Email ou senha incorretos";
+        } else if (error.message.includes("Invalid API key") || error.message.includes("401")) {
+          errorMessage = "Erro de configuração: Verifique as variáveis de ambiente do Supabase na Vercel";
+          console.error("❌ Erro de API Key:", error);
+        } else if (error.message.includes("Network") || error.message.includes("fetch")) {
+          errorMessage = "Erro de conexão. Verifique sua internet e tente novamente";
+        }
+        
+        setError(errorMessage);
+        toast.error("Erro ao fazer login");
+      } else {
+        toast.success("Login realizado com sucesso!");
+        navigate("/dashboard");
+      }
+    } catch (err: any) {
+      console.error("Erro inesperado no login:", err);
+      setError("Erro inesperado. Tente novamente ou entre em contato com o suporte.");
       toast.error("Erro ao fazer login");
-    } else {
-      toast.success("Login realizado com sucesso!");
-      navigate("/dashboard");
+    } finally {
+      setIsLoading(false);
     }
-
-    setIsLoading(false);
   };
 
   const handleRecoverPassword = async (e: React.FormEvent<HTMLFormElement>) => {

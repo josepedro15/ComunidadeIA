@@ -6,11 +6,25 @@ const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
 const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
 
 if (!SUPABASE_URL) {
-  throw new Error('Missing env.VITE_SUPABASE_URL');
+  const error = 'Missing env.VITE_SUPABASE_URL. Configure as variáveis de ambiente na Vercel (Settings → Environment Variables).';
+  console.error('❌ Supabase Configuration Error:', error);
+  throw new Error(error);
 }
 
 if (!SUPABASE_PUBLISHABLE_KEY) {
-  throw new Error('Missing env.VITE_SUPABASE_PUBLISHABLE_KEY');
+  const error = 'Missing env.VITE_SUPABASE_PUBLISHABLE_KEY. Configure as variáveis de ambiente na Vercel (Settings → Environment Variables).';
+  console.error('❌ Supabase Configuration Error:', error);
+  throw new Error(error);
+}
+
+// Validação básica do formato da URL
+if (!SUPABASE_URL.startsWith('https://') || !SUPABASE_URL.includes('.supabase.co')) {
+  console.warn('⚠️ Supabase URL parece estar incorreta:', SUPABASE_URL);
+}
+
+// Validação básica do formato da chave (deve começar com eyJ)
+if (!SUPABASE_PUBLISHABLE_KEY.startsWith('eyJ')) {
+  console.warn('⚠️ Supabase API Key parece estar incorreta. Certifique-se de usar a anon public key.');
 }
 
 // Import the supabase client like this:
