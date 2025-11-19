@@ -7,12 +7,99 @@ import { Label } from "@/components/ui/label";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { toast } from "sonner";
 import { useAuth } from "@/hooks/useAuth";
+import { useState, useEffect } from "react";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
+import { useQuery } from "@tanstack/react-query";
 
 export default function Perfil() {
-  const { profile, isAdmin } = useAuth();
+  const { profile, isAdmin, user } = useAuth();
+  const queryClient = useQueryClient();
+  const [nome, setNome] = useState(profile?.nome || "");
+
+  // Atualizar nome quando profile mudar
+  useEffect(() => {
+    if (profile?.nome) {
+      setNome(profile.nome);
+    }
+  }, [profile?.nome]);
+
+  // Buscar estatísticas reais
+  const { data: stats } = useQuery({
+    queryKey: ["perfil-stats", user?.id],
+    queryFn: async () => {
+      if (!user) return null;
+
+      const { data: progresso } = await supabase
+        .from("progresso_aulas")
+        .select("aula_id, concluida")
+        .eq("user_id", user.id);
+
+      const { data: todasAulas } = await supabase
+        .from("aulas")
+        .select("id");
+
+      const { data: modulos } = await supabase
+        .from("modulos")
+        .select("id")
+        .eq("ativo", true);
+
+      const aulasConcluidas = progresso?.filter(p => p.concluida).length || 0;
+      const totalAulas = todasAulas?.length || 0;
+      const totalModulos = modulos?.length || 0;
+      const horasEstudo = Math.round((aulasConcluidas * 1.5) / 60);
+
+      // Calcular módulos concluídos (simplificado)
+      let modulosConcluidos = 0;
+      // Lógica mais complexa seria necessária aqui
+
+      return {
+        aulasConcluidas,
+        totalAulas,
+        horasEstudo,
+        modulosConcluidos,
+        totalModulos,
+      };
+    },
+    enabled: !!user,
+  });
+
+  // Mutation para atualizar perfil
+  const updateMutation = useMutation({
+    mutationFn: async (data: { nome: string }) => {
+      if (!profile) throw new Error("Perfil não encontrado");
+
+      const { error } = await supabase
+        .from("user_profiles")
+        .update({ nome: data.nome })
+        .eq("user_id", profile.user_id);
+
+      if (error) throw error;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["admin-membros"] });
+      toast.success("Perfil atualizado com sucesso!");
+    },
+    onError: (error: any) => {
+      toast.error(`Erro: ${error.message}`);
+    },
+  });
 
   const handleSave = () => {
-    toast.success("Perfil atualizado com sucesso!");
+    if (!nome.trim()) {
+      toast.error("O nome é obrigatório");
+      return;
+    }
+    updateMutation.mutate({ nome });
+  };
+
+  const getInitials = (name: string) => {
+    return name
+      .split(" ")
+      .map((n) => n[0])
+      .join("")
+      .toUpperCase()
+      .slice(0, 2);
   };
 
   return (
@@ -33,29 +120,48 @@ export default function Perfil() {
           <CardContent className="space-y-6">
             <div className="flex items-center gap-4">
               <Avatar className="h-20 w-20">
-                <AvatarImage src="https://github.com/shadcn.png" />
-                <AvatarFallback>JD</AvatarFallback>
+                <AvatarImage src={profile?.foto_url || undefined} />
+                <AvatarFallback>
+                  {profile?.nome ? getInitials(profile.nome) : "U"}
+                </AvatarFallback>
               </Avatar>
-              <Button variant="outline">Alterar Foto</Button>
+              <Button variant="outline" disabled>
+                Alterar Foto
+              </Button>
+              <span className="text-xs text-muted-foreground">Em breve</span>
             </div>
 
             <div className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="nome">Nome Completo</Label>
-                <Input id="nome" defaultValue="João da Silva" />
+                <Input 
+                  id="nome" 
+                  value={nome}
+                  onChange={(e) => setNome(e.target.value)}
+                  placeholder="Seu nome completo"
+                />
               </div>
 
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" defaultValue="joao@email.com" />
+                <Input 
+                  id="email" 
+                  type="email" 
+                  value={user?.email || ""}
+                  disabled
+                  className="bg-muted"
+                />
+                <p className="text-xs text-muted-foreground">
+                  O email não pode ser alterado aqui
+                </p>
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="telefone">Telefone</Label>
-                <Input id="telefone" type="tel" defaultValue="(11) 98765-4321" />
-              </div>
-
-              <Button onClick={handleSave}>Salvar Alterações</Button>
+              <Button 
+                onClick={handleSave}
+                disabled={updateMutation.isPending || !nome.trim()}
+              >
+                {updateMutation.isPending ? "Salvando..." : "Salvar Alterações"}
+              </Button>
             </div>
           </CardContent>
         </Card>
@@ -108,19 +214,29 @@ export default function Perfil() {
             <div className="grid gap-4 md:grid-cols-2">
               <div className="space-y-1">
                 <p className="text-sm text-muted-foreground">Total de Aulas</p>
-                <p className="text-2xl font-bold">45/120</p>
+                <p className="text-2xl font-bold">
+                  {stats ? `${stats.aulasConcluidas}/${stats.totalAulas}` : "0/0"}
+                </p>
               </div>
               <div className="space-y-1">
                 <p className="text-sm text-muted-foreground">Horas de Estudo</p>
-                <p className="text-2xl font-bold">24h</p>
+                <p className="text-2xl font-bold">
+                  {stats ? `${stats.horasEstudo}h` : "0h"}
+                </p>
               </div>
               <div className="space-y-1">
                 <p className="text-sm text-muted-foreground">Módulos Completos</p>
-                <p className="text-2xl font-bold">3/10</p>
+                <p className="text-2xl font-bold">
+                  {stats ? `${stats.modulosConcluidos}/${stats.totalModulos}` : "0/0"}
+                </p>
               </div>
               <div className="space-y-1">
-                <p className="text-sm text-muted-foreground">Certificados</p>
-                <p className="text-2xl font-bold">2</p>
+                <p className="text-sm text-muted-foreground">Data de Adesão</p>
+                <p className="text-2xl font-bold text-sm">
+                  {profile?.data_adesao 
+                    ? new Date(profile.data_adesao).toLocaleDateString("pt-BR")
+                    : "N/A"}
+                </p>
               </div>
             </div>
           </CardContent>
