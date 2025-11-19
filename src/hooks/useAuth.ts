@@ -22,37 +22,56 @@ export function useAuth() {
 
   useEffect(() => {
     // Verifica sessão inicial
-    supabase.auth.getSession().then(async ({ data: { session } }) => {
-      if (session?.user) {
-        setAuthState((prev) => ({
-          ...prev,
-          user: session.user,
-          loading: true, // Mantém loading true até carregar o perfil
-        }));
-        await loadUserProfile(session.user.id);
-      } else {
+    const checkSessionAndProfile = async () => {
+      try {
+        const { data: { session }, error } = await supabase.auth.getSession();
+        if (error) {
+          console.error("Erro ao verificar sessão:", error);
+          setAuthState((prev) => ({ ...prev, loading: false }));
+          return;
+        }
+        
+        if (session?.user) {
+          setAuthState((prev) => ({
+            ...prev,
+            user: session.user,
+            loading: true, // Mantém loading true até carregar o perfil
+          }));
+          await loadUserProfile(session.user.id);
+        } else {
+          setAuthState((prev) => ({ ...prev, loading: false }));
+        }
+      } catch (error) {
+        console.error("Erro ao verificar sessão:", error);
         setAuthState((prev) => ({ ...prev, loading: false }));
       }
-    });
+    };
+
+    checkSessionAndProfile();
 
     // Escuta mudanças na autenticação
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange(async (event, session) => {
-      if (session?.user) {
-        setAuthState((prev) => ({
-          ...prev,
-          user: session.user,
-          loading: true, // Mantém loading true até carregar o perfil
-        }));
-        await loadUserProfile(session.user.id);
-      } else {
-        setAuthState({
-          user: null,
-          profile: null,
-          loading: false,
-          isAdmin: false,
-        });
+      try {
+        if (session?.user) {
+          setAuthState((prev) => ({
+            ...prev,
+            user: session.user,
+            loading: true, // Mantém loading true até carregar o perfil
+          }));
+          await loadUserProfile(session.user.id);
+        } else {
+          setAuthState({
+            user: null,
+            profile: null,
+            loading: false,
+            isAdmin: false,
+          });
+        }
+      } catch (error) {
+        console.error("Erro ao processar mudança de autenticação:", error);
+        setAuthState((prev) => ({ ...prev, loading: false }));
       }
     });
 
