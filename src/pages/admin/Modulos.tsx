@@ -39,6 +39,10 @@ export default function ModulosAdmin() {
   const [selectedModuloId, setSelectedModuloId] = useState<string | null>(null);
   const [isAulaDialogOpen, setIsAulaDialogOpen] = useState(false);
   const [editingAula, setEditingAula] = useState<any>(null);
+  const [videoFile, setVideoFile] = useState<File | null>(null);
+  const [materialFiles, setMaterialFiles] = useState<File[]>([]);
+  const [useVideoUpload, setUseVideoUpload] = useState(true);
+  const [uploadingVideo, setUploadingVideo] = useState(false);
   const queryClient = useQueryClient();
   
   const { register, handleSubmit, reset, formState: { errors }, setValue } = useForm<ModuloFormData>({
@@ -187,34 +191,149 @@ export default function ModulosAdmin() {
     },
   });
 
+  // Função para fazer upload de vídeo
+  const uploadVideo = async (file: File, aulaId?: string): Promise<string> => {
+    const fileExt = file.name.split('.').pop();
+    const fileName = aulaId 
+      ? `${aulaId}/${Date.now()}.${fileExt}`
+      : `temp/${Date.now()}.${fileExt}`;
+    
+    const { data, error } = await supabase.storage
+      .from('videos')
+      .upload(fileName, file, {
+        cacheControl: '3600',
+        upsert: false
+      });
+
+    if (error) throw error;
+
+    // Para bucket privado, usar signed URL (válida por 1 ano)
+    // Se o bucket for público, getPublicUrl funcionará
+    const { data: { publicUrl } } = supabase.storage
+      .from('videos')
+      .getPublicUrl(data.path);
+
+    // Se não conseguir URL pública, tentar signed URL
+    if (!publicUrl || publicUrl.includes('undefined')) {
+      const { data: signedData, error: signedError } = await supabase.storage
+        .from('videos')
+        .createSignedUrl(data.path, 31536000); // 1 ano em segundos
+
+      if (signedError) throw signedError;
+      return signedData.signedUrl;
+    }
+
+    return publicUrl;
+  };
+
+  // Função para fazer upload de materiais
+  const uploadMaterials = async (files: File[], aulaId?: string): Promise<string[]> => {
+    const uploadPromises = files.map(async (file) => {
+      const fileExt = file.name.split('.').pop();
+      const fileName = aulaId
+        ? `${aulaId}/materiais/${Date.now()}-${file.name}`
+        : `temp/materiais/${Date.now()}-${file.name}`;
+      
+      const { data, error } = await supabase.storage
+        .from('materiais')
+        .upload(fileName, file, {
+          cacheControl: '3600',
+          upsert: false
+        });
+
+      if (error) throw error;
+
+      // Para bucket privado, usar signed URL (válida por 1 ano)
+      const { data: { publicUrl } } = supabase.storage
+        .from('materiais')
+        .getPublicUrl(data.path);
+
+      // Se não conseguir URL pública, tentar signed URL
+      if (!publicUrl || publicUrl.includes('undefined')) {
+        const { data: signedData, error: signedError } = await supabase.storage
+          .from('materiais')
+          .createSignedUrl(data.path, 31536000); // 1 ano em segundos
+
+        if (signedError) throw signedError;
+        return signedData.signedUrl;
+      }
+
+      return publicUrl;
+    });
+
+    return Promise.all(uploadPromises);
+  };
+
   // Mutation para criar aula
   const createAulaMutation = useMutation({
     mutationFn: async (data: AulaFormData) => {
       if (!selectedModuloId) throw new Error("Módulo não selecionado");
       
-      const materiaisArray = data.materiais
+      setUploadingVideo(true);
+      let videoUrl = data.video_url;
+      let materiaisUrls: string[] = [];
+
+      // Upload de vídeo se houver arquivo
+      if (useVideoUpload && videoFile) {
+        try {
+          videoUrl = await uploadVideo(videoFile);
+        } catch (error: any) {
+          setUploadingVideo(false);
+          throw new Error(`Erro ao fazer upload do vídeo: ${error.message}`);
+        }
+      }
+
+      // Upload de materiais se houver arquivos
+      if (materialFiles.length > 0) {
+        try {
+          materiaisUrls = await uploadMaterials(materialFiles);
+        } catch (error: any) {
+          setUploadingVideo(false);
+          throw new Error(`Erro ao fazer upload dos materiais: ${error.message}`);
+        }
+      }
+
+      // Se também houver URLs de materiais no campo texto, adicionar
+      const materiaisFromText = data.materiais
         ? data.materiais.split(",").map((m) => m.trim()).filter((m) => m.length > 0)
         : [];
+      
+      const allMateriais = [...materiaisUrls, ...materiaisFromText];
 
-      const { error } = await supabase
+      const { data: aulaData, error } = await supabase
         .from("aulas")
         .insert([{
           modulo_id: selectedModuloId,
           titulo: data.titulo,
           descricao: data.descricao || null,
-          video_url: data.video_url,
+          video_url: videoUrl,
           duracao: data.duracao,
           ordem: data.ordem,
-          materiais: materiaisArray.length > 0 ? materiaisArray : null,
-        }]);
+          materiais: allMateriais.length > 0 ? allMateriais : null,
+        }])
+        .select()
+        .single();
 
-      if (error) throw error;
+      if (error) {
+        setUploadingVideo(false);
+        throw error;
+      }
+
+      // Se o vídeo foi feito upload, mover do temp para a pasta da aula
+      if (useVideoUpload && videoFile && aulaData) {
+        // Não precisa mover, já está na pasta correta
+      }
+
+      setUploadingVideo(false);
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["admin-aulas", selectedModuloId] });
       queryClient.invalidateQueries({ queryKey: ["admin-aulas-count"] });
       toast.success("Aula criada com sucesso!");
       resetAula();
+      setVideoFile(null);
+      setMaterialFiles([]);
+      setUseVideoUpload(true);
       setIsAulaDialogOpen(false);
       setEditingAula(null);
     },
@@ -226,28 +345,63 @@ export default function ModulosAdmin() {
   // Mutation para atualizar aula
   const updateAulaMutation = useMutation({
     mutationFn: async ({ id, data }: { id: string; data: AulaFormData }) => {
-      const materiaisArray = data.materiais
+      setUploadingVideo(true);
+      let videoUrl = data.video_url;
+      let materiaisUrls: string[] = [];
+
+      // Upload de vídeo se houver arquivo novo
+      if (useVideoUpload && videoFile) {
+        try {
+          videoUrl = await uploadVideo(videoFile, id);
+        } catch (error: any) {
+          setUploadingVideo(false);
+          throw new Error(`Erro ao fazer upload do vídeo: ${error.message}`);
+        }
+      }
+
+      // Upload de materiais se houver arquivos novos
+      if (materialFiles.length > 0) {
+        try {
+          materiaisUrls = await uploadMaterials(materialFiles, id);
+        } catch (error: any) {
+          setUploadingVideo(false);
+          throw new Error(`Erro ao fazer upload dos materiais: ${error.message}`);
+        }
+      }
+
+      // Se também houver URLs de materiais no campo texto, adicionar
+      const materiaisFromText = data.materiais
         ? data.materiais.split(",").map((m) => m.trim()).filter((m) => m.length > 0)
         : [];
+      
+      const allMateriais = [...materiaisUrls, ...materiaisFromText];
 
       const { error } = await supabase
         .from("aulas")
         .update({
           titulo: data.titulo,
           descricao: data.descricao || null,
-          video_url: data.video_url,
+          video_url: videoUrl,
           duracao: data.duracao,
           ordem: data.ordem,
-          materiais: materiaisArray.length > 0 ? materiaisArray : null,
+          materiais: allMateriais.length > 0 ? allMateriais : null,
         })
         .eq("id", id);
 
-      if (error) throw error;
+      if (error) {
+        setUploadingVideo(false);
+        throw error;
+      }
+
+      setUploadingVideo(false);
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["admin-aulas", selectedModuloId] });
       toast.success("Aula atualizada com sucesso!");
       resetAula();
+      setVideoFile(null);
+      setMaterialFiles([]);
+      setUseVideoUpload(true);
       setIsAulaDialogOpen(false);
       setEditingAula(null);
     },
@@ -304,6 +458,17 @@ export default function ModulosAdmin() {
   };
 
   const onSubmitAula = (data: AulaFormData) => {
+    // Validar se tem vídeo (upload ou URL)
+    if (useVideoUpload && !videoFile && !editingAula) {
+      toast.error("Selecione um arquivo de vídeo para fazer upload");
+      return;
+    }
+    
+    if (!useVideoUpload && !data.video_url) {
+      toast.error("Informe a URL do vídeo");
+      return;
+    }
+
     if (editingAula) {
       updateAulaMutation.mutate({ id: editingAula.id, data });
     } else {
@@ -334,12 +499,19 @@ export default function ModulosAdmin() {
     setValueAula("duracao", aula.duracao);
     setValueAula("ordem", aula.ordem);
     setValueAula("materiais", aula.materiais?.join(", ") || "");
+    setVideoFile(null);
+    setMaterialFiles([]);
+    // Verificar se a URL é do Supabase Storage
+    setUseVideoUpload(aula.video_url?.includes('supabase.co/storage') || false);
     setIsAulaDialogOpen(true);
   };
 
   const handleNewAula = () => {
     setEditingAula(null);
     resetAula();
+    setVideoFile(null);
+    setMaterialFiles([]);
+    setUseVideoUpload(true);
     setIsAulaDialogOpen(true);
   };
 
@@ -771,16 +943,92 @@ export default function ModulosAdmin() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="aula-video_url">URL do Vídeo *</Label>
-              <Input
-                id="aula-video_url"
-                type="url"
-                {...registerAula("video_url", { required: "URL do vídeo é obrigatória" })}
-                placeholder="https://youtube.com/..."
-              />
-              {errorsAula.video_url && (
-                <p className="text-sm text-destructive">{errorsAula.video_url.message}</p>
-              )}
+              <Label>Vídeo *</Label>
+              <div className="space-y-2">
+                <div className="flex items-center gap-4 mb-2">
+                  <label className="flex items-center gap-2 cursor-pointer">
+                    <input
+                      type="radio"
+                      checked={useVideoUpload}
+                      onChange={() => setUseVideoUpload(true)}
+                      className="w-4 h-4"
+                    />
+                    <span>Fazer upload</span>
+                  </label>
+                  <label className="flex items-center gap-2 cursor-pointer">
+                    <input
+                      type="radio"
+                      checked={!useVideoUpload}
+                      onChange={() => setUseVideoUpload(false)}
+                      className="w-4 h-4"
+                    />
+                    <span>Usar URL externa</span>
+                  </label>
+                </div>
+
+                {useVideoUpload ? (
+                  <div className="space-y-2">
+                    <Input
+                      type="file"
+                      accept="video/*"
+                      onChange={(e) => {
+                        const file = e.target.files?.[0];
+                        if (file) {
+                          const fileSizeGB = file.size / 1024 / 1024 / 1024;
+                          const maxSizeGB = 5;
+                          const maxSizeBytes = maxSizeGB * 1024 * 1024 * 1024;
+                          
+                          if (file.size > maxSizeBytes) {
+                            toast.error(`Vídeo muito grande (${fileSizeGB.toFixed(2)}GB). Tamanho máximo permitido: ${maxSizeGB}GB`);
+                            e.target.value = ''; // Limpa o input
+                            return;
+                          }
+                          
+                          setVideoFile(file);
+                          // Aviso informativo para arquivos grandes
+                          if (fileSizeGB > 1) {
+                            toast.info(`Arquivo grande (${fileSizeGB.toFixed(2)}GB). O upload pode demorar dependendo da sua conexão.`);
+                          }
+                        }
+                      }}
+                      className="cursor-pointer"
+                    />
+                    {videoFile && (
+                      <p className="text-sm text-muted-foreground">
+                        Arquivo selecionado: {videoFile.name} ({(videoFile.size / 1024 / 1024).toFixed(2)} MB)
+                      </p>
+                    )}
+                    {editingAula && editingAula.video_url && !videoFile && (
+                      <p className="text-sm text-muted-foreground">
+                        Vídeo atual: <a href={editingAula.video_url} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Ver vídeo</a>
+                      </p>
+                    )}
+                    {!videoFile && !editingAula && (
+                      <p className="text-xs text-muted-foreground">
+                        Selecione um arquivo de vídeo para fazer upload
+                      </p>
+                    )}
+                  </div>
+                ) : (
+                  <Input
+                    id="aula-video_url"
+                    type="url"
+                    {...registerAula("video_url", { 
+                      required: !useVideoUpload ? "URL do vídeo é obrigatória" : false,
+                      validate: (value) => {
+                        if (!useVideoUpload && !value) {
+                          return "URL do vídeo é obrigatória quando usar URL externa";
+                        }
+                        return true;
+                      }
+                    })}
+                    placeholder="https://youtube.com/... ou https://..."
+                  />
+                )}
+                {errorsAula.video_url && (
+                  <p className="text-sm text-destructive">{errorsAula.video_url.message}</p>
+                )}
+              </div>
             </div>
 
             <div className="grid grid-cols-2 gap-4">
@@ -809,15 +1057,55 @@ export default function ModulosAdmin() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="aula-materiais">Materiais (URLs separadas por vírgula)</Label>
-              <Input
-                id="aula-materiais"
-                {...registerAula("materiais")}
-                placeholder="https://exemplo.com/material1.pdf, https://exemplo.com/material2.pdf"
-              />
-              <p className="text-xs text-muted-foreground">
-                Separe múltiplas URLs com vírgulas
-              </p>
+              <Label htmlFor="aula-materiais">Materiais</Label>
+              <div className="space-y-2">
+                <div className="space-y-2">
+                  <Label htmlFor="aula-materiais-files" className="text-sm font-normal">
+                    Fazer upload de arquivos (PDFs, slides, etc)
+                  </Label>
+                  <Input
+                    id="aula-materiais-files"
+                    type="file"
+                    multiple
+                    accept=".pdf,.ppt,.pptx,.doc,.docx"
+                    onChange={(e) => {
+                      const files = Array.from(e.target.files || []);
+                      if (files.length > 0) {
+                        setMaterialFiles(files);
+                        // Aviso informativo para arquivos grandes (sem bloquear)
+                        const largeFiles = files.filter(f => f.size > 100 * 1024 * 1024);
+                        if (largeFiles.length > 0) {
+                          const totalSizeMB = largeFiles.reduce((sum, f) => sum + f.size, 0) / 1024 / 1024;
+                          toast.info(`${largeFiles.length} arquivo(s) grande(s) (${totalSizeMB.toFixed(2)}MB total). O upload pode demorar.`);
+                        }
+                      }
+                    }}
+                    className="cursor-pointer"
+                  />
+                  {materialFiles.length > 0 && (
+                    <div className="space-y-1">
+                      {materialFiles.map((file, idx) => (
+                        <p key={idx} className="text-sm text-muted-foreground">
+                          • {file.name} ({(file.size / 1024 / 1024).toFixed(2)} MB)
+                        </p>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="aula-materiais-urls" className="text-sm font-normal">
+                    Ou adicione URLs externas (separadas por vírgula)
+                  </Label>
+                  <Input
+                    id="aula-materiais-urls"
+                    {...registerAula("materiais")}
+                    placeholder="https://exemplo.com/material1.pdf, https://exemplo.com/material2.pdf"
+                  />
+                  <p className="text-xs text-muted-foreground">
+                    Você pode fazer upload de arquivos OU adicionar URLs externas, ou ambos
+                  </p>
+                </div>
+              </div>
             </div>
 
             <DialogFooter>
@@ -834,10 +1122,10 @@ export default function ModulosAdmin() {
               </Button>
               <Button 
                 type="submit" 
-                disabled={createAulaMutation.isPending || updateAulaMutation.isPending}
+                disabled={createAulaMutation.isPending || updateAulaMutation.isPending || uploadingVideo}
               >
-                {createAulaMutation.isPending || updateAulaMutation.isPending
-                  ? "Salvando..."
+                {createAulaMutation.isPending || updateAulaMutation.isPending || uploadingVideo
+                  ? uploadingVideo ? "Fazendo upload..." : "Salvando..."
                   : editingAula
                   ? "Salvar Alterações"
                   : "Criar Aula"}
