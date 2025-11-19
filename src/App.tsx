@@ -16,6 +16,10 @@ import Perfil from "./pages/Perfil";
 import NotFound from "./pages/NotFound";
 import AdminDashboard from "./pages/admin/Dashboard";
 import MembrosAdmin from "./pages/admin/Membros";
+import PromptsAdmin from "./pages/admin/Prompts";
+import LivesAdmin from "./pages/admin/Lives";
+import FerramentasAdmin from "./pages/admin/Ferramentas";
+import ModulosAdmin from "./pages/admin/Modulos";
 
 const queryClient = new QueryClient();
 
@@ -94,6 +98,38 @@ const App = () => (
             element={
               <AdminProtectedRoute>
                 <MembrosAdmin />
+              </AdminProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/prompts"
+            element={
+              <AdminProtectedRoute>
+                <PromptsAdmin />
+              </AdminProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/lives"
+            element={
+              <AdminProtectedRoute>
+                <LivesAdmin />
+              </AdminProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/ferramentas"
+            element={
+              <AdminProtectedRoute>
+                <FerramentasAdmin />
+              </AdminProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/modulos"
+            element={
+              <AdminProtectedRoute>
+                <ModulosAdmin />
               </AdminProtectedRoute>
             }
           />

@@ -1,4 +1,4 @@
-import { Home, BookOpen, Wrench, FileText, Video, User, LogOut, Shield, Users } from "lucide-react";
+import { Home, BookOpen, Wrench, FileText, Video, User, LogOut, Shield, Users, GraduationCap } from "lucide-react";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 import { NavLink } from "@/components/NavLink";
 import { useAuth } from "@/hooks/useAuth";
@@ -126,6 +126,50 @@ export function AppSidebar() {
                     >
                       <Users className="h-4 w-4" />
                       {open && <span>Gerenciar Membros</span>}
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                  <SidebarMenuButton asChild>
+                    <Link 
+                      to="/admin/modulos"
+                      className="w-full justify-start"
+                    >
+                      <GraduationCap className="h-4 w-4" />
+                      {open && <span>Módulos e Aulas</span>}
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                  <SidebarMenuButton asChild>
+                    <Link 
+                      to="/admin/prompts"
+                      className="w-full justify-start"
+                    >
+                      <FileText className="h-4 w-4" />
+                      {open && <span>Gerenciar Prompts</span>}
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                  <SidebarMenuButton asChild>
+                    <Link 
+                      to="/admin/lives"
+                      className="w-full justify-start"
+                    >
+                      <Video className="h-4 w-4" />
+                      {open && <span>Gerenciar Lives</span>}
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                  <SidebarMenuButton asChild>
+                    <Link 
+                      to="/admin/ferramentas"
+                      className="w-full justify-start"
+                    >
+                      <Wrench className="h-4 w-4" />
+                      {open && <span>Gerenciar Ferramentas</span>}
                     </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
