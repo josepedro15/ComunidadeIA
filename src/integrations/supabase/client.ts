@@ -20,11 +20,19 @@ if (!SUPABASE_PUBLISHABLE_KEY) {
 // Validação básica do formato da URL
 if (!SUPABASE_URL.startsWith('https://') || !SUPABASE_URL.includes('.supabase.co')) {
   console.warn('⚠️ Supabase URL parece estar incorreta:', SUPABASE_URL);
+  console.warn('📝 URL esperada: https://ydbvbpguttphuejmxuwh.supabase.co');
 }
 
 // Validação básica do formato da chave (deve começar com eyJ)
 if (!SUPABASE_PUBLISHABLE_KEY.startsWith('eyJ')) {
-  console.warn('⚠️ Supabase API Key parece estar incorreta. Certifique-se de usar a anon public key.');
+  console.error('❌ Supabase API Key parece estar incorreta!');
+  console.error('📝 Chave recebida (primeiros 50 chars):', SUPABASE_PUBLISHABLE_KEY.substring(0, 50));
+  console.error('📝 Chave esperada deve começar com: eyJ...');
+  console.error('🔧 Verifique:');
+  console.error('   1. Se configurou a variável VITE_SUPABASE_PUBLISHABLE_KEY na Vercel');
+  console.error('   2. Se copiou a chave COMPLETA (é muito longa)');
+  console.error('   3. Se está usando a ANON PUBLIC KEY (não service_role)');
+  console.error('   4. Se fez REDEPLOY após configurar');
 }
 
 // Import the supabase client like this:
