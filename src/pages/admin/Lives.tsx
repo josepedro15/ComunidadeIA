@@ -3,15 +3,45 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { Plus, Search, Edit, Trash2, Calendar, Clock } from "lucide-react";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+
+type LiveFormData = {
+  titulo: string;
+  descricao?: string;
+  data_agendada: string;
+  horario: string;
+  status: "agendada" | "ao_vivo" | "concluida" | "cancelada";
+  plataforma: string;
+  link_meet?: string;
+  link_zoom?: string;
+  link_gravacao?: string;
+};
 
 export default function LivesAdmin() {
   const [searchTerm, setSearchTerm] = useState("");
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const queryClient = useQueryClient();
+  const { register, handleSubmit, reset, formState: { errors } } = useForm<LiveFormData>({
+    defaultValues: {
+      titulo: "",
+      descricao: "",
+      data_agendada: "",
+      horario: "",
+      status: "agendada",
+      plataforma: "meet",
+      link_meet: "",
+      link_zoom: "",
+      link_gravacao: "",
+    },
+  });
 
   // Buscar lives
   const { data: lives, isLoading } = useQuery({
@@ -24,6 +54,36 @@ export default function LivesAdmin() {
 
       if (error) throw error;
       return data;
+    },
+  });
+
+  // Mutation para criar live
+  const createMutation = useMutation({
+    mutationFn: async (data: LiveFormData) => {
+      const { error } = await supabase
+        .from("lives")
+        .insert([{
+          titulo: data.titulo,
+          descricao: data.descricao || null,
+          data_agendada: data.data_agendada,
+          horario: data.horario,
+          status: data.status,
+          plataforma: data.plataforma,
+          link_meet: data.link_meet || null,
+          link_zoom: data.link_zoom || null,
+          link_gravacao: data.link_gravacao || null,
+        }]);
+
+      if (error) throw error;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["admin-lives"] });
+      toast.success("Live criada com sucesso!");
+      reset();
+      setIsDialogOpen(false);
+    },
+    onError: (error: any) => {
+      toast.error(`Erro: ${error.message}`);
     },
   });
 
@@ -45,6 +105,10 @@ export default function LivesAdmin() {
       toast.error(`Erro: ${error.message}`);
     },
   });
+
+  const onSubmit = (data: LiveFormData) => {
+    createMutation.mutate(data);
+  };
 
   const statusColors = {
     agendada: "bg-blue-500",
@@ -74,10 +138,145 @@ export default function LivesAdmin() {
               Gerencie as lives e eventos da plataforma
             </p>
           </div>
-          <Button>
-            <Plus className="h-4 w-4 mr-2" />
-            Nova Live
-          </Button>
+          <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+            <DialogTrigger asChild>
+              <Button>
+                <Plus className="h-4 w-4 mr-2" />
+                Nova Live
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+              <DialogHeader>
+                <DialogTitle>Criar Nova Live</DialogTitle>
+                <DialogDescription>
+                  Preencha os dados para criar uma nova live ou evento.
+                </DialogDescription>
+              </DialogHeader>
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="titulo">Título *</Label>
+                  <Input
+                    id="titulo"
+                    {...register("titulo", { required: "Título é obrigatório" })}
+                    placeholder="Ex: Live sobre IA Generativa"
+                  />
+                  {errors.titulo && (
+                    <p className="text-sm text-destructive">{errors.titulo.message}</p>
+                  )}
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="descricao">Descrição</Label>
+                  <Textarea
+                    id="descricao"
+                    {...register("descricao")}
+                    placeholder="Descrição da live..."
+                    rows={3}
+                  />
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="data_agendada">Data *</Label>
+                    <Input
+                      id="data_agendada"
+                      type="date"
+                      {...register("data_agendada", { required: "Data é obrigatória" })}
+                    />
+                    {errors.data_agendada && (
+                      <p className="text-sm text-destructive">{errors.data_agendada.message}</p>
+                    )}
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="horario">Horário *</Label>
+                    <Input
+                      id="horario"
+                      type="time"
+                      {...register("horario", { required: "Horário é obrigatório" })}
+                    />
+                    {errors.horario && (
+                      <p className="text-sm text-destructive">{errors.horario.message}</p>
+                    )}
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="status">Status *</Label>
+                    <select
+                      id="status"
+                      {...register("status", { required: "Status é obrigatório" })}
+                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                    >
+                      <option value="agendada">Agendada</option>
+                      <option value="ao_vivo">Ao Vivo</option>
+                      <option value="concluida">Concluída</option>
+                      <option value="cancelada">Cancelada</option>
+                    </select>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="plataforma">Plataforma *</Label>
+                    <select
+                      id="plataforma"
+                      {...register("plataforma", { required: "Plataforma é obrigatória" })}
+                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                    >
+                      <option value="meet">Google Meet</option>
+                      <option value="zoom">Zoom</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="link_meet">Link Google Meet</Label>
+                  <Input
+                    id="link_meet"
+                    type="url"
+                    {...register("link_meet")}
+                    placeholder="https://meet.google.com/..."
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="link_zoom">Link Zoom</Label>
+                  <Input
+                    id="link_zoom"
+                    type="url"
+                    {...register("link_zoom")}
+                    placeholder="https://zoom.us/j/..."
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="link_gravacao">Link da Gravação</Label>
+                  <Input
+                    id="link_gravacao"
+                    type="url"
+                    {...register("link_gravacao")}
+                    placeholder="https://youtube.com/..."
+                  />
+                </div>
+
+                <DialogFooter>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() => {
+                      reset();
+                      setIsDialogOpen(false);
+                    }}
+                  >
+                    Cancelar
+                  </Button>
+                  <Button type="submit" disabled={createMutation.isPending}>
+                    {createMutation.isPending ? "Criando..." : "Criar Live"}
+                  </Button>
+                </DialogFooter>
+              </form>
+            </DialogContent>
+          </Dialog>
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4">

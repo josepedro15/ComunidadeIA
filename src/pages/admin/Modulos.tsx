@@ -3,15 +3,37 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { Plus, Search, Edit, Trash2, BookOpen, GraduationCap } from "lucide-react";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+
+type ModuloFormData = {
+  titulo: string;
+  descricao: string;
+  ordem: number;
+  ativo: boolean;
+  plano_minimo: "essencial" | "completo" | "premium";
+};
 
 export default function ModulosAdmin() {
   const [searchTerm, setSearchTerm] = useState("");
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const queryClient = useQueryClient();
+  const { register, handleSubmit, reset, formState: { errors } } = useForm<ModuloFormData>({
+    defaultValues: {
+      titulo: "",
+      descricao: "",
+      ordem: 0,
+      ativo: true,
+      plano_minimo: "essencial",
+    },
+  });
 
   // Buscar módulos
   const { data: modulos, isLoading } = useQuery({
@@ -67,6 +89,32 @@ export default function ModulosAdmin() {
     },
   });
 
+  // Mutation para criar módulo
+  const createMutation = useMutation({
+    mutationFn: async (data: ModuloFormData) => {
+      const { error } = await supabase
+        .from("modulos")
+        .insert([{
+          titulo: data.titulo,
+          descricao: data.descricao,
+          ordem: data.ordem,
+          ativo: data.ativo,
+          plano_minimo: data.plano_minimo,
+        }]);
+
+      if (error) throw error;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["admin-modulos"] });
+      toast.success("Módulo criado com sucesso!");
+      reset();
+      setIsDialogOpen(false);
+    },
+    onError: (error: any) => {
+      toast.error(`Erro: ${error.message}`);
+    },
+  });
+
   // Mutation para toggle ativo
   const toggleAtivoMutation = useMutation({
     mutationFn: async ({ id, ativo }: { id: string; ativo: boolean }) => {
@@ -85,6 +133,10 @@ export default function ModulosAdmin() {
       toast.error(`Erro: ${error.message}`);
     },
   });
+
+  const onSubmit = (data: ModuloFormData) => {
+    createMutation.mutate(data);
+  };
 
   const planColors = {
     essencial: "bg-green-500",
@@ -106,10 +158,104 @@ export default function ModulosAdmin() {
               Gerencie os módulos de aprendizado e suas aulas
             </p>
           </div>
-          <Button>
-            <Plus className="h-4 w-4 mr-2" />
-            Novo Módulo
-          </Button>
+          <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+            <DialogTrigger asChild>
+              <Button>
+                <Plus className="h-4 w-4 mr-2" />
+                Novo Módulo
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+              <DialogHeader>
+                <DialogTitle>Criar Novo Módulo</DialogTitle>
+                <DialogDescription>
+                  Preencha os dados para criar um novo módulo de aprendizado.
+                </DialogDescription>
+              </DialogHeader>
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="titulo">Título *</Label>
+                  <Input
+                    id="titulo"
+                    {...register("titulo", { required: "Título é obrigatório" })}
+                    placeholder="Ex: Introdução à IA"
+                  />
+                  {errors.titulo && (
+                    <p className="text-sm text-destructive">{errors.titulo.message}</p>
+                  )}
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="descricao">Descrição *</Label>
+                  <Textarea
+                    id="descricao"
+                    {...register("descricao", { required: "Descrição é obrigatória" })}
+                    placeholder="Descreva o módulo..."
+                    rows={4}
+                  />
+                  {errors.descricao && (
+                    <p className="text-sm text-destructive">{errors.descricao.message}</p>
+                  )}
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="plano_minimo">Plano Mínimo *</Label>
+                    <select
+                      id="plano_minimo"
+                      {...register("plano_minimo", { required: "Plano mínimo é obrigatório" })}
+                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                    >
+                      <option value="essencial">Essencial</option>
+                      <option value="completo">Completo</option>
+                      <option value="premium">Premium</option>
+                    </select>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="ordem">Ordem</Label>
+                    <Input
+                      id="ordem"
+                      type="number"
+                      {...register("ordem", { valueAsNumber: true, min: 0 })}
+                      placeholder="0"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="ativo">Status</Label>
+                  <select
+                    id="ativo"
+                    {...register("ativo", { 
+                      setValueAs: (v) => v === "true" 
+                    })}
+                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                    defaultValue="true"
+                  >
+                    <option value="true">Ativo</option>
+                    <option value="false">Inativo</option>
+                  </select>
+                </div>
+
+                <DialogFooter>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() => {
+                      reset();
+                      setIsDialogOpen(false);
+                    }}
+                  >
+                    Cancelar
+                  </Button>
+                  <Button type="submit" disabled={createMutation.isPending}>
+                    {createMutation.isPending ? "Criando..." : "Criar Módulo"}
+                  </Button>
+                </DialogFooter>
+              </form>
+            </DialogContent>
+          </Dialog>
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4">
