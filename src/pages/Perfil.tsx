@@ -6,8 +6,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { toast } from "sonner";
+import { useAuth } from "@/hooks/useAuth";
 
 export default function Perfil() {
+  const { profile, isAdmin } = useAuth();
+
   const handleSave = () => {
     toast.success("Perfil atualizado com sucesso!");
   };
@@ -65,8 +68,17 @@ export default function Perfil() {
           <CardContent className="space-y-4">
             <div className="flex items-center justify-between">
               <div>
-                <p className="font-semibold">Plano Essencial</p>
-                <p className="text-sm text-muted-foreground">Acesso a módulos básicos</p>
+                <div className="flex items-center gap-2 mb-1">
+                  <p className="font-semibold">Plano {profile?.plano || "Essencial"}</p>
+                  {isAdmin && (
+                    <Badge className="bg-purple-600">Admin</Badge>
+                  )}
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  {profile?.plano === "essencial" && "Acesso a módulos básicos"}
+                  {profile?.plano === "completo" && "Acesso a módulos completos"}
+                  {profile?.plano === "premium" && "Acesso completo a todos os módulos"}
+                </p>
               </div>
               <Badge className="bg-green-500">Ativo</Badge>
             </div>

@@ -1,4 +1,4 @@
-import { Home, BookOpen, Wrench, FileText, Video, User, LogOut } from "lucide-react";
+import { Home, BookOpen, Wrench, FileText, Video, User, LogOut, Shield, Users } from "lucide-react";
 import { useNavigate, Link } from "react-router-dom";
 import { NavLink } from "@/components/NavLink";
 import { useAuth } from "@/hooks/useAuth";
@@ -44,7 +44,7 @@ const planColors = {
 
 export function AppSidebar() {
   const { open } = useSidebar();
-  const { user, profile, signOut } = useAuth();
+  const { user, profile, signOut, isAdmin } = useAuth();
   const navigate = useNavigate();
 
   const handleSignOut = async () => {
@@ -94,6 +94,40 @@ export function AppSidebar() {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
+
+        {isAdmin && (
+          <SidebarGroup>
+            <SidebarGroupLabel className="text-primary">Administração</SidebarGroupLabel>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                <SidebarMenuItem>
+                  <SidebarMenuButton asChild>
+                    <NavLink 
+                      to="/admin/dashboard" 
+                      className="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+                      activeClassName="bg-sidebar-accent text-sidebar-accent-foreground font-medium"
+                    >
+                      <Shield className="h-4 w-4" />
+                      {open && <span>Dashboard Admin</span>}
+                    </NavLink>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                  <SidebarMenuButton asChild>
+                    <NavLink 
+                      to="/admin/membros" 
+                      className="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+                      activeClassName="bg-sidebar-accent text-sidebar-accent-foreground font-medium"
+                    >
+                      <Users className="h-4 w-4" />
+                      {open && <span>Gerenciar Membros</span>}
+                    </NavLink>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+        )}
       </SidebarContent>
 
       <SidebarFooter className="p-4">
@@ -115,13 +149,20 @@ export function AppSidebar() {
                     <span className="text-sm font-medium truncate w-full">
                       {profile.nome}
                     </span>
-                    <Badge
-                      className={`text-xs ${
-                        planColors[profile.plano as keyof typeof planColors] || "bg-gray-500"
-                      }`}
-                    >
-                      {profile.plano}
-                    </Badge>
+                    <div className="flex gap-1 flex-wrap">
+                      <Badge
+                        className={`text-xs ${
+                          planColors[profile.plano as keyof typeof planColors] || "bg-gray-500"
+                        }`}
+                      >
+                        {profile.plano}
+                      </Badge>
+                      {isAdmin && (
+                        <Badge className="text-xs bg-purple-600">
+                          Admin
+                        </Badge>
+                      )}
+                    </div>
                   </div>
                 )}
               </Button>
@@ -129,7 +170,12 @@ export function AppSidebar() {
             <DropdownMenuContent align="end" className="w-56">
               <DropdownMenuLabel>
                 <div className="flex flex-col space-y-1">
-                  <p className="text-sm font-medium">{profile.nome}</p>
+                  <div className="flex items-center gap-2">
+                    <p className="text-sm font-medium">{profile.nome}</p>
+                    {isAdmin && (
+                      <Badge className="text-xs bg-purple-600">Admin</Badge>
+                    )}
+                  </div>
                   <p className="text-xs text-muted-foreground">{user.email}</p>
                 </div>
               </DropdownMenuLabel>

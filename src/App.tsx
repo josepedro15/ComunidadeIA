@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ProtectedRoute } from "@/components/auth/ProtectedRoute";
+import { AdminProtectedRoute } from "@/components/auth/AdminProtectedRoute";
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
@@ -13,6 +14,8 @@ import Prompts from "./pages/Prompts";
 import Lives from "./pages/Lives";
 import Perfil from "./pages/Perfil";
 import NotFound from "./pages/NotFound";
+import AdminDashboard from "./pages/admin/Dashboard";
+import MembrosAdmin from "./pages/admin/Membros";
 
 const queryClient = new QueryClient();
 
@@ -74,6 +77,24 @@ const App = () => (
               <ProtectedRoute>
                 <Perfil />
               </ProtectedRoute>
+            }
+          />
+          
+          {/* Rotas administrativas (apenas admins) */}
+          <Route
+            path="/admin/dashboard"
+            element={
+              <AdminProtectedRoute>
+                <AdminDashboard />
+              </AdminProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/membros"
+            element={
+              <AdminProtectedRoute>
+                <MembrosAdmin />
+              </AdminProtectedRoute>
             }
           />
           
