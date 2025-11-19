@@ -1,5 +1,5 @@
 import { Home, BookOpen, Wrench, FileText, Video, User, LogOut, Shield, Users } from "lucide-react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 import { NavLink } from "@/components/NavLink";
 import { useAuth } from "@/hooks/useAuth";
 import {
@@ -46,6 +46,7 @@ export function AppSidebar() {
   const { open } = useSidebar();
   const { user, profile, signOut, isAdmin } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleSignOut = async () => {
     const { error } = await signOut();
@@ -77,20 +78,26 @@ export function AppSidebar() {
           <SidebarGroupLabel>Menu Principal</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {menuItems.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <NavLink 
-                      to={item.url} 
-                      className="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-                      activeClassName="bg-sidebar-accent text-sidebar-accent-foreground font-medium"
+              {menuItems.map((item) => {
+                const isActive = location.pathname === item.url;
+                return (
+                  <SidebarMenuItem key={item.title}>
+                    <SidebarMenuButton
+                      asChild
+                      isActive={isActive}
                     >
-                      <item.icon className="h-4 w-4" />
-                      {open && <span>{item.title}</span>}
-                    </NavLink>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
+                      <NavLink 
+                        to={item.url} 
+                        className="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+                        activeClassName="bg-sidebar-accent text-sidebar-accent-foreground font-medium"
+                      >
+                        <item.icon className="h-4 w-4" />
+                        {open && <span>{item.title}</span>}
+                      </NavLink>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                );
+              })}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
@@ -101,27 +108,23 @@ export function AppSidebar() {
             <SidebarGroupContent>
               <SidebarMenu>
                 <SidebarMenuItem>
-                  <SidebarMenuButton asChild>
-                    <NavLink 
-                      to="/admin/dashboard" 
-                      className="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-                      activeClassName="bg-sidebar-accent text-sidebar-accent-foreground font-medium"
-                    >
-                      <Shield className="h-4 w-4" />
-                      {open && <span>Dashboard Admin</span>}
-                    </NavLink>
+                  <SidebarMenuButton
+                    onClick={() => navigate("/admin/dashboard")}
+                    isActive={location.pathname === "/admin/dashboard"}
+                    className="w-full justify-start"
+                  >
+                    <Shield className="h-4 w-4" />
+                    {open && <span>Dashboard Admin</span>}
                   </SidebarMenuButton>
                 </SidebarMenuItem>
                 <SidebarMenuItem>
-                  <SidebarMenuButton asChild>
-                    <NavLink 
-                      to="/admin/membros" 
-                      className="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-                      activeClassName="bg-sidebar-accent text-sidebar-accent-foreground font-medium"
-                    >
-                      <Users className="h-4 w-4" />
-                      {open && <span>Gerenciar Membros</span>}
-                    </NavLink>
+                  <SidebarMenuButton
+                    onClick={() => navigate("/admin/membros")}
+                    isActive={location.pathname === "/admin/membros"}
+                    className="w-full justify-start"
+                  >
+                    <Users className="h-4 w-4" />
+                    {open && <span>Gerenciar Membros</span>}
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               </SidebarMenu>
