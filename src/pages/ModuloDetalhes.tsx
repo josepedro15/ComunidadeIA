@@ -21,6 +21,8 @@ export default function ModuloDetalhes() {
   const playerRef = useRef<ReactPlayer>(null);
   const [playedSeconds, setPlayedSeconds] = useState(0);
   const [duration, setDuration] = useState(0);
+  const [playerError, setPlayerError] = useState<string | null>(null);
+  const [playerReady, setPlayerReady] = useState(false);
 
   // Buscar módulo
   const { data: modulo, isLoading: moduloLoading } = useQuery({
@@ -81,7 +83,10 @@ export default function ModuloDetalhes() {
 
   // Verificar se a URL é suportada pelo react-player
   const isSupportedUrl = (url: string): boolean => {
-    return ReactPlayer.canPlay(url);
+    if (!url) return false;
+    const canPlay = ReactPlayer.canPlay(url);
+    console.log('🔍 Verificando URL:', url, 'Suportada:', canPlay);
+    return canPlay;
   };
 
   // Mutation para atualizar progresso
@@ -128,7 +133,17 @@ export default function ModuloDetalhes() {
     setPlayedSeconds(0);
     setDuration(0);
     lastProgressUpdate.current = 0;
+    setPlayerError(null);
+    setPlayerReady(false);
   }, [selectedAulaId]);
+
+  // Debug: Log da URL do vídeo quando a aula mudar
+  useEffect(() => {
+    if (aulaAtual?.video_url) {
+      console.log('📹 URL do vídeo:', aulaAtual.video_url);
+      console.log('✅ Suportado pelo react-player:', ReactPlayer.canPlay(aulaAtual.video_url));
+    }
+  }, [aulaAtual?.video_url]);
 
   // Calcular progresso geral do módulo
   const progressoGeral = aulas && progresso ? (() => {
@@ -252,87 +267,137 @@ export default function ModuloDetalhes() {
                 <CardContent className="space-y-4">
                   {/* Player de Vídeo */}
                   <div className="aspect-video bg-black rounded-lg overflow-hidden relative">
-                    {isSupportedUrl(aulaAtual.video_url) ? (
-                      <ReactPlayer
-                        ref={playerRef}
-                        url={aulaAtual.video_url}
-                        width="100%"
-                        height="100%"
-                        controls
-                        playing={false}
-                        light={false}
-                        pip={false}
-                        stopOnUnmount={false}
-                        config={{
-                          youtube: {
-                            playerVars: {
-                              rel: 0,
-                              modestbranding: 1,
-                              showinfo: 0,
-                              controls: 1,
-                              fs: 1,
-                              cc_load_policy: 0,
-                              iv_load_policy: 3,
-                              autohide: 1,
+                    {!aulaAtual.video_url ? (
+                      <div className="w-full h-full flex items-center justify-center text-white p-4">
+                        <div className="text-center">
+                          <p className="text-lg font-semibold mb-2">Vídeo não disponível</p>
+                          <p className="text-sm text-gray-300">
+                            Esta aula não possui URL de vídeo configurada.
+                          </p>
+                        </div>
+                      </div>
+                    ) : isSupportedUrl(aulaAtual.video_url) ? (
+                      <>
+                        <ReactPlayer
+                          ref={playerRef}
+                          url={aulaAtual.video_url}
+                          width="100%"
+                          height="100%"
+                          controls
+                          playing={false}
+                          light={false}
+                          pip={false}
+                          stopOnUnmount={false}
+                          onReady={() => {
+                            console.log('✅ Player pronto!');
+                            setPlayerReady(true);
+                            setPlayerError(null);
+                          }}
+                          onError={(error) => {
+                            console.error('❌ Erro no player:', error);
+                            setPlayerError('Erro ao carregar o vídeo. Verifique a URL.');
+                            setPlayerReady(false);
+                          }}
+                          onStart={() => {
+                            console.log('▶️ Vídeo iniciado');
+                          }}
+                          config={{
+                            youtube: {
+                              playerVars: {
+                                rel: 0,
+                                modestbranding: 1,
+                                showinfo: 0,
+                                controls: 1,
+                                fs: 1,
+                                cc_load_policy: 0,
+                                iv_load_policy: 3,
+                                autohide: 1,
+                                enablejsapi: 1,
+                              },
                             },
-                          },
-                          vimeo: {
-                            playerOptions: {
-                              controls: true,
-                              responsive: true,
+                            vimeo: {
+                              playerOptions: {
+                                controls: true,
+                                responsive: true,
+                              },
                             },
-                          },
-                        }}
-                        onProgress={(state) => {
-                          setPlayedSeconds(state.playedSeconds);
-                          if (state.loadedSeconds > 0 && duration === 0) {
-                            setDuration(state.loadedSeconds);
-                          }
-                          
-                          // Atualizar progresso no banco a cada 10% ou a cada 30 segundos
-                          if (user && aulaAtual && duration > 0) {
-                            const progressPercent = Math.round((state.playedSeconds / duration) * 100);
-                            const currentProgress = progresso?.[aulaAtual.id]?.progresso || 0;
+                          }}
+                          onProgress={(state) => {
+                            setPlayedSeconds(state.playedSeconds);
+                            if (state.loadedSeconds > 0 && duration === 0) {
+                              setDuration(state.loadedSeconds);
+                            }
                             
-                            // Atualizar se passou de um marco de 10% ou se passou 30 segundos desde a última atualização
-                            const shouldUpdate = 
-                              (progressPercent >= currentProgress + 10) || 
-                              (state.playedSeconds - lastProgressUpdate.current >= 30);
-                            
-                            if (shouldUpdate && progressPercent > currentProgress) {
-                              lastProgressUpdate.current = state.playedSeconds;
+                            // Atualizar progresso no banco a cada 10% ou a cada 30 segundos
+                            if (user && aulaAtual && duration > 0) {
+                              const progressPercent = Math.round((state.playedSeconds / duration) * 100);
+                              const currentProgress = progresso?.[aulaAtual.id]?.progresso || 0;
+                              
+                              // Atualizar se passou de um marco de 10% ou se passou 30 segundos desde a última atualização
+                              const shouldUpdate = 
+                                (progressPercent >= currentProgress + 10) || 
+                                (state.playedSeconds - lastProgressUpdate.current >= 30);
+                              
+                              if (shouldUpdate && progressPercent > currentProgress) {
+                                lastProgressUpdate.current = state.playedSeconds;
+                                updateProgressMutation.mutate({
+                                  aulaId: aulaAtual.id,
+                                  progresso: progressPercent,
+                                  concluida: progressPercent >= 90,
+                                });
+                              }
+                            }
+                          }}
+                          onDuration={(duration) => {
+                            console.log('⏱️ Duração do vídeo:', duration);
+                            setDuration(duration);
+                          }}
+                          onEnded={() => {
+                            if (user && aulaAtual) {
                               updateProgressMutation.mutate({
                                 aulaId: aulaAtual.id,
-                                progresso: progressPercent,
-                                concluida: progressPercent >= 90,
+                                progresso: 100,
+                                concluida: true,
+                              });
+                              toast.success("Aula concluída!");
+                            }
+                          }}
+                          onPlay={() => {
+                            console.log('▶️ Reproduzindo');
+                            // Marcar que começou a assistir
+                            if (user && aulaAtual && !progresso?.[aulaAtual.id]) {
+                              updateProgressMutation.mutate({
+                                aulaId: aulaAtual.id,
+                                progresso: 5,
+                                concluida: false,
                               });
                             }
-                          }
-                        }}
-                        onDuration={(duration) => {
-                          setDuration(duration);
-                        }}
-                        onEnded={() => {
-                          if (user && aulaAtual) {
-                            updateProgressMutation.mutate({
-                              aulaId: aulaAtual.id,
-                              progresso: 100,
-                              concluida: true,
-                            });
-                            toast.success("Aula concluída!");
-                          }
-                        }}
-                        onPlay={() => {
-                          // Marcar que começou a assistir
-                          if (user && aulaAtual && !progresso?.[aulaAtual.id]) {
-                            updateProgressMutation.mutate({
-                              aulaId: aulaAtual.id,
-                              progresso: 5,
-                              concluida: false,
-                            });
-                          }
-                        }}
-                      />
+                          }}
+                        />
+                        {playerError && (
+                          <div className="absolute inset-0 bg-black/80 flex items-center justify-center p-4">
+                            <div className="text-center text-white">
+                              <p className="text-lg font-semibold mb-2">Erro ao carregar vídeo</p>
+                              <p className="text-sm text-gray-300 mb-4">{playerError}</p>
+                              <a
+                                href={aulaAtual.video_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-blue-400 hover:text-blue-300 underline inline-block"
+                              >
+                                Abrir vídeo em nova aba
+                              </a>
+                            </div>
+                          </div>
+                        )}
+                        {!playerReady && !playerError && (
+                          <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+                            <div className="text-white text-center">
+                              <p className="text-sm">Carregando vídeo...</p>
+                            </div>
+                          </div>
+                        )}
+                      </>
                     ) : (
                       <div className="w-full h-full flex items-center justify-center text-white p-4">
                         <div className="text-center">
@@ -340,16 +405,16 @@ export default function ModuloDetalhes() {
                           <p className="text-sm text-gray-300 mb-4">
                             Por favor, use um link do YouTube ou Vimeo.
                           </p>
-                          {aulaAtual.video_url && (
-                            <a
-                              href={aulaAtual.video_url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-blue-400 hover:text-blue-300 underline inline-block"
-                            >
-                              Abrir link original
-                            </a>
-                          )}
+                          <p className="text-xs text-gray-400 mb-2">URL recebida:</p>
+                          <p className="text-xs text-gray-500 break-all mb-4">{aulaAtual.video_url}</p>
+                          <a
+                            href={aulaAtual.video_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-400 hover:text-blue-300 underline inline-block"
+                          >
+                            Abrir link original
+                          </a>
                         </div>
                       </div>
                     )}
