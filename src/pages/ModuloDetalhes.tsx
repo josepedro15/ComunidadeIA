@@ -124,27 +124,39 @@ export default function ModuloDetalhes() {
   const getGoogleDriveFileId = (url: string): string | null => {
     if (!url) return null;
     
-    // Formato: https://drive.google.com/file/d/FILE_ID/view
+    // Formato: https://drive.google.com/file/d/FILE_ID/view ou /view?usp=sharing
     const match1 = url.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/);
-    if (match1) return match1[1];
+    if (match1) {
+      console.log('✅ File ID extraído (formato /file/d/):', match1[1]);
+      return match1[1];
+    }
     
     // Formato: https://drive.google.com/open?id=FILE_ID
     const match2 = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
-    if (match2) return match2[1];
+    if (match2) {
+      console.log('✅ File ID extraído (formato ?id=):', match2[1]);
+      return match2[1];
+    }
     
     // Formato: https://docs.google.com/uc?export=download&id=FILE_ID
     const match3 = url.match(/docs\.google\.com\/uc\?[^&]*&id=([a-zA-Z0-9_-]+)/);
-    if (match3) return match3[1];
+    if (match3) {
+      console.log('✅ File ID extraído (formato docs.google.com):', match3[1]);
+      return match3[1];
+    }
     
+    console.error('❌ Não foi possível extrair File ID da URL:', url);
     return null;
   };
 
-  // Converter link do Google Drive para link de streaming
+  // Converter link do Google Drive para link de streaming/embed
   const getGoogleDriveStreamUrl = (fileId: string): string => {
-    // Google Drive permite streaming via URL específica
-    // Formato: https://drive.google.com/uc?export=download&id=FILE_ID
-    // Para vídeos, podemos usar o viewer do Google Drive
-    return `https://drive.google.com/file/d/${fileId}/preview`;
+    // Para vídeos no Google Drive funcionarem em iframe:
+    // 1. O arquivo deve estar compartilhado como "Qualquer pessoa com o link pode visualizar"
+    // 2. Usar a URL de embed específica para vídeos
+    const embedUrl = `https://drive.google.com/file/d/${fileId}/preview`;
+    console.log('🔗 URL de embed gerada:', embedUrl);
+    return embedUrl;
   };
 
   // Gerar signed URL para vídeo do Supabase Storage
@@ -246,14 +258,18 @@ export default function ModuloDetalhes() {
   
   useEffect(() => {
     if (aulaAtual?.video_url && isGoogleDriveVideo(aulaAtual.video_url)) {
+      console.log('📹 Processando vídeo do Google Drive:', aulaAtual.video_url);
       const fileId = getGoogleDriveFileId(aulaAtual.video_url);
       if (fileId) {
         const streamUrl = getGoogleDriveStreamUrl(fileId);
         setGoogleDriveUrl(streamUrl);
-        setPlayerReady(true);
+        setPlayerReady(false); // Reset para aguardar carregamento do iframe
+        setPlayerError(null);
       } else {
+        console.error('❌ Erro: File ID não encontrado na URL');
         setPlayerError('Erro ao processar link do Google Drive. Verifique o formato da URL.');
         setGoogleDriveUrl(null);
+        setPlayerReady(false);
       }
     } else {
       setGoogleDriveUrl(null);
@@ -626,20 +642,48 @@ export default function ModuloDetalhes() {
                           );
                         }
 
+                        // Se houver erro, mostrar mensagem com link alternativo
+                        if (playerError && playerError.includes('Google Drive')) {
+                          const fileId = getGoogleDriveFileId(aulaAtual.video_url);
+                          const directUrl = fileId ? `https://drive.google.com/file/d/${fileId}/view` : aulaAtual.video_url;
+                          
+                          return (
+                            <div className="w-full h-full flex items-center justify-center bg-black text-white p-6">
+                              <div className="text-center space-y-4 max-w-md">
+                                <p className="text-lg font-semibold">Vídeo não pode ser exibido em embed</p>
+                                <p className="text-sm text-gray-300">
+                                  O Google Drive pode não permitir embed direto deste vídeo. 
+                                  Clique no botão abaixo para abrir no Google Drive.
+                                </p>
+                                <Button
+                                  onClick={() => window.open(directUrl, '_blank')}
+                                  className="w-full"
+                                >
+                                  <ExternalLink className="mr-2 h-4 w-4" />
+                                  Abrir vídeo no Google Drive
+                                </Button>
+                              </div>
+                            </div>
+                          );
+                        }
+
                         return (
                           <>
                             <iframe
                               src={googleDriveUrl}
-                              className="w-full h-full"
-                              allow="autoplay; fullscreen"
+                              className="w-full h-full border-0"
+                              allow="autoplay; fullscreen; encrypted-media"
                               allowFullScreen
                               title={aulaAtual.titulo}
+                              sandbox="allow-same-origin allow-scripts allow-popups allow-presentation"
                               onLoad={() => {
+                                console.log('✅ Iframe do Google Drive carregado');
                                 setPlayerReady(true);
                                 setPlayerError(null);
                               }}
-                              onError={() => {
-                                setPlayerError('Erro ao carregar o vídeo do Google Drive. Verifique se o arquivo está compartilhado corretamente.');
+                              onError={(e) => {
+                                console.error('❌ Erro ao carregar iframe:', e);
+                                setPlayerError('Erro ao carregar o vídeo do Google Drive. Verifique se o arquivo está compartilhado como "Qualquer pessoa com o link pode visualizar".');
                               }}
                               style={{
                                 userSelect: 'none',
