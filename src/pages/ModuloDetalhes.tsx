@@ -283,6 +283,12 @@ export default function ModuloDetalhes() {
         setYoutubeEmbedUrl(null);
         return;
       }
+
+      // Não processar se for Supabase ou Google Drive
+      if (isSupabaseVideo(aulaAtual.video_url) || isGoogleDriveVideo(aulaAtual.video_url)) {
+        setYoutubeEmbedUrl(null);
+        return;
+      }
       
       const youtubeId = getYouTubeId(aulaAtual.video_url);
       if (!youtubeId) {
@@ -414,12 +420,24 @@ export default function ModuloDetalhes() {
   }, [selectedAulaId]);
 
   // Debug: Log da URL do vídeo quando a aula mudar
+  // Debug: Log da URL do vídeo (apenas para YouTube/Vimeo)
   useEffect(() => {
     if (aulaAtual?.video_url) {
-      console.log('📹 URL do vídeo:', aulaAtual.video_url);
+      // Não fazer log se for Supabase ou Google Drive
+      if (isSupabaseVideo(aulaAtual.video_url)) {
+        console.log('📦 Vídeo do Supabase Storage');
+        return;
+      }
+      if (isGoogleDriveVideo(aulaAtual.video_url)) {
+        console.log('📹 Vídeo do Google Drive');
+        return;
+      }
+      
+      // Apenas para YouTube/Vimeo
       const youtubeId = getYouTubeId(aulaAtual.video_url);
       const vimeoId = getVimeoId(aulaAtual.video_url);
-      console.log('✅ YouTube ID:', youtubeId, 'Vimeo ID:', vimeoId);
+      console.log('URL do vídeo:', aulaAtual.video_url);
+      console.log('YouTube ID:', youtubeId, 'Vimeo ID:', vimeoId);
     }
   }, [aulaAtual?.video_url]);
 
