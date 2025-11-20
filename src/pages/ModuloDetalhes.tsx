@@ -8,7 +8,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { useParams, useNavigate } from "react-router-dom";
 import { BookOpen, Clock, CheckCircle2, Play, Pause, ArrowLeft, Download, ExternalLink } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { toast } from "sonner";
 
 export default function ModuloDetalhes() {
@@ -19,6 +19,10 @@ export default function ModuloDetalhes() {
   const [selectedAulaId, setSelectedAulaId] = useState<string | null>(null);
   const [playerError, setPlayerError] = useState<string | null>(null);
   const [playerReady, setPlayerReady] = useState(false);
+  const [supabaseVideoUrl, setSupabaseVideoUrl] = useState<string | null>(null);
+  const [videoCurrentTime, setVideoCurrentTime] = useState(0);
+  const [videoDuration, setVideoDuration] = useState(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   // Buscar módulo
   const { data: modulo, isLoading: moduloLoading } = useQuery({
@@ -102,6 +106,41 @@ export default function ModuloDetalhes() {
     return match?.[1] || null;
   };
 
+  // Verificar se é vídeo do Supabase Storage
+  const isSupabaseVideo = (url: string): boolean => {
+    if (!url) return false;
+    return url.includes('supabase.co/storage') || url.startsWith('videos/');
+  };
+
+  // Gerar signed URL para vídeo do Supabase Storage
+  const getSupabaseVideoUrl = async (videoPath: string): Promise<string | null> => {
+    try {
+      // Se já é uma URL completa do Supabase, extrair o path
+      let path = videoPath;
+      if (videoPath.includes('supabase.co/storage/v1/object/public/')) {
+        const match = videoPath.match(/\/storage\/v1\/object\/public\/videos\/(.+)/);
+        if (match) path = match[1];
+      } else if (videoPath.startsWith('videos/')) {
+        path = videoPath.replace('videos/', '');
+      }
+
+      // Gerar signed URL válida por 1 hora
+      const { data, error } = await supabase.storage
+        .from('videos')
+        .createSignedUrl(path, 3600);
+
+      if (error) {
+        console.error('Erro ao gerar signed URL:', error);
+        return null;
+      }
+
+      return data.signedUrl;
+    } catch (error) {
+      console.error('Erro ao processar vídeo do Supabase:', error);
+      return null;
+    }
+  };
+
   // Mutation para atualizar progresso
   const updateProgressMutation = useMutation({
     mutationFn: async ({ aulaId, progresso, concluida }: { aulaId: string; progresso: number; concluida: boolean }) => {
@@ -139,10 +178,100 @@ export default function ModuloDetalhes() {
   }, [aulas, selectedAulaId]);
 
 
+  // Carregar signed URL para vídeos do Supabase
+  useEffect(() => {
+    const loadSupabaseVideo = async () => {
+      if (aulaAtual?.video_url && isSupabaseVideo(aulaAtual.video_url)) {
+        setSupabaseVideoUrl(null);
+        const signedUrl = await getSupabaseVideoUrl(aulaAtual.video_url);
+        if (signedUrl) {
+          setSupabaseVideoUrl(signedUrl);
+          setPlayerReady(true);
+        } else {
+          setPlayerError('Erro ao carregar vídeo privado. Verifique suas permissões.');
+        }
+      } else {
+        setSupabaseVideoUrl(null);
+      }
+    };
+
+    loadSupabaseVideo();
+  }, [aulaAtual?.video_url, selectedAulaId]);
+
+  // Bloquear ações de compartilhamento e proteção
+  useEffect(() => {
+    // Bloquear clique direito
+    const handleContextMenu = (e: MouseEvent) => {
+      e.preventDefault();
+      return false;
+    };
+
+    // Bloquear F12, Ctrl+Shift+I, Ctrl+U, etc.
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // F12
+      if (e.key === 'F12') {
+        e.preventDefault();
+        return false;
+      }
+      // Ctrl+Shift+I (DevTools)
+      if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+        e.preventDefault();
+        return false;
+      }
+      // Ctrl+Shift+J (Console)
+      if (e.ctrlKey && e.shiftKey && e.key === 'J') {
+        e.preventDefault();
+        return false;
+      }
+      // Ctrl+U (View Source)
+      if (e.ctrlKey && e.key === 'u') {
+        e.preventDefault();
+        return false;
+      }
+      // Ctrl+S (Save)
+      if (e.ctrlKey && e.key === 's') {
+        e.preventDefault();
+        return false;
+      }
+    };
+
+    // Bloquear seleção de texto no player
+    const handleSelectStart = (e: Event) => {
+      const target = e.target as HTMLElement;
+      if (target.closest('.video-player-container')) {
+        e.preventDefault();
+        return false;
+      }
+    };
+
+    // Bloquear drag and drop
+    const handleDragStart = (e: DragEvent) => {
+      const target = e.target as HTMLElement;
+      if (target.closest('.video-player-container')) {
+        e.preventDefault();
+        return false;
+      }
+    };
+
+    document.addEventListener('contextmenu', handleContextMenu);
+    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('selectstart', handleSelectStart);
+    document.addEventListener('dragstart', handleDragStart);
+
+    return () => {
+      document.removeEventListener('contextmenu', handleContextMenu);
+      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('selectstart', handleSelectStart);
+      document.removeEventListener('dragstart', handleDragStart);
+    };
+  }, []);
+
   // Resetar estado quando trocar de aula
   useEffect(() => {
     setPlayerError(null);
     setPlayerReady(false);
+    setVideoCurrentTime(0);
+    setVideoDuration(0);
   }, [selectedAulaId]);
 
   // Calcular progresso geral do módulo
@@ -276,7 +405,7 @@ export default function ModuloDetalhes() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   {/* Player de Vídeo */}
-                  <div className="aspect-video bg-black rounded-lg overflow-hidden relative group">
+                  <div className="aspect-video bg-black rounded-lg overflow-hidden relative group video-player-container">
                     {!aulaAtual.video_url ? (
                       <div className="w-full h-full flex items-center justify-center text-white p-4">
                         <div className="text-center">
@@ -287,12 +416,101 @@ export default function ModuloDetalhes() {
                         </div>
                       </div>
                     ) : (() => {
+                      // Prioridade: Supabase Storage (vídeos privados)
+                      if (isSupabaseVideo(aulaAtual.video_url)) {
+                        if (!supabaseVideoUrl) {
+                          return (
+                            <div className="w-full h-full flex items-center justify-center text-white p-4">
+                              <div className="text-center">
+                                <p className="text-sm">Carregando vídeo privado...</p>
+                              </div>
+                            </div>
+                          );
+                        }
+
+                        return (
+                          <>
+                            <video
+                              ref={videoRef}
+                              src={supabaseVideoUrl}
+                              className="w-full h-full"
+                              controls
+                              controlsList="nodownload noplaybackrate"
+                              disablePictureInPicture
+                              onLoadedMetadata={() => {
+                                if (videoRef.current) {
+                                  setVideoDuration(videoRef.current.duration);
+                                  setPlayerReady(true);
+                                }
+                              }}
+                              onTimeUpdate={() => {
+                                if (videoRef.current) {
+                                  const time = videoRef.current.currentTime;
+                                  setVideoCurrentTime(time);
+                                  
+                                  // Atualizar progresso
+                                  if (user && aulaAtual && videoDuration > 0) {
+                                    const progressPercent = Math.round((time / videoDuration) * 100);
+                                    const currentProgress = progresso?.[aulaAtual.id]?.progresso || 0;
+                                    
+                                    if (progressPercent > currentProgress + 10) {
+                                      updateProgressMutation.mutate({
+                                        aulaId: aulaAtual.id,
+                                        progresso: progressPercent,
+                                        concluida: progressPercent >= 90,
+                                      });
+                                    }
+                                  }
+                                }
+                              }}
+                              onEnded={() => {
+                                if (user && aulaAtual) {
+                                  updateProgressMutation.mutate({
+                                    aulaId: aulaAtual.id,
+                                    progresso: 100,
+                                    concluida: true,
+                                  });
+                                  toast.success("Aula concluída!");
+                                }
+                              }}
+                              onPlay={() => {
+                                if (user && aulaAtual && !progresso?.[aulaAtual.id]) {
+                                  updateProgressMutation.mutate({
+                                    aulaId: aulaAtual.id,
+                                    progresso: 5,
+                                    concluida: false,
+                                  });
+                                }
+                              }}
+                              onContextMenu={(e) => e.preventDefault()}
+                              style={{ userSelect: 'none' }}
+                            />
+                            
+                            {/* Overlay de proteção */}
+                            <div 
+                              className="absolute inset-0 pointer-events-none z-10"
+                              onContextMenu={(e) => e.preventDefault()}
+                              style={{ userSelect: 'none' }}
+                            >
+                              <div className="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm rounded-lg px-3 py-1.5 text-white text-xs font-medium">
+                                Comunidade IA - Conteúdo Privado
+                              </div>
+                            </div>
+                          </>
+                        );
+                      }
+
                       const youtubeId = getYouTubeId(aulaAtual.video_url);
                       const vimeoId = getVimeoId(aulaAtual.video_url);
                       
                       if (youtubeId) {
                         return (
                           <>
+                            {/* Aviso sobre YouTube */}
+                            <div className="absolute top-0 left-0 right-0 bg-yellow-500/90 text-black text-xs p-2 z-20 text-center font-semibold">
+                              ⚠️ ATENÇÃO: Vídeos do YouTube podem ser compartilhados. Para conteúdo privado, use Supabase Storage.
+                            </div>
+                            
                             <iframe
                               src={`https://www.youtube.com/embed/${youtubeId}?rel=0&modestbranding=1&showinfo=0&controls=1&fs=1&cc_load_policy=0&iv_load_policy=3`}
                               className="w-full h-full"
@@ -310,10 +528,10 @@ export default function ModuloDetalhes() {
                               }}
                             />
                             
-                            {/* Overlay customizado com badge */}
-                            <div className="absolute inset-0 pointer-events-none">
-                              {/* Badge customizado no canto superior direito */}
-                              <div className="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm rounded-lg px-3 py-1.5 text-white text-xs font-medium pointer-events-none z-10">
+                            {/* Overlay de proteção */}
+                            <div className="absolute inset-0 pointer-events-none z-10">
+                              {/* Badge customizado */}
+                              <div className="absolute top-12 right-4 bg-primary/90 backdrop-blur-sm rounded-lg px-3 py-1.5 text-white text-xs font-medium pointer-events-none">
                                 Comunidade IA
                               </div>
                             </div>
@@ -324,7 +542,7 @@ export default function ModuloDetalhes() {
                       if (vimeoId) {
                         return (
                           <iframe
-                            src={`https://player.vimeo.com/video/${vimeoId}`}
+                            src={`https://player.vimeo.com/video/${vimeoId}?badge=0&byline=0&portrait=0&title=0`}
                             className="w-full h-full"
                             allow="autoplay; fullscreen; picture-in-picture"
                             allowFullScreen
@@ -347,18 +565,10 @@ export default function ModuloDetalhes() {
                           <div className="text-center">
                             <p className="text-lg font-semibold mb-2">URL de vídeo não suportada</p>
                             <p className="text-sm text-gray-300 mb-4">
-                              Por favor, use um link do YouTube ou Vimeo.
+                              Para conteúdo privado, use Supabase Storage. Para público, use YouTube ou Vimeo.
                             </p>
                             <p className="text-xs text-gray-400 mb-2">URL recebida:</p>
                             <p className="text-xs text-gray-500 break-all mb-4">{aulaAtual.video_url}</p>
-                            <a
-                              href={aulaAtual.video_url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-blue-400 hover:text-blue-300 underline inline-block"
-                            >
-                              Abrir link original
-                            </a>
                           </div>
                         </div>
                       );
