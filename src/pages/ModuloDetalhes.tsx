@@ -234,20 +234,36 @@ export default function ModuloDetalhes() {
     loadSupabaseVideo();
   }, [aulaAtual?.video_url, selectedAulaId]);
 
-  // Processar vídeos do Google Drive (versão simplificada)
+  // Processar vídeos do Google Drive
   const [googleDriveEmbedUrl, setGoogleDriveEmbedUrl] = useState<string | null>(null);
+  const [googleDriveDirectUrl, setGoogleDriveDirectUrl] = useState<string | null>(null);
+  const [googleDriveLoadTimeout, setGoogleDriveLoadTimeout] = useState(false);
   
   useEffect(() => {
     // Reset ao trocar de aula
     setGoogleDriveEmbedUrl(null);
+    setGoogleDriveDirectUrl(null);
+    setGoogleDriveLoadTimeout(false);
     setPlayerReady(false);
     
     if (aulaAtual?.video_url && isGoogleDriveVideo(aulaAtual.video_url)) {
       const fileId = getGoogleDriveFileId(aulaAtual.video_url);
       if (fileId) {
-        // URL de embed direta e simples
+        // URL de embed
         const embedUrl = `https://drive.google.com/file/d/${fileId}/preview`;
         setGoogleDriveEmbedUrl(embedUrl);
+        
+        // URL direta para fallback
+        const directUrl = `https://drive.google.com/file/d/${fileId}/view?usp=sharing`;
+        setGoogleDriveDirectUrl(directUrl);
+        
+        // Timeout: se não carregar em 8 segundos, mostrar botão
+        const timeoutId = setTimeout(() => {
+          console.warn('⏱️ Google Drive não carregou em 8s - mostrando fallback');
+          setGoogleDriveLoadTimeout(true);
+        }, 8000);
+        
+        return () => clearTimeout(timeoutId);
       } else {
         setPlayerError('Erro ao processar link do Google Drive.');
       }
@@ -638,6 +654,37 @@ export default function ModuloDetalhes() {
                           );
                         }
 
+                        // Se timeout ou erro, mostrar botão para abrir no Drive
+                        if (googleDriveLoadTimeout || playerError) {
+                          return (
+                            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-900 to-black text-white p-8">
+                              <div className="text-center space-y-6 max-w-lg">
+                                <div className="space-y-2">
+                                  <h3 className="text-2xl font-bold">Vídeo do Google Drive</h3>
+                                  <p className="text-sm text-gray-300">
+                                    O Google Drive tem limitações para reprodução em embed.
+                                    Clique no botão abaixo para assistir o vídeo diretamente no Google Drive.
+                                  </p>
+                                </div>
+                                {googleDriveDirectUrl && (
+                                  <Button
+                                    onClick={() => window.open(googleDriveDirectUrl, '_blank')}
+                                    className="w-full"
+                                    size="lg"
+                                    variant="default"
+                                  >
+                                    <ExternalLink className="mr-2 h-5 w-5" />
+                                    Abrir vídeo no Google Drive
+                                  </Button>
+                                )}
+                                <p className="text-xs text-gray-400">
+                                  💡 O vídeo abrirá em uma nova aba. Após assistir, volte aqui para marcar como concluído.
+                                </p>
+                              </div>
+                            </div>
+                          );
+                        }
+
                         return (
                           <div className="relative w-full h-full">
                             <iframe
@@ -647,15 +694,16 @@ export default function ModuloDetalhes() {
                               allow="autoplay; fullscreen"
                               allowFullScreen
                               title={aulaAtual.titulo}
-                              loading="lazy"
                               onLoad={(e) => {
                                 console.log('✅ Iframe Google Drive carregado');
                                 setPlayerReady(true);
                                 setPlayerError(null);
+                                setGoogleDriveLoadTimeout(false);
                               }}
                               onError={(e) => {
                                 console.error('❌ Erro ao carregar iframe Google Drive');
                                 setPlayerError('Erro ao carregar vídeo do Google Drive.');
+                                setGoogleDriveLoadTimeout(true);
                               }}
                             />
                             
@@ -672,6 +720,21 @@ export default function ModuloDetalhes() {
                                 Comunidade IA
                               </div>
                             </div>
+                            
+                            {/* Botão de fallback sempre visível (caso embed não funcione) */}
+                            {googleDriveDirectUrl && (
+                              <div className="absolute bottom-4 right-4 z-20">
+                                <Button
+                                  onClick={() => window.open(googleDriveDirectUrl, '_blank')}
+                                  variant="secondary"
+                                  size="sm"
+                                  className="pointer-events-auto"
+                                >
+                                  <ExternalLink className="mr-2 h-4 w-4" />
+                                  Abrir no Drive
+                                </Button>
+                              </div>
+                            )}
                           </div>
                         );
                       }
