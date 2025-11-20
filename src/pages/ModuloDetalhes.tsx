@@ -8,8 +8,9 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { useParams, useNavigate } from "react-router-dom";
 import { BookOpen, Clock, CheckCircle2, Play, ArrowLeft, Download, ExternalLink } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { toast } from "sonner";
+import ReactPlayer from "react-player";
 
 export default function ModuloDetalhes() {
   const { id } = useParams<{ id: string }>();
@@ -17,6 +18,9 @@ export default function ModuloDetalhes() {
   const { user } = useAuth();
   const queryClient = useQueryClient();
   const [selectedAulaId, setSelectedAulaId] = useState<string | null>(null);
+  const playerRef = useRef<ReactPlayer>(null);
+  const [playedSeconds, setPlayedSeconds] = useState(0);
+  const [duration, setDuration] = useState(0);
 
   // Buscar módulo
   const { data: modulo, isLoading: moduloLoading } = useQuery({
@@ -75,27 +79,9 @@ export default function ModuloDetalhes() {
     enabled: !!user && !!aulas && aulas.length > 0,
   });
 
-  // Função para extrair ID do YouTube
-  const getYouTubeId = (url: string): string | null => {
-    if (url.includes('youtu.be/')) {
-      return url.split('youtu.be/')[1]?.split('?')[0] || null;
-    }
-    if (url.includes('youtube.com/watch?v=')) {
-      return url.match(/youtube\.com\/watch\?v=([^&\n?#]+)/)?.[1] || null;
-    }
-    if (url.includes('youtube.com/embed/')) {
-      return url.match(/youtube\.com\/embed\/([^&\n?#]+)/)?.[1] || null;
-    }
-    if (url.includes('youtube.com/v/')) {
-      return url.match(/youtube\.com\/v\/([^&\n?#]+)/)?.[1] || null;
-    }
-    return null;
-  };
-
-  // Função para extrair ID do Vimeo
-  const getVimeoId = (url: string): string | null => {
-    const match = url.match(/vimeo\.com\/(\d+)/);
-    return match?.[1] || null;
+  // Verificar se a URL é suportada pelo react-player
+  const isSupportedUrl = (url: string): boolean => {
+    return ReactPlayer.canPlay(url);
   };
 
   // Mutation para atualizar progresso
@@ -133,6 +119,16 @@ export default function ModuloDetalhes() {
       setSelectedAulaId(aulas[0].id);
     }
   }, [aulas, selectedAulaId]);
+
+  // Referência para controlar atualização de progresso (evitar muitas chamadas)
+  const lastProgressUpdate = useRef<number>(0);
+
+  // Resetar progresso quando trocar de aula
+  useEffect(() => {
+    setPlayedSeconds(0);
+    setDuration(0);
+    lastProgressUpdate.current = 0;
+  }, [selectedAulaId]);
 
   // Calcular progresso geral do módulo
   const progressoGeral = aulas && progresso ? (() => {
@@ -255,60 +251,122 @@ export default function ModuloDetalhes() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   {/* Player de Vídeo */}
-                  <div className="aspect-video bg-black rounded-lg overflow-hidden">
-                    {(() => {
-                      const videoUrl = aulaAtual.video_url;
-                      
-                      // YouTube
-                      const youtubeId = getYouTubeId(videoUrl);
-                      if (youtubeId) {
-                        return (
-                          <iframe
-                            src={`https://www.youtube.com/embed/${youtubeId}?rel=0&modestbranding=1`}
-                            className="w-full h-full"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                            title={aulaAtual.titulo}
-                          />
-                        );
-                      }
-                      
-                      // Vimeo
-                      const vimeoId = getVimeoId(videoUrl);
-                      if (vimeoId) {
-                        return (
-                          <iframe
-                            src={`https://player.vimeo.com/video/${vimeoId}`}
-                            className="w-full h-full"
-                            allow="autoplay; fullscreen; picture-in-picture"
-                            allowFullScreen
-                            title={aulaAtual.titulo}
-                          />
-                        );
-                      }
-                      
-                      // Se não for YouTube nem Vimeo, mostrar mensagem
-                      return (
-                        <div className="w-full h-full flex items-center justify-center text-white p-4">
-                          <div className="text-center">
-                            <p className="text-lg font-semibold mb-2">URL de vídeo não suportada</p>
-                            <p className="text-sm text-gray-300">
-                              Por favor, use um link do YouTube ou Vimeo.
-                            </p>
-                            {videoUrl && (
-                              <a
-                                href={videoUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-blue-400 hover:text-blue-300 underline mt-2 inline-block"
-                              >
-                                Abrir link original
-                              </a>
-                            )}
-                          </div>
+                  <div className="aspect-video bg-black rounded-lg overflow-hidden relative">
+                    {isSupportedUrl(aulaAtual.video_url) ? (
+                      <ReactPlayer
+                        ref={playerRef}
+                        url={aulaAtual.video_url}
+                        width="100%"
+                        height="100%"
+                        controls
+                        playing={false}
+                        light={false}
+                        pip={true}
+                        stopOnUnmount={false}
+                        config={{
+                          youtube: {
+                            playerVars: {
+                              rel: 0,
+                              modestbranding: 1,
+                              showinfo: 0,
+                              controls: 1,
+                              fs: 1,
+                              cc_load_policy: 0,
+                              iv_load_policy: 3,
+                              autohide: 1,
+                            },
+                          },
+                          vimeo: {
+                            playerOptions: {
+                              controls: true,
+                              responsive: true,
+                            },
+                          },
+                        }}
+                        onProgress={(state) => {
+                          setPlayedSeconds(state.playedSeconds);
+                          if (state.loadedSeconds > 0 && duration === 0) {
+                            setDuration(state.loadedSeconds);
+                          }
+                          
+                          // Atualizar progresso no banco a cada 10% ou a cada 30 segundos
+                          if (user && aulaAtual && duration > 0) {
+                            const progressPercent = Math.round((state.playedSeconds / duration) * 100);
+                            const currentProgress = progresso?.[aulaAtual.id]?.progresso || 0;
+                            
+                            // Atualizar se passou de um marco de 10% ou se passou 30 segundos desde a última atualização
+                            const shouldUpdate = 
+                              (progressPercent >= currentProgress + 10) || 
+                              (state.playedSeconds - lastProgressUpdate.current >= 30);
+                            
+                            if (shouldUpdate && progressPercent > currentProgress) {
+                              lastProgressUpdate.current = state.playedSeconds;
+                              updateProgressMutation.mutate({
+                                aulaId: aulaAtual.id,
+                                progresso: progressPercent,
+                                concluida: progressPercent >= 90,
+                              });
+                            }
+                          }
+                        }}
+                        onDuration={(duration) => {
+                          setDuration(duration);
+                        }}
+                        onEnded={() => {
+                          if (user && aulaAtual) {
+                            updateProgressMutation.mutate({
+                              aulaId: aulaAtual.id,
+                              progresso: 100,
+                              concluida: true,
+                            });
+                            toast.success("Aula concluída!");
+                          }
+                        }}
+                        onPlay={() => {
+                          // Marcar que começou a assistir
+                          if (user && aulaAtual && !progresso?.[aulaAtual.id]) {
+                            updateProgressMutation.mutate({
+                              aulaId: aulaAtual.id,
+                              progresso: 5,
+                              concluida: false,
+                            });
+                          }
+                        }}
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center text-white p-4">
+                        <div className="text-center">
+                          <p className="text-lg font-semibold mb-2">URL de vídeo não suportada</p>
+                          <p className="text-sm text-gray-300 mb-4">
+                            Por favor, use um link do YouTube ou Vimeo.
+                          </p>
+                          {aulaAtual.video_url && (
+                            <a
+                              href={aulaAtual.video_url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-blue-400 hover:text-blue-300 underline inline-block"
+                            >
+                              Abrir link original
+                            </a>
+                          )}
                         </div>
-                      );
-                    })()}
+                      </div>
+                    )}
+                    
+                    {/* Overlay customizado com informações */}
+                    {isSupportedUrl(aulaAtual.video_url) && (
+                      <div className="absolute top-4 right-4 bg-black/70 backdrop-blur-sm rounded-lg px-3 py-2 text-white text-sm">
+                        <div className="flex items-center gap-2">
+                          <Clock className="h-4 w-4" />
+                          {duration > 0 && (
+                            <span>
+                              {Math.floor(playedSeconds / 60)}:{(Math.floor(playedSeconds % 60)).toString().padStart(2, '0')} / {Math.floor(duration / 60)}:{(Math.floor(duration % 60)).toString().padStart(2, '0')}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    )}
                   </div>
 
                   {/* Informações da Aula */}
