@@ -261,7 +261,7 @@ export default function ModuloDetalhes() {
                         controls
                         playing={false}
                         light={false}
-                        pip={true}
+                        pip={false}
                         stopOnUnmount={false}
                         config={{
                           youtube: {
