@@ -358,8 +358,8 @@ export default function ModuloDetalhes() {
 
     // Bloquear seleção de texto no player
     const handleSelectStart = (e: Event) => {
-      const target = e.target as HTMLElement;
-      if (target.closest('.video-player-container')) {
+      const target = e.target;
+      if (target && target instanceof HTMLElement && target.closest('.video-player-container')) {
         e.preventDefault();
         return false;
       }
@@ -367,8 +367,8 @@ export default function ModuloDetalhes() {
 
     // Bloquear drag and drop
     const handleDragStart = (e: DragEvent) => {
-      const target = e.target as HTMLElement;
-      if (target.closest('.video-player-container')) {
+      const target = e.target;
+      if (target && target instanceof HTMLElement && target.closest('.video-player-container')) {
         e.preventDefault();
         return false;
       }
@@ -639,18 +639,22 @@ export default function ModuloDetalhes() {
                         }
 
                         return (
-                          <>
+                          <div className="relative w-full h-full">
                             <iframe
+                              key={googleDriveEmbedUrl}
                               src={googleDriveEmbedUrl}
                               className="w-full h-full border-0"
                               allow="autoplay; fullscreen"
                               allowFullScreen
                               title={aulaAtual.titulo}
-                              onLoad={() => {
+                              loading="lazy"
+                              onLoad={(e) => {
+                                console.log('✅ Iframe Google Drive carregado');
                                 setPlayerReady(true);
                                 setPlayerError(null);
                               }}
-                              onError={() => {
+                              onError={(e) => {
+                                console.error('❌ Erro ao carregar iframe Google Drive');
                                 setPlayerError('Erro ao carregar vídeo do Google Drive.');
                               }}
                             />
@@ -658,14 +662,17 @@ export default function ModuloDetalhes() {
                             {/* Overlay de proteção */}
                             <div 
                               className="absolute inset-0 pointer-events-none z-10"
-                              onContextMenu={(e) => e.preventDefault()}
+                              onContextMenu={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                              }}
                               style={{ userSelect: 'none' }}
                             >
                               <div className="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm rounded-lg px-3 py-1.5 text-white text-xs font-medium">
                                 Comunidade IA
                               </div>
                             </div>
-                          </>
+                          </div>
                         );
                       }
 
