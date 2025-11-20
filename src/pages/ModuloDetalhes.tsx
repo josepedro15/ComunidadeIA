@@ -236,22 +236,49 @@ export default function ModuloDetalhes() {
 
   // Processar vídeos do Google Drive
   const [googleDriveUrl, setGoogleDriveUrl] = useState<string | null>(null);
+  const [googleDriveFileId, setGoogleDriveFileId] = useState<string | null>(null);
   
   useEffect(() => {
+    // Reset ao trocar de aula
+    setGoogleDriveUrl(null);
+    setGoogleDriveFileId(null);
+    setPlayerReady(false);
+    setPlayerError(null);
+    
     if (aulaAtual?.video_url && isGoogleDriveVideo(aulaAtual.video_url)) {
+      console.log('📹 Detectado vídeo do Google Drive:', aulaAtual.video_url);
       const fileId = getGoogleDriveFileId(aulaAtual.video_url);
+      
       if (fileId) {
-        const streamUrl = `https://drive.google.com/file/d/${fileId}/preview`;
-        setGoogleDriveUrl(streamUrl);
-        setPlayerReady(true);
+        console.log('✅ File ID extraído:', fileId);
+        setGoogleDriveFileId(fileId);
+        // URL de embed do Google Drive
+        const embedUrl = `https://drive.google.com/file/d/${fileId}/preview`;
+        console.log('🔗 URL de embed gerada:', embedUrl);
+        setGoogleDriveUrl(embedUrl);
+        // NÃO setar playerReady aqui - só quando iframe realmente carregar
       } else {
+        console.error('❌ Erro: File ID não encontrado na URL');
         setPlayerError('Erro ao processar link do Google Drive. Verifique o formato da URL.');
         setGoogleDriveUrl(null);
       }
     } else {
       setGoogleDriveUrl(null);
+      setGoogleDriveFileId(null);
     }
   }, [aulaAtual?.video_url, selectedAulaId]);
+
+  // Timeout para Google Drive: se não carregar em 10s, logar aviso
+  useEffect(() => {
+    if (!playerReady && googleDriveUrl && googleDriveFileId) {
+      const timeoutId = setTimeout(() => {
+        console.warn('⏱️ Google Drive não carregou em 10s - pode estar bloqueado ou arquivo não compartilhado corretamente');
+        console.warn('📋 File ID:', googleDriveFileId);
+        console.warn('🔗 URL:', googleDriveUrl);
+      }, 10000);
+      return () => clearTimeout(timeoutId);
+    }
+  }, [playerReady, googleDriveUrl, googleDriveFileId]);
 
   // Carregar URL embed do YouTube através de Edge Function (oculta URL direta)
   useEffect(() => {
@@ -394,6 +421,7 @@ export default function ModuloDetalhes() {
     setVideoDuration(0);
     setYoutubeEmbedUrl(null);
     setGoogleDriveUrl(null);
+    setGoogleDriveFileId(null);
   }, [selectedAulaId]);
 
   // Debug: Log da URL do vídeo quando a aula mudar
@@ -627,34 +655,78 @@ export default function ModuloDetalhes() {
 
                       // Prioridade 2: Google Drive
                       if (isGoogleDriveVideo(aulaAtual.video_url)) {
-                        if (!googleDriveUrl) {
+                        if (!googleDriveUrl || !googleDriveFileId) {
                           return (
                             <div className="w-full h-full flex items-center justify-center text-white p-4">
                               <div className="text-center">
-                                <p className="text-sm">Carregando vídeo do Google Drive...</p>
+                                <p className="text-sm">Preparando vídeo do Google Drive...</p>
                               </div>
                             </div>
                           );
                         }
 
+                        // Se não carregou ainda, mostrar loading
+                        if (!playerReady) {
+                          return (
+                            <div className="relative w-full h-full">
+                              <iframe
+                                key={`gdrive-${googleDriveFileId}`}
+                                src={googleDriveUrl}
+                                className="w-full h-full border-0"
+                                allow="autoplay; fullscreen"
+                                allowFullScreen
+                                title={aulaAtual.titulo}
+                                onLoad={(e) => {
+                                  console.log('✅ Iframe Google Drive carregado com sucesso');
+                                  setPlayerReady(true);
+                                  setPlayerError(null);
+                                }}
+                                onError={(e) => {
+                                  console.error('❌ Erro ao carregar iframe Google Drive:', e);
+                                  setPlayerError('Erro ao carregar o vídeo do Google Drive. Verifique se o arquivo está compartilhado corretamente.');
+                                }}
+                                style={{
+                                  userSelect: 'none',
+                                  WebkitUserSelect: 'none',
+                                  position: 'absolute',
+                                  top: 0,
+                                  left: 0,
+                                  width: '100%',
+                                  height: '100%',
+                                }}
+                              />
+                              {/* Loading overlay */}
+                              <div className="absolute inset-0 flex items-center justify-center bg-black/50 z-10">
+                                <div className="text-center text-white">
+                                  <p className="text-sm mb-2">Carregando vídeo do Google Drive...</p>
+                                  <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto"></div>
+                                  <p className="text-xs mt-4 text-gray-400">
+                                    Se não carregar, use o botão "Abrir no Drive" abaixo
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          );
+                        }
+
+                        // Iframe carregado com sucesso
                         return (
-                          <>
+                          <div className="relative w-full h-full">
                             <iframe
+                              key={`gdrive-${googleDriveFileId}`}
                               src={googleDriveUrl}
-                              className="w-full h-full"
+                              className="w-full h-full border-0"
                               allow="autoplay; fullscreen"
                               allowFullScreen
                               title={aulaAtual.titulo}
-                              onLoad={() => {
-                                setPlayerReady(true);
-                                setPlayerError(null);
-                              }}
-                              onError={() => {
-                                setPlayerError('Erro ao carregar o vídeo do Google Drive. Verifique se o arquivo está compartilhado corretamente.');
-                              }}
                               style={{
                                 userSelect: 'none',
                                 WebkitUserSelect: 'none',
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                width: '100%',
+                                height: '100%',
                               }}
                             />
                             
@@ -671,7 +743,22 @@ export default function ModuloDetalhes() {
                                 Comunidade IA - Google Drive
                               </div>
                             </div>
-                          </>
+                            
+                            {/* Botão para abrir no Drive (fallback) */}
+                            {googleDriveFileId && (
+                              <div className="absolute bottom-4 right-4 z-20">
+                                <Button
+                                  onClick={() => window.open(`https://drive.google.com/file/d/${googleDriveFileId}/view?usp=sharing`, '_blank')}
+                                  variant="secondary"
+                                  size="sm"
+                                  className="pointer-events-auto"
+                                >
+                                  <ExternalLink className="mr-2 h-4 w-4" />
+                                  Abrir no Drive
+                                </Button>
+                              </div>
+                            )}
+                          </div>
                         );
                       }
 
