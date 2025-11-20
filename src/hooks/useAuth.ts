@@ -86,6 +86,7 @@ export function useAuth() {
                 profileLoading: false, // Para o loading do perfil
               }));
             }
+            profileLoadInProgress = false;
             return;
           }
           throw error;
