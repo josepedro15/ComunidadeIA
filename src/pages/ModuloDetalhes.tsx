@@ -151,10 +151,10 @@ export default function ModuloDetalhes() {
 
   // Converter link do Google Drive para link de streaming/embed
   const getGoogleDriveStreamUrl = (fileId: string): string => {
-    // Para vídeos no Google Drive funcionarem em iframe:
-    // 1. O arquivo deve estar compartilhado como "Qualquer pessoa com o link pode visualizar"
-    // 2. Usar a URL de embed específica para vídeos
-    const embedUrl = `https://drive.google.com/file/d/${fileId}/preview`;
+    // Google Drive tem limitações para embed de vídeos
+    // Tentamos múltiplas URLs possíveis
+    // A mais confiável é usar o viewer com parâmetros específicos
+    const embedUrl = `https://drive.google.com/file/d/${fileId}/preview?usp=drivesdk`;
     console.log('🔗 URL de embed gerada:', embedUrl);
     return embedUrl;
   };
@@ -255,24 +255,36 @@ export default function ModuloDetalhes() {
 
   // Processar vídeos do Google Drive
   const [googleDriveUrl, setGoogleDriveUrl] = useState<string | null>(null);
+  const [googleDriveEmbedFailed, setGoogleDriveEmbedFailed] = useState(false);
   
   useEffect(() => {
     if (aulaAtual?.video_url && isGoogleDriveVideo(aulaAtual.video_url)) {
       console.log('📹 Processando vídeo do Google Drive:', aulaAtual.video_url);
+      setGoogleDriveEmbedFailed(false); // Reset flag
       const fileId = getGoogleDriveFileId(aulaAtual.video_url);
       if (fileId) {
         const streamUrl = getGoogleDriveStreamUrl(fileId);
         setGoogleDriveUrl(streamUrl);
         setPlayerReady(false); // Reset para aguardar carregamento do iframe
         setPlayerError(null);
+        
+        // Timeout: se não carregar em 5 segundos, mostrar fallback
+        const timeoutId = setTimeout(() => {
+          console.warn('⏱️ Timeout: Iframe do Google Drive não carregou em 5s - mostrando fallback');
+          setGoogleDriveEmbedFailed(true);
+        }, 5000);
+        
+        return () => clearTimeout(timeoutId);
       } else {
         console.error('❌ Erro: File ID não encontrado na URL');
         setPlayerError('Erro ao processar link do Google Drive. Verifique o formato da URL.');
         setGoogleDriveUrl(null);
         setPlayerReady(false);
+        setGoogleDriveEmbedFailed(true);
       }
     } else {
       setGoogleDriveUrl(null);
+      setGoogleDriveEmbedFailed(false);
     }
   }, [aulaAtual?.video_url, selectedAulaId]);
 
@@ -650,34 +662,54 @@ export default function ModuloDetalhes() {
 
                       // Prioridade 2: Google Drive
                       if (isGoogleDriveVideo(aulaAtual.video_url)) {
-                        if (!googleDriveUrl) {
+                        const fileId = getGoogleDriveFileId(aulaAtual.video_url);
+                        const directUrl = fileId ? `https://drive.google.com/file/d/${fileId}/view?usp=sharing` : aulaAtual.video_url;
+                        
+                        // Google Drive não permite embed confiável - sempre mostrar botão direto
+                        // Tentamos embed, mas se não funcionar, o botão já está disponível
+                        if (googleDriveEmbedFailed) {
                           return (
-                            <div className="w-full h-full flex items-center justify-center text-white p-4">
-                              <div className="text-center">
-                                <p className="text-sm">Carregando vídeo do Google Drive...</p>
+                            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-900 to-black text-white p-8">
+                              <div className="text-center space-y-6 max-w-lg">
+                                <div className="space-y-2">
+                                  <h3 className="text-2xl font-bold">Vídeo do Google Drive</h3>
+                                  <p className="text-sm text-gray-300">
+                                    O Google Drive não permite reprodução em embed. 
+                                    Clique no botão abaixo para assistir o vídeo diretamente no Google Drive.
+                                  </p>
+                                </div>
+                                <Button
+                                  onClick={() => window.open(directUrl, '_blank')}
+                                  className="w-full"
+                                  size="lg"
+                                  variant="default"
+                                >
+                                  <ExternalLink className="mr-2 h-5 w-5" />
+                                  Abrir vídeo no Google Drive
+                                </Button>
+                                <p className="text-xs text-gray-400">
+                                  💡 O vídeo abrirá em uma nova aba. Após assistir, volte aqui para marcar como concluído.
+                                </p>
                               </div>
                             </div>
                           );
                         }
 
-                        // Se houver erro, mostrar mensagem com link alternativo
-                        if (playerError && playerError.includes('Google Drive')) {
-                          const fileId = getGoogleDriveFileId(aulaAtual.video_url);
-                          const directUrl = fileId ? `https://drive.google.com/file/d/${fileId}/view` : aulaAtual.video_url;
-                          
+                        if (!googleDriveUrl) {
                           return (
-                            <div className="w-full h-full flex items-center justify-center bg-black text-white p-6">
-                              <div className="text-center space-y-4 max-w-md">
-                                <p className="text-lg font-semibold">Vídeo não pode ser exibido em embed</p>
+                            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-900 to-black text-white p-8">
+                              <div className="text-center space-y-4 max-w-lg">
+                                <p className="text-lg font-semibold">Preparando vídeo do Google Drive...</p>
                                 <p className="text-sm text-gray-300">
-                                  O Google Drive pode não permitir embed direto deste vídeo. 
-                                  Clique no botão abaixo para abrir no Google Drive.
+                                  Se o vídeo não carregar automaticamente, use o botão abaixo.
                                 </p>
                                 <Button
                                   onClick={() => window.open(directUrl, '_blank')}
+                                  variant="default"
+                                  size="lg"
                                   className="w-full"
                                 >
-                                  <ExternalLink className="mr-2 h-4 w-4" />
+                                  <ExternalLink className="mr-2 h-5 w-5" />
                                   Abrir vídeo no Google Drive
                                 </Button>
                               </div>
@@ -698,10 +730,12 @@ export default function ModuloDetalhes() {
                                 console.log('✅ Iframe do Google Drive carregado');
                                 setPlayerReady(true);
                                 setPlayerError(null);
+                                setGoogleDriveEmbedFailed(false);
                               }}
                               onError={(e) => {
                                 console.error('❌ Erro ao carregar iframe:', e);
-                                setPlayerError('Erro ao carregar o vídeo do Google Drive. Verifique se o arquivo está compartilhado como "Qualquer pessoa com o link pode visualizar".');
+                                setGoogleDriveEmbedFailed(true);
+                                setPlayerError('Erro ao carregar o vídeo do Google Drive. Use o botão para abrir diretamente.');
                               }}
                               style={{
                                 userSelect: 'none',
@@ -709,7 +743,7 @@ export default function ModuloDetalhes() {
                               }}
                             />
                             
-                            {/* Overlay de proteção */}
+                            {/* Overlay com botão de fallback */}
                             <div 
                               className="absolute inset-0 pointer-events-none z-10"
                               onContextMenu={(e) => {
@@ -718,8 +752,19 @@ export default function ModuloDetalhes() {
                               }}
                               style={{ userSelect: 'none' }}
                             >
-                              <div className="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm rounded-lg px-3 py-1.5 text-white text-xs font-medium">
-                                Comunidade IA - Google Drive
+                              <div className="absolute top-4 right-4 flex gap-2">
+                                <Button
+                                  onClick={() => window.open(directUrl, '_blank')}
+                                  variant="secondary"
+                                  size="sm"
+                                  className="pointer-events-auto"
+                                >
+                                  <ExternalLink className="mr-2 h-4 w-4" />
+                                  Abrir no Drive
+                                </Button>
+                                <div className="bg-primary/90 backdrop-blur-sm rounded-lg px-3 py-1.5 text-white text-xs font-medium">
+                                  Comunidade IA
+                                </div>
                               </div>
                             </div>
                           </>
