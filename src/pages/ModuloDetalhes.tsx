@@ -7,9 +7,36 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { useParams, useNavigate } from "react-router-dom";
-import { BookOpen, Clock, CheckCircle2, Play, ArrowLeft, Download, ExternalLink } from "lucide-react";
-import { useState, useEffect } from "react";
+import { BookOpen, Clock, CheckCircle2, Play, Pause, ArrowLeft, Download, ExternalLink } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
 import { toast } from "sonner";
+
+// Tipos para YouTube IFrame API
+declare global {
+  interface Window {
+    YT: {
+      Player: new (elementId: string, config: any) => {
+        playVideo: () => void;
+        pauseVideo: () => void;
+        stopVideo: () => void;
+        seekTo: (seconds: number) => void;
+        getCurrentTime: () => number;
+        getDuration: () => number;
+        getPlayerState: () => number;
+        destroy: () => void;
+        addEventListener: (event: string, handler: (event: any) => void) => void;
+      };
+      PlayerState: {
+        ENDED: number;
+        PLAYING: number;
+        PAUSED: number;
+        BUFFERING: number;
+        CUED: number;
+      };
+    };
+    onYouTubeIframeAPIReady: () => void;
+  }
+}
 
 export default function ModuloDetalhes() {
   const { id } = useParams<{ id: string }>();
@@ -19,6 +46,11 @@ export default function ModuloDetalhes() {
   const [selectedAulaId, setSelectedAulaId] = useState<string | null>(null);
   const [playerError, setPlayerError] = useState<string | null>(null);
   const [playerReady, setPlayerReady] = useState(false);
+  const youtubePlayerRef = useRef<any>(null);
+  const playerContainerRef = useRef<HTMLDivElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [videoDuration, setVideoDuration] = useState(0);
 
   // Buscar módulo
   const { data: modulo, isLoading: moduloLoading } = useQuery({
@@ -138,10 +170,153 @@ export default function ModuloDetalhes() {
     }
   }, [aulas, selectedAulaId]);
 
+  // Inicializar YouTube Player quando a API estiver pronta
+  useEffect(() => {
+    const initYouTubePlayer = () => {
+      if (!window.YT || !window.YT.Player) {
+        // Se a API ainda não carregou, aguardar
+        if (window.onYouTubeIframeAPIReady) {
+          const originalCallback = window.onYouTubeIframeAPIReady;
+          window.onYouTubeIframeAPIReady = () => {
+            originalCallback();
+            setTimeout(initYouTubePlayer, 100);
+          };
+        } else {
+          window.onYouTubeIframeAPIReady = () => {
+            setTimeout(initYouTubePlayer, 100);
+          };
+        }
+        return;
+      }
+
+      const youtubeId = aulaAtual?.video_url ? getYouTubeId(aulaAtual.video_url) : null;
+      if (!youtubeId || !playerContainerRef.current) return;
+
+      // Destruir player anterior se existir
+      if (youtubePlayerRef.current) {
+        try {
+          youtubePlayerRef.current.destroy();
+        } catch (e) {
+          console.error('Erro ao destruir player:', e);
+        }
+      }
+
+      // Criar novo player
+      const playerId = `youtube-player-${selectedAulaId || 'default'}`;
+      if (playerContainerRef.current) {
+        playerContainerRef.current.innerHTML = `<div id="${playerId}"></div>`;
+        
+        youtubePlayerRef.current = new window.YT.Player(playerId, {
+          videoId: youtubeId,
+          playerVars: {
+            rel: 0,
+            modestbranding: 1,
+            showinfo: 0,
+            controls: 0, // Esconder controles padrão
+            fs: 1,
+            cc_load_policy: 0,
+            iv_load_policy: 3,
+            autohide: 1,
+            enablejsapi: 1,
+            playsinline: 1,
+          },
+          events: {
+            onReady: (event: any) => {
+              console.log('✅ YouTube Player pronto!');
+              setPlayerReady(true);
+              setPlayerError(null);
+              setVideoDuration(event.target.getDuration());
+            },
+            onStateChange: (event: any) => {
+              if (event.data === window.YT.PlayerState.PLAYING) {
+                setIsPlaying(true);
+                // Marcar que começou a assistir
+                if (user && aulaAtual && !progresso?.[aulaAtual.id]) {
+                  updateProgressMutation.mutate({
+                    aulaId: aulaAtual.id,
+                    progresso: 5,
+                    concluida: false,
+                  });
+                }
+              } else if (event.data === window.YT.PlayerState.PAUSED) {
+                setIsPlaying(false);
+              } else if (event.data === window.YT.PlayerState.ENDED) {
+                setIsPlaying(false);
+                if (user && aulaAtual) {
+                  updateProgressMutation.mutate({
+                    aulaId: aulaAtual.id,
+                    progresso: 100,
+                    concluida: true,
+                  });
+                  toast.success("Aula concluída!");
+                }
+              }
+            },
+            onError: (event: any) => {
+              console.error('❌ Erro no YouTube Player:', event.data);
+              setPlayerError('Erro ao carregar o vídeo do YouTube.');
+              setPlayerReady(false);
+            },
+          },
+        });
+
+        // Atualizar tempo periodicamente
+        const interval = setInterval(() => {
+          if (youtubePlayerRef.current) {
+            try {
+              const state = youtubePlayerRef.current.getPlayerState();
+              if (state === window.YT.PlayerState.PLAYING) {
+                const time = youtubePlayerRef.current.getCurrentTime();
+                setCurrentTime(time);
+                
+                // Atualizar progresso no banco
+                if (user && aulaAtual && videoDuration > 0) {
+                  const progressPercent = Math.round((time / videoDuration) * 100);
+                  const currentProgress = progresso?.[aulaAtual.id]?.progresso || 0;
+                  
+                  if (progressPercent > currentProgress + 10) {
+                    updateProgressMutation.mutate({
+                      aulaId: aulaAtual.id,
+                      progresso: progressPercent,
+                      concluida: progressPercent >= 90,
+                    });
+                  }
+                }
+              }
+            } catch (e) {
+              // Player pode não estar pronto ainda
+            }
+          }
+        }, 1000);
+
+        return () => {
+          clearInterval(interval);
+        };
+      }
+    };
+
+    if (aulaAtual?.video_url && getYouTubeId(aulaAtual.video_url)) {
+      initYouTubePlayer();
+    }
+
+    return () => {
+      if (youtubePlayerRef.current) {
+        try {
+          youtubePlayerRef.current.destroy();
+        } catch (e) {
+          console.error('Erro ao destruir player:', e);
+        }
+      }
+    };
+  }, [selectedAulaId, aulaAtual?.video_url, user, progresso]);
+
   // Resetar estado quando trocar de aula
   useEffect(() => {
     setPlayerError(null);
     setPlayerReady(false);
+    setIsPlaying(false);
+    setCurrentTime(0);
+    setVideoDuration(0);
   }, [selectedAulaId]);
 
   // Calcular progresso geral do módulo
@@ -275,7 +450,7 @@ export default function ModuloDetalhes() {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   {/* Player de Vídeo */}
-                  <div className="aspect-video bg-black rounded-lg overflow-hidden relative">
+                  <div className="aspect-video bg-black rounded-lg overflow-hidden relative group">
                     {!aulaAtual.video_url ? (
                       <div className="w-full h-full flex items-center justify-center text-white p-4">
                         <div className="text-center">
@@ -291,22 +466,65 @@ export default function ModuloDetalhes() {
                       
                       if (youtubeId) {
                         return (
-                          <iframe
-                            src={`https://www.youtube.com/embed/${youtubeId}?rel=0&modestbranding=1&showinfo=0&enablejsapi=1`}
-                            className="w-full h-full"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                            title={aulaAtual.titulo}
-                            onLoad={() => {
-                              console.log('✅ Player YouTube carregado!');
-                              setPlayerReady(true);
-                              setPlayerError(null);
-                            }}
-                            onError={() => {
-                              console.error('❌ Erro ao carregar iframe do YouTube');
-                              setPlayerError('Erro ao carregar o vídeo do YouTube.');
-                            }}
-                          />
+                          <>
+                            <div 
+                              ref={playerContainerRef}
+                              className="w-full h-full"
+                            />
+                            
+                            {/* Overlay customizado com controles */}
+                            <div className="absolute inset-0 pointer-events-none">
+                              {/* Controles customizados na parte inferior */}
+                              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 pointer-events-auto opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div className="flex items-center gap-4">
+                                  <Button
+                                    variant="ghost"
+                                    size="icon"
+                                    className="text-white hover:bg-white/20"
+                                    onClick={() => {
+                                      if (youtubePlayerRef.current) {
+                                        if (isPlaying) {
+                                          youtubePlayerRef.current.pauseVideo();
+                                        } else {
+                                          youtubePlayerRef.current.playVideo();
+                                        }
+                                      }
+                                    }}
+                                  >
+                                    {isPlaying ? (
+                                      <Pause className="h-5 w-5" />
+                                    ) : (
+                                      <Play className="h-5 w-5" />
+                                    )}
+                                  </Button>
+                                  
+                                  <div className="flex-1">
+                                    <Progress 
+                                      value={videoDuration > 0 ? (currentTime / videoDuration) * 100 : 0} 
+                                      className="h-1 cursor-pointer"
+                                      onClick={(e) => {
+                                        if (youtubePlayerRef.current && videoDuration > 0) {
+                                          const rect = e.currentTarget.getBoundingClientRect();
+                                          const percent = (e.clientX - rect.left) / rect.width;
+                                          const newTime = percent * videoDuration;
+                                          youtubePlayerRef.current.seekTo(newTime, true);
+                                        }
+                                      }}
+                                    />
+                                  </div>
+                                  
+                                  <div className="text-white text-sm font-mono">
+                                    {Math.floor(currentTime / 60)}:{(Math.floor(currentTime % 60)).toString().padStart(2, '0')} / {Math.floor(videoDuration / 60)}:{(Math.floor(videoDuration % 60)).toString().padStart(2, '0')}
+                                  </div>
+                                </div>
+                              </div>
+                              
+                              {/* Badge customizado no canto superior direito */}
+                              <div className="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm rounded-lg px-3 py-1.5 text-white text-xs font-medium pointer-events-none">
+                                Comunidade IA
+                              </div>
+                            </div>
+                          </>
                         );
                       }
                       
@@ -366,6 +584,14 @@ export default function ModuloDetalhes() {
                           >
                             Abrir vídeo em nova aba
                           </a>
+                        </div>
+                      </div>
+                    )}
+                    
+                    {!playerReady && !playerError && (
+                      <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+                        <div className="text-white text-center">
+                          <p className="text-sm">Carregando vídeo...</p>
                         </div>
                       </div>
                     )}
