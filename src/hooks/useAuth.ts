@@ -21,12 +21,88 @@ export function useAuth() {
   });
 
   useEffect(() => {
+    let isMounted = true;
+    let profileTimeoutId: NodeJS.Timeout | null = null;
+    
+    // Timeout de segurança para evitar loading infinito
+    const timeoutId = setTimeout(() => {
+      if (isMounted) {
+        console.warn("Timeout na verificação de autenticação");
+        setAuthState((prev) => ({ ...prev, loading: false }));
+      }
+    }, 15000); // 15 segundos máximo
+
+    const loadUserProfile = async (userId: string) => {
+      try {
+        // Timeout de segurança
+        profileTimeoutId = setTimeout(() => {
+          console.warn("Timeout ao carregar perfil do usuário");
+          if (isMounted) {
+            setAuthState((prev) => ({
+              ...prev,
+              profile: null,
+              isAdmin: false,
+              loading: false,
+            }));
+          }
+        }, 10000);
+
+        const { data, error } = await supabase
+          .from("user_profiles")
+          .select("*")
+          .eq("user_id", userId)
+          .maybeSingle(); // Usa maybeSingle ao invés de single para não falhar se não existir
+
+        if (profileTimeoutId) clearTimeout(profileTimeoutId);
+
+        if (!isMounted) return;
+
+        if (error) {
+          // Se for erro de "não encontrado", não é crítico
+          if (error.code === 'PGRST116') {
+            console.log("Perfil não encontrado, usuário sem perfil");
+            setAuthState((prev) => ({
+              ...prev,
+              profile: null,
+              isAdmin: false,
+              loading: false,
+            }));
+            return;
+          }
+          throw error;
+        }
+
+        setAuthState((prev) => ({
+          ...prev,
+          profile: data,
+          isAdmin: data?.is_admin ?? false,
+          loading: false,
+        }));
+      } catch (error: any) {
+        if (profileTimeoutId) clearTimeout(profileTimeoutId);
+        console.error("Erro ao carregar perfil:", error);
+        // Sempre marca como não loading, mesmo em caso de erro
+        if (isMounted) {
+          setAuthState((prev) => ({
+            ...prev,
+            profile: null,
+            isAdmin: false,
+            loading: false,
+          }));
+        }
+      }
+    };
+
     // Verifica sessão inicial
     const checkSessionAndProfile = async () => {
       try {
         const { data: { session }, error } = await supabase.auth.getSession();
+        
+        if (!isMounted) return;
+        
         if (error) {
           console.error("Erro ao verificar sessão:", error);
+          clearTimeout(timeoutId);
           setAuthState((prev) => ({ ...prev, loading: false }));
           return;
         }
@@ -35,15 +111,19 @@ export function useAuth() {
           setAuthState((prev) => ({
             ...prev,
             user: session.user,
-            loading: true, // Mantém loading true até carregar o perfil
+            loading: true,
           }));
           await loadUserProfile(session.user.id);
         } else {
+          clearTimeout(timeoutId);
           setAuthState((prev) => ({ ...prev, loading: false }));
         }
       } catch (error) {
         console.error("Erro ao verificar sessão:", error);
-        setAuthState((prev) => ({ ...prev, loading: false }));
+        if (isMounted) {
+          clearTimeout(timeoutId);
+          setAuthState((prev) => ({ ...prev, loading: false }));
+        }
       }
     };
 
@@ -58,7 +138,7 @@ export function useAuth() {
           setAuthState((prev) => ({
             ...prev,
             user: session.user,
-            loading: true, // Mantém loading true até carregar o perfil
+            loading: true,
           }));
           await loadUserProfile(session.user.id);
         } else {
@@ -76,33 +156,49 @@ export function useAuth() {
     });
 
     return () => {
+      isMounted = false;
+      clearTimeout(timeoutId);
+      if (profileTimeoutId) clearTimeout(profileTimeoutId);
       subscription.unsubscribe();
     };
   }, []);
 
-  const loadUserProfile = async (userId: string) => {
+  // Função auxiliar para carregar perfil (usada por signIn)
+  const loadUserProfileExternal = async (userId: string) => {
     try {
       const { data, error } = await supabase
         .from("user_profiles")
         .select("*")
         .eq("user_id", userId)
-        .single();
+        .maybeSingle();
 
-      if (error) throw error;
+      if (error) {
+        if (error.code === 'PGRST116') {
+          console.log("Perfil não encontrado, usuário sem perfil");
+          setAuthState((prev) => ({
+            ...prev,
+            profile: null,
+            isAdmin: false,
+            loading: false,
+          }));
+          return;
+        }
+        throw error;
+      }
 
       setAuthState((prev) => ({
         ...prev,
         profile: data,
         isAdmin: data?.is_admin ?? false,
-        loading: false, // Só marca como não loading após carregar o perfil
+        loading: false,
       }));
-    } catch (error) {
+    } catch (error: any) {
       console.error("Erro ao carregar perfil:", error);
       setAuthState((prev) => ({
         ...prev,
         profile: null,
         isAdmin: false,
-        loading: false, // Marca como não loading mesmo em caso de erro
+        loading: false,
       }));
     }
   };
@@ -117,7 +213,7 @@ export function useAuth() {
       if (error) throw error;
 
       if (data.user) {
-        await loadUserProfile(data.user.id);
+        await loadUserProfileExternal(data.user.id);
       }
 
       return { data, error: null };
