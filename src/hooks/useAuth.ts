@@ -24,17 +24,17 @@ export function useAuth() {
     let isMounted = true;
     let profileTimeoutId: NodeJS.Timeout | null = null;
     
-    // Timeout de segurança para evitar loading infinito
+    // Timeout de segurança para evitar loading infinito (reduzido para 5s)
     const timeoutId = setTimeout(() => {
       if (isMounted) {
         console.warn("Timeout na verificação de autenticação");
         setAuthState((prev) => ({ ...prev, loading: false }));
       }
-    }, 15000); // 15 segundos máximo
+    }, 5000); // 5 segundos máximo
 
     const loadUserProfile = async (userId: string) => {
       try {
-        // Timeout de segurança
+        // Timeout de segurança (reduzido para 3s)
         profileTimeoutId = setTimeout(() => {
           console.warn("Timeout ao carregar perfil do usuário");
           if (isMounted) {
@@ -42,10 +42,9 @@ export function useAuth() {
               ...prev,
               profile: null,
               isAdmin: false,
-              loading: false,
             }));
           }
-        }, 10000);
+        }, 3000);
 
         const { data, error } = await supabase
           .from("user_profiles")
@@ -61,23 +60,25 @@ export function useAuth() {
           // Se for erro de "não encontrado", não é crítico
           if (error.code === 'PGRST116') {
             console.log("Perfil não encontrado, usuário sem perfil");
-            setAuthState((prev) => ({
-              ...prev,
-              profile: null,
-              isAdmin: false,
-              loading: false,
-            }));
+            if (isMounted) {
+              setAuthState((prev) => ({
+                ...prev,
+                profile: null,
+                isAdmin: false,
+              }));
+            }
             return;
           }
           throw error;
         }
 
-        setAuthState((prev) => ({
-          ...prev,
-          profile: data,
-          isAdmin: data?.is_admin ?? false,
-          loading: false,
-        }));
+        if (isMounted) {
+          setAuthState((prev) => ({
+            ...prev,
+            profile: data,
+            isAdmin: data?.is_admin ?? false,
+          }));
+        }
       } catch (error: any) {
         if (profileTimeoutId) clearTimeout(profileTimeoutId);
         console.error("Erro ao carregar perfil:", error);
@@ -87,7 +88,6 @@ export function useAuth() {
             ...prev,
             profile: null,
             isAdmin: false,
-            loading: false,
           }));
         }
       }
@@ -108,12 +108,17 @@ export function useAuth() {
         }
         
         if (session?.user) {
+          // Para o loading assim que tiver o usuário (não espera o perfil)
           setAuthState((prev) => ({
             ...prev,
             user: session.user,
-            loading: true,
+            loading: false, // Para o loading imediatamente
           }));
-          await loadUserProfile(session.user.id);
+          clearTimeout(timeoutId);
+          // Carrega o perfil em background (não bloqueia a renderização)
+          loadUserProfile(session.user.id).catch(err => {
+            console.error("Erro ao carregar perfil em background:", err);
+          });
         } else {
           clearTimeout(timeoutId);
           setAuthState((prev) => ({ ...prev, loading: false }));
@@ -138,9 +143,12 @@ export function useAuth() {
           setAuthState((prev) => ({
             ...prev,
             user: session.user,
-            loading: true,
+            loading: false, // Não bloqueia para mudanças de auth
           }));
-          await loadUserProfile(session.user.id);
+          // Carrega perfil em background
+          loadUserProfile(session.user.id).catch(err => {
+            console.error("Erro ao carregar perfil:", err);
+          });
         } else {
           setAuthState({
             user: null,
