@@ -245,7 +245,13 @@ async function insertPrompts(prompts: PromptData[]): Promise<{ success: number; 
       
       success++;
     } catch (error: any) {
-      console.error(`  ❌ Erro ao inserir "${prompt.titulo}":`, error.message);
+      const errorMsg = error.message || error.toString();
+      const errorDetails = error.cause ? ` (${error.cause})` : '';
+      console.error(`  ❌ Erro ao inserir "${prompt.titulo}": ${errorMsg}${errorDetails}`);
+      if (errors === 0) {
+        // Mostra detalhes do primeiro erro para debug
+        console.error('   Detalhes do erro:', error);
+      }
       errors++;
     }
   }
