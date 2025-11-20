@@ -117,46 +117,27 @@ export default function ModuloDetalhes() {
   // Verificar se é vídeo do Google Drive
   const isGoogleDriveVideo = (url: string): boolean => {
     if (!url) return false;
-    return url.includes('drive.google.com') || url.includes('docs.google.com');
+    return url.includes('drive.google.com');
   };
 
-  // Extrair File ID do Google Drive
+  // Extrair File ID do Google Drive (versão simplificada)
   const getGoogleDriveFileId = (url: string): string | null => {
     if (!url) return null;
     
-    // Formato: https://drive.google.com/file/d/FILE_ID/view ou /view?usp=sharing
-    const match1 = url.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/);
-    if (match1) {
-      console.log('✅ File ID extraído (formato /file/d/):', match1[1]);
-      return match1[1];
+    // Extrai o File ID de qualquer formato do Google Drive
+    const patterns = [
+      /drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/,  // /file/d/FILE_ID
+      /[?&]id=([a-zA-Z0-9_-]+)/,                        // ?id=FILE_ID
+    ];
+    
+    for (const pattern of patterns) {
+      const match = url.match(pattern);
+      if (match && match[1]) {
+        return match[1];
+      }
     }
     
-    // Formato: https://drive.google.com/open?id=FILE_ID
-    const match2 = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
-    if (match2) {
-      console.log('✅ File ID extraído (formato ?id=):', match2[1]);
-      return match2[1];
-    }
-    
-    // Formato: https://docs.google.com/uc?export=download&id=FILE_ID
-    const match3 = url.match(/docs\.google\.com\/uc\?[^&]*&id=([a-zA-Z0-9_-]+)/);
-    if (match3) {
-      console.log('✅ File ID extraído (formato docs.google.com):', match3[1]);
-      return match3[1];
-    }
-    
-    console.error('❌ Não foi possível extrair File ID da URL:', url);
     return null;
-  };
-
-  // Converter link do Google Drive para link de streaming/embed
-  const getGoogleDriveStreamUrl = (fileId: string): string => {
-    // Google Drive tem limitações para embed de vídeos
-    // Tentamos múltiplas URLs possíveis
-    // A mais confiável é usar o viewer com parâmetros específicos
-    const embedUrl = `https://drive.google.com/file/d/${fileId}/preview?usp=drivesdk`;
-    console.log('🔗 URL de embed gerada:', embedUrl);
-    return embedUrl;
   };
 
   // Gerar signed URL para vídeo do Supabase Storage
@@ -253,29 +234,23 @@ export default function ModuloDetalhes() {
     loadSupabaseVideo();
   }, [aulaAtual?.video_url, selectedAulaId]);
 
-  // Processar vídeos do Google Drive
-  const [googleDriveUrl, setGoogleDriveUrl] = useState<string | null>(null);
-  const [googleDriveEmbedFailed, setGoogleDriveEmbedFailed] = useState(false);
+  // Processar vídeos do Google Drive (versão simplificada)
+  const [googleDriveEmbedUrl, setGoogleDriveEmbedUrl] = useState<string | null>(null);
   
   useEffect(() => {
+    // Reset ao trocar de aula
+    setGoogleDriveEmbedUrl(null);
+    setPlayerReady(false);
+    
     if (aulaAtual?.video_url && isGoogleDriveVideo(aulaAtual.video_url)) {
-      console.log('📹 Processando vídeo do Google Drive:', aulaAtual.video_url);
-      setGoogleDriveEmbedFailed(false); // Reset flag
       const fileId = getGoogleDriveFileId(aulaAtual.video_url);
       if (fileId) {
-        const streamUrl = getGoogleDriveStreamUrl(fileId);
-        setGoogleDriveUrl(streamUrl);
-        setPlayerReady(false); // Reset para aguardar carregamento do iframe
-        setPlayerError(null);
+        // URL de embed direta e simples
+        const embedUrl = `https://drive.google.com/file/d/${fileId}/preview`;
+        setGoogleDriveEmbedUrl(embedUrl);
       } else {
-        console.error('❌ Erro: File ID não encontrado na URL');
-        setPlayerError('Erro ao processar link do Google Drive. Verifique o formato da URL.');
-        setGoogleDriveUrl(null);
-        setPlayerReady(false);
+        setPlayerError('Erro ao processar link do Google Drive.');
       }
-    } else {
-      setGoogleDriveUrl(null);
-      setGoogleDriveEmbedFailed(false);
     }
   }, [aulaAtual?.video_url, selectedAulaId]);
 
@@ -419,7 +394,7 @@ export default function ModuloDetalhes() {
     setVideoCurrentTime(0);
     setVideoDuration(0);
     setYoutubeEmbedUrl(null);
-    setGoogleDriveUrl(null);
+    setGoogleDriveEmbedUrl(null);
   }, [selectedAulaId]);
 
   // Debug: Log da URL do vídeo quando a aula mudar
@@ -653,10 +628,7 @@ export default function ModuloDetalhes() {
 
                       // Prioridade 2: Google Drive
                       if (isGoogleDriveVideo(aulaAtual.video_url)) {
-                        const fileId = getGoogleDriveFileId(aulaAtual.video_url);
-                        const directUrl = fileId ? `https://drive.google.com/file/d/${fileId}/view?usp=sharing` : aulaAtual.video_url;
-                        
-                        if (!googleDriveUrl) {
+                        if (!googleDriveEmbedUrl) {
                           return (
                             <div className="w-full h-full flex items-center justify-center text-white p-4">
                               <div className="text-center">
@@ -669,38 +641,28 @@ export default function ModuloDetalhes() {
                         return (
                           <>
                             <iframe
-                              src={googleDriveUrl}
+                              src={googleDriveEmbedUrl}
                               className="w-full h-full border-0"
-                              allow="autoplay; fullscreen; encrypted-media"
+                              allow="autoplay; fullscreen"
                               allowFullScreen
                               title={aulaAtual.titulo}
-                              sandbox="allow-same-origin allow-scripts allow-popups allow-presentation"
                               onLoad={() => {
-                                console.log('✅ Iframe do Google Drive carregado');
                                 setPlayerReady(true);
                                 setPlayerError(null);
                               }}
-                              onError={(e) => {
-                                console.error('❌ Erro ao carregar iframe:', e);
-                                setPlayerError('Erro ao carregar o vídeo do Google Drive. Verifique se o arquivo está compartilhado corretamente.');
-                              }}
-                              style={{
-                                userSelect: 'none',
-                                WebkitUserSelect: 'none',
+                              onError={() => {
+                                setPlayerError('Erro ao carregar vídeo do Google Drive.');
                               }}
                             />
                             
                             {/* Overlay de proteção */}
                             <div 
                               className="absolute inset-0 pointer-events-none z-10"
-                              onContextMenu={(e) => {
-                                e.preventDefault();
-                                toast.error("Compartilhamento não permitido. Este é conteúdo privado da comunidade.");
-                              }}
+                              onContextMenu={(e) => e.preventDefault()}
                               style={{ userSelect: 'none' }}
                             >
                               <div className="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm rounded-lg px-3 py-1.5 text-white text-xs font-medium">
-                                Comunidade IA - Google Drive
+                                Comunidade IA
                               </div>
                             </div>
                           </>
