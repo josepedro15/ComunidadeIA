@@ -21,14 +21,32 @@ dotenv.config();
 
 // Configuração do Supabase
 const supabaseUrl = process.env.VITE_SUPABASE_URL;
-const supabaseKey = process.env.VITE_SUPABASE_ANON_KEY;
+// Tenta usar service_role_key primeiro (para bypass RLS), senão usa anon_key
+const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.VITE_SUPABASE_ANON_KEY;
 
 if (!supabaseUrl || !supabaseKey) {
-  console.error('❌ Erro: Variáveis de ambiente VITE_SUPABASE_URL e VITE_SUPABASE_ANON_KEY não configuradas');
+  console.error('❌ Erro: Variáveis de ambiente não configuradas');
+  console.error('   Necessário: VITE_SUPABASE_URL');
+  console.error('   E um dos: SUPABASE_SERVICE_ROLE_KEY (recomendado) ou VITE_SUPABASE_ANON_KEY');
+  console.error('\n   Para migração, recomenda-se usar SUPABASE_SERVICE_ROLE_KEY');
+  console.error('   (encontre em: Supabase Dashboard > Settings > API > service_role key)');
   process.exit(1);
 }
 
-const supabase = createClient(supabaseUrl, supabaseKey);
+// Se usar service_role_key, bypassa RLS automaticamente
+const usingServiceRole = !!process.env.SUPABASE_SERVICE_ROLE_KEY;
+if (usingServiceRole) {
+  console.log('✅ Usando service_role_key (bypass RLS)');
+} else {
+  console.log('⚠️  Usando anon_key - certifique-se de estar autenticado como admin');
+}
+
+const supabase = createClient(supabaseUrl, supabaseKey, {
+  auth: {
+    autoRefreshToken: false,
+    persistSession: false
+  }
+});
 
 // Mapeamento de categorias
 const CATEGORIA_MAP: Record<string, string> = {

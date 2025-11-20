@@ -35,10 +35,22 @@ Isso instalará:
 
 Certifique-se de que o arquivo `.env` existe e contém:
 
+**Opção 1: Service Role Key (Recomendado) ⭐**
+```env
+VITE_SUPABASE_URL=https://seu-projeto.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=sua-service-role-key
+```
+
+**Opção 2: Anon Key (Alternativa)**
 ```env
 VITE_SUPABASE_URL=https://seu-projeto.supabase.co
 VITE_SUPABASE_ANON_KEY=sua-chave-anon
 ```
+
+**⚠️ Importante:**
+- **Service Role Key** bypassa RLS e é **recomendado** para migrações
+- Encontre em: Supabase Dashboard > Settings > API > **service_role key**
+- **Nunca** commite a Service Role Key no git!
 
 ### 3. Executar Migração
 

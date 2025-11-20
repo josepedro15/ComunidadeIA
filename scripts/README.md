@@ -49,10 +49,22 @@ npm install
 
 Crie um arquivo `.env` na raiz do projeto:
 
+**Opção 1: Usando Service Role Key (Recomendado)**
+```env
+VITE_SUPABASE_URL=https://seu-projeto.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=sua-service-role-key
+```
+
+**Opção 2: Usando Anon Key (Requer autenticação como admin)**
 ```env
 VITE_SUPABASE_URL=https://seu-projeto.supabase.co
 VITE_SUPABASE_ANON_KEY=sua-chave-anon
 ```
+
+**⚠️ Importante:**
+- **Service Role Key** bypassa RLS e é recomendado para migrações
+- Encontre a Service Role Key em: Supabase Dashboard > Settings > API > service_role key
+- **Nunca** commite a Service Role Key no git!
 
 ### 3. Verificar Estrutura do Banco
 
