@@ -28,6 +28,19 @@ import { supabase } from "@/integrations/supabase/client";
 
 const ITEMS_PER_PAGE = 12;
 
+// Cores para cada categoria
+const CATEGORIA_COLORS: Record<string, string> = {
+  Vendas: "bg-blue-500 hover:bg-blue-600 text-white border-blue-500",
+  Marketing: "bg-purple-500 hover:bg-purple-600 text-white border-purple-500",
+  Atendimento: "bg-green-500 hover:bg-green-600 text-white border-green-500",
+  Operacional: "bg-orange-500 hover:bg-orange-600 text-white border-orange-500",
+  Estratégico: "bg-indigo-500 hover:bg-indigo-600 text-white border-indigo-500",
+};
+
+const getCategoriaColor = (categoria: string): string => {
+  return CATEGORIA_COLORS[categoria] || "bg-gray-500 hover:bg-gray-600 text-white border-gray-500";
+};
+
 export default function Prompts() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>("Todas");
@@ -249,7 +262,9 @@ export default function Prompts() {
                       <CardTitle className="text-base line-clamp-2">{prompt.titulo}</CardTitle>
                     </div>
                     <div className="flex gap-2 flex-wrap mt-2">
-                      <Badge variant="default" className="text-xs">
+                      <Badge 
+                        className={`text-xs border-0 ${getCategoriaColor(prompt.categoria)}`}
+                      >
                         {prompt.categoria}
                       </Badge>
                       {prompt.subcategoria && (
@@ -281,7 +296,11 @@ export default function Prompts() {
                             <DialogTitle>{selectedPrompt?.titulo || prompt.titulo}</DialogTitle>
                             <DialogDescription>
                               <div className="flex gap-2 mt-2">
-                                <Badge>{selectedPrompt?.categoria || prompt.categoria}</Badge>
+                                <Badge 
+                                  className={`border-0 ${getCategoriaColor(selectedPrompt?.categoria || prompt.categoria)}`}
+                                >
+                                  {selectedPrompt?.categoria || prompt.categoria}
+                                </Badge>
                                 {(selectedPrompt?.subcategoria || prompt.subcategoria) && (
                                   <Badge variant="outline">
                                     {selectedPrompt?.subcategoria || prompt.subcategoria}
