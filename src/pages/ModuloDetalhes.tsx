@@ -172,13 +172,21 @@ export default function ModuloDetalhes() {
     },
   });
 
+  // Calcular progresso geral do módulo
+  const progressoGeral = aulas && progresso ? (() => {
+    const totalAulas = aulas.length;
+    const aulasConcluidas = aulas.filter(a => progresso[a.id]?.concluida).length;
+    return totalAulas > 0 ? Math.round((aulasConcluidas / totalAulas) * 100) : 0;
+  })() : 0;
+
+  const aulaAtual = aulas?.find(a => a.id === selectedAulaId);
+
   // Selecionar primeira aula se nenhuma estiver selecionada
   useEffect(() => {
     if (aulas && aulas.length > 0 && !selectedAulaId) {
       setSelectedAulaId(aulas[0].id);
     }
   }, [aulas, selectedAulaId]);
-
 
   // Carregar signed URL para vídeos do Supabase
   useEffect(() => {
@@ -326,15 +334,6 @@ export default function ModuloDetalhes() {
       document.removeEventListener('dragstart', handleDragStart);
     };
   }, []);
-
-  // Calcular progresso geral do módulo
-  const progressoGeral = aulas && progresso ? (() => {
-    const totalAulas = aulas.length;
-    const aulasConcluidas = aulas.filter(a => progresso[a.id]?.concluida).length;
-    return totalAulas > 0 ? Math.round((aulasConcluidas / totalAulas) * 100) : 0;
-  })() : 0;
-
-  const aulaAtual = aulas?.find(a => a.id === selectedAulaId);
 
   // Resetar estado quando trocar de aula
   useEffect(() => {
