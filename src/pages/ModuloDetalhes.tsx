@@ -114,6 +114,39 @@ export default function ModuloDetalhes() {
     return url.includes('supabase.co/storage') || url.startsWith('videos/');
   };
 
+  // Verificar se é vídeo do Google Drive
+  const isGoogleDriveVideo = (url: string): boolean => {
+    if (!url) return false;
+    return url.includes('drive.google.com') || url.includes('docs.google.com');
+  };
+
+  // Extrair File ID do Google Drive
+  const getGoogleDriveFileId = (url: string): string | null => {
+    if (!url) return null;
+    
+    // Formato: https://drive.google.com/file/d/FILE_ID/view
+    const match1 = url.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/);
+    if (match1) return match1[1];
+    
+    // Formato: https://drive.google.com/open?id=FILE_ID
+    const match2 = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+    if (match2) return match2[1];
+    
+    // Formato: https://docs.google.com/uc?export=download&id=FILE_ID
+    const match3 = url.match(/docs\.google\.com\/uc\?[^&]*&id=([a-zA-Z0-9_-]+)/);
+    if (match3) return match3[1];
+    
+    return null;
+  };
+
+  // Converter link do Google Drive para link de streaming
+  const getGoogleDriveStreamUrl = (fileId: string): string => {
+    // Google Drive permite streaming via URL específica
+    // Formato: https://drive.google.com/uc?export=download&id=FILE_ID
+    // Para vídeos, podemos usar o viewer do Google Drive
+    return `https://drive.google.com/file/d/${fileId}/preview`;
+  };
+
   // Gerar signed URL para vídeo do Supabase Storage
   const getSupabaseVideoUrl = async (videoPath: string): Promise<string | null> => {
     try {
@@ -206,6 +239,25 @@ export default function ModuloDetalhes() {
     };
 
     loadSupabaseVideo();
+  }, [aulaAtual?.video_url, selectedAulaId]);
+
+  // Processar vídeos do Google Drive
+  const [googleDriveUrl, setGoogleDriveUrl] = useState<string | null>(null);
+  
+  useEffect(() => {
+    if (aulaAtual?.video_url && isGoogleDriveVideo(aulaAtual.video_url)) {
+      const fileId = getGoogleDriveFileId(aulaAtual.video_url);
+      if (fileId) {
+        const streamUrl = getGoogleDriveStreamUrl(fileId);
+        setGoogleDriveUrl(streamUrl);
+        setPlayerReady(true);
+      } else {
+        setPlayerError('Erro ao processar link do Google Drive. Verifique o formato da URL.');
+        setGoogleDriveUrl(null);
+      }
+    } else {
+      setGoogleDriveUrl(null);
+    }
   }, [aulaAtual?.video_url, selectedAulaId]);
 
   // Carregar URL embed do YouTube através de Edge Function (oculta URL direta)
@@ -342,6 +394,7 @@ export default function ModuloDetalhes() {
     setVideoCurrentTime(0);
     setVideoDuration(0);
     setYoutubeEmbedUrl(null);
+    setGoogleDriveUrl(null);
   }, [selectedAulaId]);
 
   // Debug: Log da URL do vídeo quando a aula mudar
@@ -477,7 +530,7 @@ export default function ModuloDetalhes() {
                         </div>
                       </div>
                     ) : (() => {
-                      // Prioridade: Supabase Storage (vídeos privados)
+                      // Prioridade 1: Supabase Storage (vídeos privados)
                       if (isSupabaseVideo(aulaAtual.video_url)) {
                         if (!supabaseVideoUrl) {
                           return (
@@ -561,6 +614,57 @@ export default function ModuloDetalhes() {
                         );
                       }
 
+                      // Prioridade 2: Google Drive
+                      if (isGoogleDriveVideo(aulaAtual.video_url)) {
+                        if (!googleDriveUrl) {
+                          return (
+                            <div className="w-full h-full flex items-center justify-center text-white p-4">
+                              <div className="text-center">
+                                <p className="text-sm">Carregando vídeo do Google Drive...</p>
+                              </div>
+                            </div>
+                          );
+                        }
+
+                        return (
+                          <>
+                            <iframe
+                              src={googleDriveUrl}
+                              className="w-full h-full"
+                              allow="autoplay; fullscreen"
+                              allowFullScreen
+                              title={aulaAtual.titulo}
+                              onLoad={() => {
+                                setPlayerReady(true);
+                                setPlayerError(null);
+                              }}
+                              onError={() => {
+                                setPlayerError('Erro ao carregar o vídeo do Google Drive. Verifique se o arquivo está compartilhado corretamente.');
+                              }}
+                              style={{
+                                userSelect: 'none',
+                                WebkitUserSelect: 'none',
+                              }}
+                            />
+                            
+                            {/* Overlay de proteção */}
+                            <div 
+                              className="absolute inset-0 pointer-events-none z-10"
+                              onContextMenu={(e) => {
+                                e.preventDefault();
+                                toast.error("Compartilhamento não permitido. Este é conteúdo privado da comunidade.");
+                              }}
+                              style={{ userSelect: 'none' }}
+                            >
+                              <div className="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm rounded-lg px-3 py-1.5 text-white text-xs font-medium">
+                                Comunidade IA - Google Drive
+                              </div>
+                            </div>
+                          </>
+                        );
+                      }
+
+                      // Prioridade 3: YouTube e Vimeo
                       const youtubeId = getYouTubeId(aulaAtual.video_url);
                       const vimeoId = getVimeoId(aulaAtual.video_url);
                       
