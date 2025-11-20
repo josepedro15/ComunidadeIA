@@ -8,7 +8,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { useParams, useNavigate } from "react-router-dom";
 import { BookOpen, Clock, CheckCircle2, Play, ArrowLeft, Download, ExternalLink } from "lucide-react";
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import { toast } from "sonner";
 
 export default function ModuloDetalhes() {
@@ -75,87 +75,28 @@ export default function ModuloDetalhes() {
     enabled: !!user && !!aulas && aulas.length > 0,
   });
 
-  // Função para gerar signed URL se necessário
-  const getVideoUrl = async (videoUrl: string): Promise<string> => {
-    // Se já é uma URL externa (YouTube, Vimeo, etc), retornar direto
-    if (videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be') || videoUrl.includes('vimeo.com')) {
-      return videoUrl;
+  // Função para extrair ID do YouTube
+  const getYouTubeId = (url: string): string | null => {
+    if (url.includes('youtu.be/')) {
+      return url.split('youtu.be/')[1]?.split('?')[0] || null;
     }
-
-    // Se é uma signed URL do Supabase (já tem token), retornar direto
-    if (videoUrl.includes('supabase.co/storage/v1/object/sign/')) {
-      return videoUrl;
+    if (url.includes('youtube.com/watch?v=')) {
+      return url.match(/youtube\.com\/watch\?v=([^&\n?#]+)/)?.[1] || null;
     }
-
-    // Se é uma URL pública do Supabase Storage (bucket público)
-    if (videoUrl.includes('supabase.co/storage/v1/object/public/')) {
-      // Extrair bucket e path
-      const match = videoUrl.match(/\/storage\/v1\/object\/public\/([^\/]+)\/(.+)/);
-      if (match) {
-        const bucketName = match[1];
-        const objectPath = match[2].split('?')[0]; // Remove query params
-        
-        // Tentar gerar signed URL (mais seguro para buckets privados)
-        const { data: signedData, error } = await supabase.storage
-          .from(bucketName)
-          .createSignedUrl(objectPath, 3600); // 1 hora
-
-        if (!error && signedData) {
-          return signedData.signedUrl;
-        }
-        
-        // Se não conseguir signed URL, retornar URL pública original
-        return videoUrl;
-      }
+    if (url.includes('youtube.com/embed/')) {
+      return url.match(/youtube\.com\/embed\/([^&\n?#]+)/)?.[1] || null;
     }
-
-    // Se é um path relativo (formato: videos/path/to/file.mp4)
-    if (videoUrl.startsWith('videos/') || videoUrl.startsWith('materiais/')) {
-      const [bucketName, ...pathParts] = videoUrl.split('/');
-      const objectPath = pathParts.join('/');
-      
-      const { data: signedData, error } = await supabase.storage
-        .from(bucketName)
-        .createSignedUrl(objectPath, 3600); // 1 hora
-
-      if (!error && signedData) {
-        return signedData.signedUrl;
-      }
-      
-      // Se não conseguir, tentar URL pública
-      const { data: { publicUrl } } = supabase.storage
-        .from(bucketName)
-        .getPublicUrl(objectPath);
-      
-      return publicUrl || videoUrl;
+    if (url.includes('youtube.com/v/')) {
+      return url.match(/youtube\.com\/v\/([^&\n?#]+)/)?.[1] || null;
     }
-
-    // Retornar URL original se não conseguir processar
-    return videoUrl;
+    return null;
   };
 
-  // Buscar signed URLs para vídeos do Supabase
-  const { data: videoUrls } = useQuery({
-    queryKey: ["video-signed-urls", aulas?.map(a => a.id), aulas?.map(a => a.video_url)],
-    queryFn: async () => {
-      if (!aulas) return {};
-      
-      const urlMap: Record<string, string> = {};
-      await Promise.all(
-        aulas.map(async (aula) => {
-          try {
-            urlMap[aula.id] = await getVideoUrl(aula.video_url);
-          } catch (error) {
-            console.error(`Erro ao gerar signed URL para aula ${aula.id}:`, error);
-            urlMap[aula.id] = aula.video_url; // Fallback para URL original
-          }
-        })
-      );
-      return urlMap;
-    },
-    enabled: !!aulas && aulas.length > 0,
-    staleTime: 50 * 60 * 1000, // Cache por 50 minutos (signed URLs duram 1 hora)
-  });
+  // Função para extrair ID do Vimeo
+  const getVimeoId = (url: string): string | null => {
+    const match = url.match(/vimeo\.com\/(\d+)/);
+    return match?.[1] || null;
+  };
 
   // Mutation para atualizar progresso
   const updateProgressMutation = useMutation({
@@ -316,98 +257,56 @@ export default function ModuloDetalhes() {
                   {/* Player de Vídeo */}
                   <div className="aspect-video bg-black rounded-lg overflow-hidden">
                     {(() => {
-                      // Usar signed URL se disponível, senão usar URL original
-                      const videoUrl = videoUrls?.[aulaAtual.id] || aulaAtual.video_url;
+                      const videoUrl = aulaAtual.video_url;
                       
                       // YouTube
-                      if (videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be')) {
-                        const youtubeId = videoUrl.includes('youtu.be') 
-                          ? videoUrl.split('youtu.be/')[1]?.split('?')[0]
-                          : videoUrl.match(/(?:youtube\.com\/watch\?v=|youtube\.com\/embed\/)([^&\n?#]+)/)?.[1];
-                        
-                        if (youtubeId) {
-                          return (
-                            <iframe
-                              src={`https://www.youtube.com/embed/${youtubeId}`}
-                              className="w-full h-full"
-                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                              allowFullScreen
-                              title={aulaAtual.titulo}
-                            />
-                          );
-                        }
+                      const youtubeId = getYouTubeId(videoUrl);
+                      if (youtubeId) {
+                        return (
+                          <iframe
+                            src={`https://www.youtube.com/embed/${youtubeId}?rel=0&modestbranding=1`}
+                            className="w-full h-full"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                            title={aulaAtual.titulo}
+                          />
+                        );
                       }
                       
                       // Vimeo
-                      if (videoUrl.includes('vimeo.com')) {
-                        const vimeoId = videoUrl.match(/vimeo\.com\/(\d+)/)?.[1];
-                        if (vimeoId) {
-                          return (
-                            <iframe
-                              src={`https://player.vimeo.com/video/${vimeoId}`}
-                              className="w-full h-full"
-                              allow="autoplay; fullscreen; picture-in-picture"
-                              allowFullScreen
-                              title={aulaAtual.titulo}
-                            />
-                          );
-                        }
+                      const vimeoId = getVimeoId(videoUrl);
+                      if (vimeoId) {
+                        return (
+                          <iframe
+                            src={`https://player.vimeo.com/video/${vimeoId}`}
+                            className="w-full h-full"
+                            allow="autoplay; fullscreen; picture-in-picture"
+                            allowFullScreen
+                            title={aulaAtual.titulo}
+                          />
+                        );
                       }
                       
-                      // Player próprio para vídeos do Supabase Storage ou URLs diretas
+                      // Se não for YouTube nem Vimeo, mostrar mensagem
                       return (
-                        <video
-                          src={videoUrl}
-                          controls
-                          controlsList="nodownload"
-                          className="w-full h-full"
-                          preload="metadata"
-                          onPlay={() => {
-                            // Atualizar progresso quando o vídeo começar
-                            if (user && !progresso?.[aulaAtual.id]?.concluida) {
-                              updateProgressMutation.mutate({
-                                aulaId: aulaAtual.id,
-                                progresso: 10, // 10% quando começa a assistir
-                                concluida: false,
-                              });
-                            }
-                          }}
-                          onTimeUpdate={(e) => {
-                            // Atualizar progresso conforme o vídeo avança
-                            if (user && !progresso?.[aulaAtual.id]?.concluida) {
-                              const video = e.currentTarget;
-                              const progress = Math.round((video.currentTime / video.duration) * 100);
-                              
-                              // Atualizar a cada 10% de progresso
-                              if (progress > 0 && progress % 10 === 0 && progress > (progresso?.[aulaAtual.id]?.progresso || 0)) {
-                                updateProgressMutation.mutate({
-                                  aulaId: aulaAtual.id,
-                                  progresso: progress,
-                                  concluida: progress >= 90, // Considera concluída se assistiu 90%+
-                                });
-                              }
-                            }
-                          }}
-                          onEnded={() => {
-                            // Marcar como concluída quando o vídeo terminar
-                            if (user) {
-                              updateProgressMutation.mutate({
-                                aulaId: aulaAtual.id,
-                                progresso: 100,
-                                concluida: true,
-                              });
-                              toast.success("Aula concluída!");
-                            }
-                          }}
-                        >
-                          <source src={videoUrl} type="video/mp4" />
-                          <source src={videoUrl} type="video/webm" />
-                          <source src={videoUrl} type="video/ogg" />
-                          Seu navegador não suporta a tag de vídeo.
-                          <a href={videoUrl} download className="text-white underline">
-                            Clique aqui para baixar o vídeo
-                          </a>
-                        </video>
+                        <div className="w-full h-full flex items-center justify-center text-white p-4">
+                          <div className="text-center">
+                            <p className="text-lg font-semibold mb-2">URL de vídeo não suportada</p>
+                            <p className="text-sm text-gray-300">
+                              Por favor, use um link do YouTube ou Vimeo.
+                            </p>
+                            {videoUrl && (
+                              <a
+                                href={videoUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-blue-400 hover:text-blue-300 underline mt-2 inline-block"
+                              >
+                                Abrir link original
+                              </a>
+                            )}
+                          </div>
+                        </div>
                       );
                     })()}
                   </div>
