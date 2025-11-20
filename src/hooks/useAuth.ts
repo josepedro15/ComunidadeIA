@@ -25,8 +25,9 @@ export function useAuth() {
   useEffect(() => {
     let isMounted = true;
     let profileTimeoutId: NodeJS.Timeout | null = null;
+    let profileLoadInProgress = false; // Flag para evitar múltiplas chamadas simultâneas
     
-    // Timeout de segurança para evitar loading infinito (reduzido para 5s)
+    // Timeout de segurança para evitar loading infinito
     const timeoutId = setTimeout(() => {
       if (isMounted) {
         console.warn("Timeout na verificação de autenticação");
@@ -35,15 +36,23 @@ export function useAuth() {
     }, 5000); // 5 segundos máximo
 
     const loadUserProfile = async (userId: string) => {
+      // Evita múltiplas chamadas simultâneas
+      if (profileLoadInProgress) {
+        console.log("Perfil já está sendo carregado, ignorando chamada duplicada");
+        return;
+      }
+      
+      profileLoadInProgress = true;
+      
       // Marca que está carregando o perfil
       if (isMounted) {
         setAuthState((prev) => ({ ...prev, profileLoading: true }));
       }
 
       try {
-        // Timeout de segurança (reduzido para 3s)
+        // Timeout de segurança (aumentado para 8s para dar mais tempo)
         profileTimeoutId = setTimeout(() => {
-          console.warn("Timeout ao carregar perfil do usuário");
+          console.warn("Timeout ao carregar perfil do usuário após 8s");
           if (isMounted) {
             setAuthState((prev) => ({
               ...prev,
@@ -52,11 +61,12 @@ export function useAuth() {
               profileLoading: false, // Para o loading do perfil
             }));
           }
-        }, 3000);
+        }, 8000);
 
+        // Query otimizada: busca apenas campos necessários
         const { data, error } = await supabase
           .from("user_profiles")
-          .select("*")
+          .select("id, user_id, nome, foto_url, plano, is_admin, data_adesao")
           .eq("user_id", userId)
           .maybeSingle(); // Usa maybeSingle ao invés de single para não falhar se não existir
 
@@ -101,6 +111,8 @@ export function useAuth() {
             profileLoading: false, // Para o loading do perfil
           }));
         }
+      } finally {
+        profileLoadInProgress = false;
       }
     };
 
@@ -188,9 +200,10 @@ export function useAuth() {
     setAuthState((prev) => ({ ...prev, profileLoading: true }));
     
     try {
+      // Query otimizada: busca apenas campos necessários
       const { data, error } = await supabase
         .from("user_profiles")
-        .select("*")
+        .select("id, user_id, nome, foto_url, plano, is_admin, data_adesao")
         .eq("user_id", userId)
         .maybeSingle();
 
