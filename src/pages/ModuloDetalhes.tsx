@@ -200,27 +200,59 @@ export default function ModuloDetalhes() {
     loadSupabaseVideo();
   }, [aulaAtual?.video_url, selectedAulaId]);
 
-  // Carregar URL embed do YouTube através de função (oculta URL direta)
+  // Carregar URL embed do YouTube através de Edge Function (oculta URL direta)
   useEffect(() => {
     const loadYouTubeEmbed = async () => {
-      if (!aulaAtual?.video_url) return;
+      if (!aulaAtual?.video_url) {
+        setYoutubeEmbedUrl(null);
+        return;
+      }
       
       const youtubeId = getYouTubeId(aulaAtual.video_url);
-      if (!youtubeId) return;
+      if (!youtubeId) {
+        setYoutubeEmbedUrl(null);
+        return;
+      }
 
       try {
-        // Usar Edge Function para obter URL embed (valida acesso e oculta URL)
+        // Verificar autenticação
         const { data: { session } } = await supabase.auth.getSession();
-        if (!session) return;
+        if (!session) {
+          setPlayerError('Você precisa estar autenticado para assistir vídeos.');
+          return;
+        }
 
-        // Por enquanto, gerar URL embed diretamente (Edge Function seria ideal)
-        // Mas podemos adicionar validação de acesso aqui
-        const embedUrl = `https://www.youtube.com/embed/${youtubeId}?rel=0&modestbranding=1&showinfo=0&controls=1&fs=1&cc_load_policy=0&iv_load_policy=3&enablejsapi=1&origin=${window.location.origin}`;
-        setYoutubeEmbedUrl(embedUrl);
-        setPlayerReady(true);
+        // Chamar Edge Function para obter URL embed (valida acesso e oculta URL)
+        const { data, error } = await supabase.functions.invoke('youtube-proxy', {
+          body: { youtubeId },
+        });
+
+        if (error) {
+          console.error('Erro ao chamar Edge Function:', error);
+          // Fallback: gerar URL embed diretamente (menos seguro, mas funciona)
+          const embedUrl = `https://www.youtube.com/embed/${youtubeId}?rel=0&modestbranding=1&showinfo=0&controls=1&fs=1&cc_load_policy=0&iv_load_policy=3&enablejsapi=1&origin=${window.location.origin}`;
+          setYoutubeEmbedUrl(embedUrl);
+          setPlayerReady(true);
+        } else if (data?.embedUrl) {
+          setYoutubeEmbedUrl(data.embedUrl);
+          setPlayerReady(true);
+        } else {
+          // Fallback se Edge Function não retornar URL
+          const embedUrl = `https://www.youtube.com/embed/${youtubeId}?rel=0&modestbranding=1&showinfo=0&controls=1&fs=1&cc_load_policy=0&iv_load_policy=3&enablejsapi=1&origin=${window.location.origin}`;
+          setYoutubeEmbedUrl(embedUrl);
+          setPlayerReady(true);
+        }
       } catch (error) {
         console.error('Erro ao carregar YouTube embed:', error);
-        setPlayerError('Erro ao carregar vídeo do YouTube.');
+        // Fallback em caso de erro
+        const youtubeId = getYouTubeId(aulaAtual.video_url);
+        if (youtubeId) {
+          const embedUrl = `https://www.youtube.com/embed/${youtubeId}?rel=0&modestbranding=1&showinfo=0&controls=1&fs=1&cc_load_policy=0&iv_load_policy=3&enablejsapi=1&origin=${window.location.origin}`;
+          setYoutubeEmbedUrl(embedUrl);
+          setPlayerReady(true);
+        } else {
+          setPlayerError('Erro ao carregar vídeo do YouTube.');
+        }
       }
     };
 
@@ -295,14 +327,6 @@ export default function ModuloDetalhes() {
     };
   }, []);
 
-  // Resetar estado quando trocar de aula
-  useEffect(() => {
-    setPlayerError(null);
-    setPlayerReady(false);
-    setVideoCurrentTime(0);
-    setVideoDuration(0);
-  }, [selectedAulaId]);
-
   // Calcular progresso geral do módulo
   const progressoGeral = aulas && progresso ? (() => {
     const totalAulas = aulas.length;
@@ -311,6 +335,15 @@ export default function ModuloDetalhes() {
   })() : 0;
 
   const aulaAtual = aulas?.find(a => a.id === selectedAulaId);
+
+  // Resetar estado quando trocar de aula
+  useEffect(() => {
+    setPlayerError(null);
+    setPlayerReady(false);
+    setVideoCurrentTime(0);
+    setVideoDuration(0);
+    setYoutubeEmbedUrl(null);
+  }, [selectedAulaId]);
 
   // Debug: Log da URL do vídeo quando a aula mudar
   useEffect(() => {
