@@ -53,12 +53,12 @@ export default function ModuloDetalhes() {
   });
 
   // Buscar progresso do usuário
+  const aulasIds = aulas?.map(a => a.id) || [];
   const { data: progresso } = useQuery({
-    queryKey: ["progresso-aulas", user?.id, id],
+    queryKey: ["progresso-aulas", user?.id, id, aulasIds.join(',')],
     queryFn: async () => {
-      if (!user || !aulas) return {};
+      if (!user || !aulas || aulas.length === 0) return {};
       
-      const aulasIds = aulas.map(a => a.id);
       const { data, error } = await supabase
         .from("progresso_aulas")
         .select("aula_id, progresso, concluida")
@@ -74,7 +74,7 @@ export default function ModuloDetalhes() {
       
       return progressoMap;
     },
-    enabled: !!user && !!aulas && aulas.length > 0,
+    enabled: !!user && !!aulas && aulas.length > 0 && aulasIds.length > 0,
   });
 
   // Função para extrair ID do YouTube
@@ -144,6 +144,15 @@ export default function ModuloDetalhes() {
     setPlayerReady(false);
   }, [selectedAulaId]);
 
+  // Calcular progresso geral do módulo
+  const progressoGeral = aulas && progresso ? (() => {
+    const totalAulas = aulas.length;
+    const aulasConcluidas = aulas.filter(a => progresso[a.id]?.concluida).length;
+    return totalAulas > 0 ? Math.round((aulasConcluidas / totalAulas) * 100) : 0;
+  })() : 0;
+
+  const aulaAtual = aulas?.find(a => a.id === selectedAulaId);
+
   // Debug: Log da URL do vídeo quando a aula mudar
   useEffect(() => {
     if (aulaAtual?.video_url) {
@@ -153,15 +162,6 @@ export default function ModuloDetalhes() {
       console.log('✅ YouTube ID:', youtubeId, 'Vimeo ID:', vimeoId);
     }
   }, [aulaAtual?.video_url]);
-
-  // Calcular progresso geral do módulo
-  const progressoGeral = aulas && progresso ? (() => {
-    const totalAulas = aulas.length;
-    const aulasConcluidas = aulas.filter(a => progresso[a.id]?.concluida).length;
-    return totalAulas > 0 ? Math.round((aulasConcluidas / totalAulas) * 100) : 0;
-  })() : 0;
-
-  const aulaAtual = aulas?.find(a => a.id === selectedAulaId);
 
   if (moduloLoading || aulasLoading) {
     return (
