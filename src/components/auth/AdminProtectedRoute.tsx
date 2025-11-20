@@ -8,8 +8,9 @@ interface AdminProtectedRouteProps {
 }
 
 export function AdminProtectedRoute({ children }: AdminProtectedRouteProps) {
-  const { user, isAdmin, loading } = useAuth();
+  const { user, isAdmin, loading, profileLoading } = useAuth();
 
+  // Aguarda autenticação básica
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -20,6 +21,15 @@ export function AdminProtectedRoute({ children }: AdminProtectedRouteProps) {
 
   if (!user) {
     return <Navigate to="/auth" replace />;
+  }
+
+  // Aguarda carregamento do perfil para verificar isAdmin
+  if (profileLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    );
   }
 
   if (!isAdmin) {

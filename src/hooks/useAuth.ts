@@ -9,6 +9,7 @@ interface AuthState {
   user: User | null;
   profile: UserProfile | null;
   loading: boolean;
+  profileLoading: boolean; // Estado separado para carregamento do perfil
   isAdmin: boolean;
 }
 
@@ -17,6 +18,7 @@ export function useAuth() {
     user: null,
     profile: null,
     loading: true,
+    profileLoading: true, // Inicia como true para aguardar perfil
     isAdmin: false,
   });
 
@@ -33,6 +35,11 @@ export function useAuth() {
     }, 5000); // 5 segundos máximo
 
     const loadUserProfile = async (userId: string) => {
+      // Marca que está carregando o perfil
+      if (isMounted) {
+        setAuthState((prev) => ({ ...prev, profileLoading: true }));
+      }
+
       try {
         // Timeout de segurança (reduzido para 3s)
         profileTimeoutId = setTimeout(() => {
@@ -42,6 +49,7 @@ export function useAuth() {
               ...prev,
               profile: null,
               isAdmin: false,
+              profileLoading: false, // Para o loading do perfil
             }));
           }
         }, 3000);
@@ -65,6 +73,7 @@ export function useAuth() {
                 ...prev,
                 profile: null,
                 isAdmin: false,
+                profileLoading: false, // Para o loading do perfil
               }));
             }
             return;
@@ -77,6 +86,7 @@ export function useAuth() {
             ...prev,
             profile: data,
             isAdmin: data?.is_admin ?? false,
+            profileLoading: false, // Perfil carregado
           }));
         }
       } catch (error: any) {
@@ -88,6 +98,7 @@ export function useAuth() {
             ...prev,
             profile: null,
             isAdmin: false,
+            profileLoading: false, // Para o loading do perfil
           }));
         }
       }
@@ -154,6 +165,7 @@ export function useAuth() {
             user: null,
             profile: null,
             loading: false,
+            profileLoading: false,
             isAdmin: false,
           });
         }
@@ -173,6 +185,8 @@ export function useAuth() {
 
   // Função auxiliar para carregar perfil (usada por signIn)
   const loadUserProfileExternal = async (userId: string) => {
+    setAuthState((prev) => ({ ...prev, profileLoading: true }));
+    
     try {
       const { data, error } = await supabase
         .from("user_profiles")
@@ -187,7 +201,7 @@ export function useAuth() {
             ...prev,
             profile: null,
             isAdmin: false,
-            loading: false,
+            profileLoading: false,
           }));
           return;
         }
@@ -198,7 +212,7 @@ export function useAuth() {
         ...prev,
         profile: data,
         isAdmin: data?.is_admin ?? false,
-        loading: false,
+        profileLoading: false,
       }));
     } catch (error: any) {
       console.error("Erro ao carregar perfil:", error);
@@ -206,7 +220,7 @@ export function useAuth() {
         ...prev,
         profile: null,
         isAdmin: false,
-        loading: false,
+        profileLoading: false,
       }));
     }
   };
